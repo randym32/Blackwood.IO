@@ -7,5 +7,7 @@
 /**/bin/
 /**/obj/
 /**/api/
+/.vs
+/docs
 _site
 log.txt
