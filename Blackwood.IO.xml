@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Blackwood.IO</name>
+    </assembly>
+    <members>
+        <member name="T:Blackwood.Application">
+            <summary>
+            This is a utility class to provide some information about the application
+            </summary>
+        </member>
+        <member name="F:Blackwood.Application._appName">
+            <summary>
+            The application name cached for reuse
+            </summary>
+        </member>
+        <member name="P:Blackwood.Application.Name">
+            <summary>
+            The application name.
+            </summary>
+            <value>
+            The application name.
+            </value>
+        </member>
+        <member name="T:Blackwood.FS">
+            <summary>
+            This class provides a variety of utilities such as the path's to key points,
+            and process path strings.
+            </summary>
+        </member>
+        <member name="P:Blackwood.FS.CommonApplicationDataPath">
+            <summary>
+            The path to the application's data
+            </summary>
+        </member>
+        <member name="P:Blackwood.FS.AppDataPath">
+            <summary>
+            The path to the application's data
+            </summary>
+        </member>
+        <member name="F:Blackwood.FS.ExeFilePath">
+            <summary>
+            The path to the executable
+            </summary>
+        </member>
+        <member name="F:Blackwood.FS._assemblyDirectory">
+            <summary>
+            A place to cache the path
+            </summary>
+        </member>
+        <member name="P:Blackwood.FS.AssemblyDirectory">
+            <summary>
+            The path of the executing assembly.
+            </summary>
+            <value>
+            The path of the executing assembly.
+            </value>
+            <remarks>
+            https://stackoverflow.com/questions/52797/how-do-i-get-the-path-of-the-assembly-the-code-is-in
+            </remarks>
+        </member>
+        <member name="M:Blackwood.FS.RemoveBasePath(System.String,System.String)">
+            <summary>
+            This is use to remove the base path from the full path
+            </summary>
+            <param name="basePath">The path that should be removed</param>
+            <param name="path">The path that is to be modified</param>
+            <returns>The resulting path</returns>
+        </member>
+        <member name="M:Blackwood.FS.BuildNameToRelativePathXref(System.String,System.String)">
+            <summary>
+            A helper to go from partial file name to the full file name
+            </summary>
+            <param name="path">The path to search within</param>
+            <param name="extension">The file name extension (defualt is json)</param>
+            <returns>The dictionary mapping the partial file names to the path</returns>
+        </member>
+        <member name="T:Blackwood.Util">
+            <summary>
+            This is a helper class to provide a variety of utility procedures.
+            </summary>
+        </member>
+        <member name="M:Blackwood.Util.RunCommand(System.String,System.String,System.String)">
+            <summary>
+            This is used to run the program or verb-based commands in the background.
+            </summary>
+            <param name="toRun"></param>
+            <param name="verb"></param>
+            <param name="arguments">The command line arguments</param>
+            <returns>An enumeration of teh text lines that the process emitted</returns>
+        </member>
+        <member name="T:Blackwood.Util.dWriteBackground">
+            <summary>
+            This delegate will be called in the background to allow saving a file
+            without causing the UI to experience an slowdown or stutter.
+            </summary>
+            <param name="stream">The file that was created in the background.</param>
+        </member>
+        <member name="F:Blackwood.Util.saveLock">
+            <summary>
+            This is used to lock and prevent 
+            </summary>
+        </member>
+        <member name="M:Blackwood.Util.Save(System.String,Blackwood.Util.dWriteBackground)">
+            <summary>
+            Saves the file to the given path.
+            This is done in the background by first writing to a temporary file,
+            then moving to the target.
+            </summary>
+            <param name="path">The path to store the data.</param>
+            <param name="writeBackground">The callback to populate the data in the file.</param>
+        </member>
+        <member name="M:Blackwood.Util.Zip(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Compresses the array
+            </summary>
+            <param name="array">The array to compress</param>
+            <param name="offset">The offset in the array to start</param>
+            <param name="count">The number of bytes to compress</param>
+            <returns>The compressed bytes</returns>
+        </member>
+        <member name="M:Blackwood.Util.Unzip(System.Byte[])">
+            <summary>
+            Decompresses the array
+            </summary>
+            <param name="zippedBuffer">The buffer of compressed data</param>
+            <returns>The decompressed data</returns>
+        </member>
+        <member name="T:Blackwood.CacheItem`1">
+            <summary>
+            An item in the doubly linked list.
+            </summary>
+            <typeparam name="t">The type of item to cache.</typeparam>
+        </member>
+        <member name="F:Blackwood.CacheItem`1.key">
+            <summary>
+            The value to cache
+            </summary>
+            <value>The type of item to cache.</value>
+        </member>
+        <member name="F:Blackwood.CacheItem`1.next">
+            <summary>
+            The next item in the chain.
+            </summary>
+        </member>
+        <member name="F:Blackwood.CacheItem`1.prev">
+            <summary>
+            The previous item in the chain.
+            </summary>
+        </member>
+        <member name="M:Blackwood.CacheItem`1.#ctor(`0)">
+            <summary>
+            Creates a cache slot to hold the item
+            </summary>
+            <param name="value">The value to cache</param>
+        </member>
+        <member name="M:Blackwood.CacheItem`1.Unlink">
+            <summary>
+            Removes this item from the chain
+            </summary>
+        </member>
+        <member name="M:Blackwood.CacheItem`1.Link(Blackwood.CacheItem{`0})">
+            <summary>
+            Put this item in before the given item
+            </summary>
+            <param name="before">The item to come after</param>
+        </member>
+        <member name="T:Blackwood.A`2">
+            <summary>
+            A helper that tracks the key, which is needed when evicting items from the cache
+            </summary>
+            <typeparam name="kt"></typeparam>
+            <typeparam name="vt"></typeparam>
+        </member>
+        <member name="F:Blackwood.A`2.key">
+            <summary>
+            The key from the associative look up
+            </summary>
+        </member>
+        <member name="F:Blackwood.A`2.value">
+            <summary>
+            The value that is the intended to be look ed 
+            </summary>
+        </member>
+        <member name="T:Blackwood.MRUCache`2">
+            <summary>
+            An associative Most-Recently-Used cache.  The least recently used items are subject to
+            being ejected.
+            </summary>
+            <typeparam name="kt">The type of the key</typeparam>
+            <typeparam name="vt">The type of the item to cache</typeparam>
+            <remarks>A ring buffer is used track the oldest item for eviction.
+            If the dictionary is allowed to grow too big, it becomes a botle neck</remarks>
+        </member>
+        <member name="F:Blackwood.MRUCache`2.lookup">
+            <summary>
+            This is used to map the key to the value
+            </summary>
+        </member>
+        <member name="F:Blackwood.MRUCache`2.head">
+            <summary>
+            The most recently used item.
+            </summary>
+            <value>The cache-item, specialized for type of the key, to hold the recently used item.</value>
+        </member>
+        <member name="F:Blackwood.MRUCache`2.maxItems">
+            <summary>
+            The maximum number of items to hold in the cache; more than this, the
+            older items are evicted.
+            </summary>
+        </member>
+        <member name="M:Blackwood.MRUCache`2.#ctor(System.Int32)">
+            <summary>
+            Constructs the cache
+            </summary>
+            <param name="maxItems">The maximum number of items to hold in the queue</param>
+        </member>
+        <member name="F:Blackwood.MRUCache`2.numItems">
+            <summary>
+            The number of items currently in the cache.
+            </summary>
+        </member>
+        <member name="M:Blackwood.MRUCache`2.Insert(Blackwood.CacheItem{`0})">
+            <summary>
+            Inserts the given item onto the head of the list
+            </summary>
+            <param name="item">The item to insert</param>
+            <returns>The item</returns>
+        </member>
+        <member name="M:Blackwood.MRUCache`2.Evict">
+            <summary>
+            Evicts the oldest item from the cache
+            </summary>
+        </member>
+        <member name="M:Blackwood.MRUCache`2.Enumerate">
+            <summary>
+            Allow iteration over all of the items in the cache
+            </summary>
+            <returns>Each of the cache slots.. the slot is returned to allow managing the list</returns>
+        </member>
+        <member name="P:Blackwood.MRUCache`2.Item(`0)">
+            <summary>
+            This is used to fetch the cached items
+            </summary>
+            <param name="key">The key used to associate with the item.</param>
+            <returns>The associated value</returns>
+        </member>
+        <member name="T:Blackwood.EmbeddedResources">
+            <summary>
+            This is an interface to allow access to resources within a folder or archive
+            </summary>
+        </member>
+        <member name="F:Blackwood.EmbeddedResources.assembly">
+            <summary>
+            The assembly read resources from
+            </summary>
+        </member>
+        <member name="M:Blackwood.EmbeddedResources.#ctor">
+            <summary>
+            Load resources from embedded in the assembly resources.
+            </summary>
+        </member>
+        <member name="M:Blackwood.EmbeddedResources.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Load resources from embedded in the assembly resources.
+            </summary>
+            <param name="a">The assembly read resources from</param>
+        </member>
+        <member name="M:Blackwood.EmbeddedResources.Dispose">
+            <summary>
+            Performs any needed clean up
+            </summary>
+        </member>
+        <member name="M:Blackwood.EmbeddedResources.Exists(System.String)">
+            <summary>
+            Determines whether the specified file exists.
+            </summary>
+            <param name="relativePath">The name of file embedded in the assembly</param>
+            <returns>true if the file exists embedded in the assembly, false otherwise</returns>
+        </member>
+        <member name="M:Blackwood.EmbeddedResources.Stream(System.String)">
+            <summary>
+            This creates a stream for the given resources embedded in the assembly
+            </summary>
+            <param name="relativePath">The name of file embedded in the assembly</param>
+            <returns>null on error, otherwise a stream that can be used to access the file data</returns>
+        </member>
+        <member name="T:Blackwood.FolderWrapper">
+            <summary>
+            This is a class to allow access to resources within a folder.
+            It is a sibling to ZipWrapper that can access resources within a zip file
+            </summary>
+        </member>
+        <member name="F:Blackwood.FolderWrapper.basePath">
+            <summary>
+            The path to the folder holding the configuration
+            </summary>
+        </member>
+        <member name="M:Blackwood.FolderWrapper.#ctor(System.String)">
+            <summary>
+            Creates an object that can access resources within a folder
+            </summary>
+            <param name="basePath">The basepath to the folder</param>
+        </member>
+        <member name="M:Blackwood.FolderWrapper.Dispose">
+            <summary>
+            Dispose of any internal resources
+            </summary>
+        </member>
+        <member name="M:Blackwood.FolderWrapper.Dispose(System.Boolean)">
+            <summary>
+            Dispose of the binary stream
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Blackwood.FolderWrapper.Exists(System.String)">
+            <summary>
+            Determines whether the specified file exists.
+            </summary>
+            <param name="relativePath">The name of file within the wrapper</param>
+            <returns>true if the file exists within the wrapper, false otherwise</returns>
+        </member>
+        <member name="M:Blackwood.FolderWrapper.Stream(System.String)">
+            <summary>
+            This creates a stream for the given resources within the folder
+            </summary>
+            <param name="relativePath">The name of file within the wrapper</param>
+            <returns>A stream that can be used to access the file</returns>
+        </member>
+        <member name="T:Blackwood.IFolderWrapper">
+            <summary>
+            This is an interface to allow access to resources within a folder or archive
+            </summary>
+        </member>
+        <member name="M:Blackwood.IFolderWrapper.Exists(System.String)">
+            <summary>
+            Determines whether the specified file exists.
+            </summary>
+            <param name="relativePath">The name of file within the wrapper</param>
+            <returns>true if the file exists within the wrapper, false otherwise</returns>
+        </member>
+        <member name="M:Blackwood.IFolderWrapper.Stream(System.String)">
+            <summary>
+            This creates a stream for the given resources within the container
+            </summary>
+            <param name="relativePath">The name of file within the container</param>
+            <returns>A stream that can be used to access the file data</returns>
+        </member>
+        <member name="T:Blackwood.ZipWrapper">
+            <summary>
+            This is a class to allow access to resources within an archive.
+            It is a sibling to FolderWrapper that can access resources within a folder
+            </summary>
+        </member>
+        <member name="F:Blackwood.ZipWrapper.refCnt">
+            <summary>
+            The count of the number of users of this stream
+            </summary>
+        </member>
+        <member name="F:Blackwood.ZipWrapper.basePath">
+            <summary>
+            The path to the folder holding the configuration
+            </summary>
+        </member>
+        <member name="F:Blackwood.ZipWrapper.zip">
+            <summary>
+            The archive accessor object
+            </summary>
+        </member>
+        <member name="F:Blackwood.ZipWrapper.file">
+            <summary>
+            The file underlying the zip object
+            </summary>
+        </member>
+        <member name="M:Blackwood.ZipWrapper.#ctor(System.String)">
+            <summary>
+            Creates an object that can access resources within an archive
+            </summary>
+            <param name="path">The path to the archive file</param>
+        </member>
+        <member name="M:Blackwood.ZipWrapper.#ctor(System.IO.Stream)">
+            <summary>
+            Creates an object that can access resources within an archive
+            </summary>
+            <param name="stream">The stream to the archive file</param>
+        </member>
+        <member name="M:Blackwood.ZipWrapper.Retain">
+            <summary>
+            Increment the reference count for this object.
+            Decrement the count using Dispose().
+            </summary>
+        </member>
+        <member name="M:Blackwood.ZipWrapper.Dispose">
+            <summary>
+            Dispose of any internal resources
+            </summary>
+        </member>
+        <member name="M:Blackwood.ZipWrapper.Dispose(System.Boolean)">
+            <summary>
+            Dispose of the archive
+            </summary>
+            <param name="disposing">true, right?</param>
+        </member>
+        <member name="M:Blackwood.ZipWrapper.Exists(System.String)">
+            <summary>
+            Determines whether the specified file exists.
+            </summary>
+            <param name="relativePath">The name of file within the wrapper</param>
+            <returns>true if the file exists within the wrapper, false otherwise</returns>
+        </member>
+        <member name="M:Blackwood.ZipWrapper.Stream(System.String)">
+            <summary>
+            This creates a stream for the given resources within the container
+            </summary>
+            <param name="relativePath">The name of file within the container</param>
+            <returns>null on error, otherwise a stream that can be used to access the file data</returns>
+        </member>
+        <member name="T:Blackwood.Text">
+            <summary>
+            This class holds a variety of helper utilities to modify text.
+            </summary>
+        </member>
+        <member name="M:Blackwood.Text.ReadAllLines(System.IO.Stream)">
+            <summary>
+            Load all of the text lines from the stream
+            </summary>
+            <param name="stream">The text stream</param>
+            <returns>The text of the file</returns>
+        </member>
+        <member name="M:Blackwood.Text.SubstituteVars(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Substitute in the variable references with the values that are in the
+            tableau.
+            </summary>
+            <param name="sourceText">The original text string</param>
+            <param name="tableau">The table of values for variables</param>
+            <returns>The potentially modified string</returns>
+            <remarks>This is not particularly effecient but it isn't intended to be
+            used in an environment like that</remarks>
+        </member>
+    </members>
+</doc>

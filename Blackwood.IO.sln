@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blackwood.IO", "src\Blackwood.IO.csproj", "{4BE8F9C1-D539-4A2A-8AE9-CEF8138A1F79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Documentation", "Documentation\Documentation.csproj", "{1754E168-3F1A-4FD2-9AAD-0C580FDECF1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BE8F9C1-D539-4A2A-8AE9-CEF8138A1F79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BE8F9C1-D539-4A2A-8AE9-CEF8138A1F79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BE8F9C1-D539-4A2A-8AE9-CEF8138A1F79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BE8F9C1-D539-4A2A-8AE9-CEF8138A1F79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1754E168-3F1A-4FD2-9AAD-0C580FDECF1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1754E168-3F1A-4FD2-9AAD-0C580FDECF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1754E168-3F1A-4FD2-9AAD-0C580FDECF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1754E168-3F1A-4FD2-9AAD-0C580FDECF1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19D09CAF-2249-4281-BFA9-8BA77070627E}
+	EndGlobalSection
+EndGlobal
