@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿// Copyright © 2020-2021 Randall Maas. All rights reserved.
+// See LICENSE file in the project root for full license information.  
+using System.IO;
 using System.Text;
 
 namespace Blackwood

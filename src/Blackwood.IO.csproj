@@ -5,7 +5,12 @@
 	<LangVersion>9.0</LangVersion>
     <RootNamespace>Blackwood</RootNamespace>
     <UserSecretsId>fe9d3c9f-cc34-4cec-ab33-fd72756ff6b9</UserSecretsId>
-    <Description>This is a framework of many common file.</Description>
+    <Description>A collection of C# utilitites commonly needed across many projects.</Description>
+    <Copyright>Copyight 2021-2022, Randall Maas</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/randym32/Blackwood.IO</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/randym32/Blackwood.IO</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -14,6 +19,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
