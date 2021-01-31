@@ -1,6 +1,0 @@
-apiRules:
-- exclude:
-    uidRegex: ^System\.Object
-- exclude:
-    uidRegex: ^System\.Exception
-    
