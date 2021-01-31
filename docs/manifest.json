@@ -1,0 +1,347 @@
+{
+  "homepages": [],
+  "source_base_path": "G:/projects/vector/github/Blackwood.IO/Documentation",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "log_codes": [
+        "UidNotFound"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "feMUS7aNv45znFNcDvgCLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "lBTUWxfkawgyLfAnVcU9gg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "CAHCG8tDDZSeZDvz6qY6Bw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contributing/CONTRIBUTING.md",
+      "output": {
+        ".html": {
+          "relative_path": "contributing/CONTRIBUTING.html",
+          "hash": "l/9QC6OXJTg9XQiOlOgckQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contributing/code_of_conduct.md",
+      "output": {
+        ".html": {
+          "relative_path": "contributing/code_of_conduct.html",
+          "hash": "xpdYcwx9E38ivGRCEVVfLQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contributing/how-to-file-an-issue.md",
+      "output": {
+        ".html": {
+          "relative_path": "contributing/how-to-file-an-issue.html",
+          "hash": "hVwvLwurOMWsZUE5a++NgA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contributing/pull-requests.md",
+      "output": {
+        ".html": {
+          "relative_path": "contributing/pull-requests.html",
+          "hash": "yMegOi6yA/hUWabEAmOPqA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "contributing/style-guide.md",
+      "output": {
+        ".html": {
+          "relative_path": "contributing/style-guide.html",
+          "hash": "XKVReqJBjNmKf08IaKaC+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "dFCt4dLJWxzRXILpZFfn6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.Application.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Application.html",
+          "hash": "T/IRvi9AM88HNle5o8oYnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.CacheItem-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.CacheItem-1.html",
+          "hash": "njZ2udM6tAsaJeToLayidg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.EmbeddedResources.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.EmbeddedResources.html",
+          "hash": "sAl5m8LJBEcX09aiUsnEtg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.FS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.FS.html",
+          "hash": "g6IswAGCh+GDhDWki1wzlw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.FolderWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.FolderWrapper.html",
+          "hash": "yBtV0RlylmlGFQDs1Mn+xw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.IFolderWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.IFolderWrapper.html",
+          "hash": "qtTb4QuhsYT59ADESeEUCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.MRUCache-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.MRUCache-2.html",
+          "hash": "lNJJteDAo8Y5s+zlYG9vjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.Text.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Text.html",
+          "hash": "NMuQd8luePBR9lp8kytziQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.Util.dWriteBackground.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Util.dWriteBackground.html",
+          "hash": "EmtPjGZIhsZwYgoTjPcosw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.Util.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Util.html",
+          "hash": "IHIN6yl1fSCDf12svGIwoQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.ZipWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.ZipWrapper.html",
+          "hash": "yRq/MLxnOJVOFa+RU3mIGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Blackwood.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.html",
+          "hash": "I/p2UkUDNyWy0asEv+lHQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "3KsjQ7owZ0vaIxBxoPFvIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "HsSjvPcQHInzSBe2LC0/1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Disable incremental build by force rebuild option.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "ForceRebuild"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 8,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 12,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

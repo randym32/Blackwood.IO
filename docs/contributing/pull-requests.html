@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pull Requests | Blackwood.IO </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Pull Requests | Blackwood.IO ">
+    <meta name="generator" content="docfx 2.56.6.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                  <img id="logo" class="png" src="../logo-small.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar"></div>
+          </div>
+        </nav>
+        
+    <div class="topcorner">
+      <form class="navbar-form navbar-right" role="search" id="search">
+        <div class="form-group">
+          <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+        </div>
+      </form>
+      </div>
+      </header>
+      <div class="container-fluid body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container-fluid body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="pull-requests">Pull Requests</h1>
+
+<p>This document describes what you needed to know about the pull request process.</p>
+<p>A pull request is how you submit your changes to the project.
+Before you make any changes, please read the <a href="CONTRIBUTING.html">contributing page</a>
+for information regarding contributions to project overall.  This will help you
+in making your changes fit within the project and its style; as well as the
+steps you must do before creating a pull-request.</p>
+<h2 id="what-is-a-pull-request-pr">What is a Pull Request (PR)?</h2>
+<p>As described above, a pull request is how you submit changes to this project.
+It is a <em>request</em> that the project pull in your changes.  Here's how the folks
+at GitHub <a href="https://help.github.com/en/articles/about-pull-requests">define a pull request</a>:</p>
+<blockquote>
+<p>Pull requests let you tell others about changes you've pushed to a branch in
+a repository on GitHub. Once a pull request is opened, you can discuss and
+review the potential changes with collaborators and add follow-up commits
+before your changes are merged into the base branch.</p>
+</blockquote>
+<p>The pull request allows others to review the changes, test them, and provide
+feedback -- including requests to makes to the changees, so that they better
+fit into the project.</p>
+<p><a name="pull-request-process"></a></p>
+<h2 id="pull-request-process">Pull Request Process</h2>
+<p>Once you have completed the changes on your local development environment,
+tested them, and so fprth, the next steps is to create a pull request.
+Be sure to check the <a href="CONTRIBUTING.html">contributing guide</a> for additional
+steps and tips to ensure that your changes will fit with the project.</p>
+<blockquote>
+<p>When you are ready to generate a pull request, either for preliminary review,
+or for consideration of merging into the project you must first push your
+local topic branch back up to GitHub:</p>
+</blockquote>
+<pre><code>git push origin newfeature
+</code></pre>
+<blockquote>
+<p>Once you've committed and pushed all of your changes to GitHub, go to the
+page for your fork on GitHub, select your development branch, and click the
+pull request button. If you need to make any adjustments to your pull
+request, just push the updates to your branch. Your pull request will
+automatically track the changes on your development branch and update.</p>
+</blockquote>
+<ol>
+<li>Ensure any install or build dependencies are removed before the end of the
+layer when doing a build.</li>
+<li>You may merge the Pull Request in once you have the sign-off of two other
+developers, or if you do not have permission to do that, you may request the
+second reviewer to merge it for you.</li>
+</ol>
+<h3 id="review-process">Review Process</h3>
+<p>After a pull request has been sent to the repository, the team and community
+may suggest modifications to the changes you have submitted.</p>
+<p>Many pull requests are likely to open for several days, until the core team
+can approve them in Github.  In some cases, multiple people will have the
+chance to review/comment.</p>
+<p>Please check your pull request for comments, feedback, and suggested changes:</p>
+<ul>
+<li>Review the suggested changes using the &quot;View changes&quot; button.</li>
+<li><a href="https://help.github.com/en/articles/incorporating-feedback-in-your-pull-request#applying-suggested-changes">Commit</a> the suggestions.</li>
+<li><a href="https://help.github.com/en/articles/about-conversations-on-github">Discuss suggestions</a> to ask questions about the suggested changes.</li>
+<li>Incoprorate the <a href="https://help.github.com/en/articles/incorporating-feedback-in-your-pull-request">suggestions to your changes</a></li>
+</ul>
+<h3 id="addressing-feedback">Addressing Feedback</h3>
+<p>Once a PR has been submitted, your changes will be reviewed and constructive
+feedback may be provided. Feedback isn't meant as an attack, but to help make
+sure the highest-quality workmanship makes it into our project. Changes will be
+approved once required feedback has been addressed.</p>
+<p>If a maintainer asks you to &quot;rebase&quot; your PR, they're saying that a lot of
+files has changed, and that you need to update your fork so it's easier to
+merge.</p>
+<p>To update your forked repository, follow these steps:</p>
+<pre><code># Fetch upstream master and merge with your repo's master branch
+git fetch upstream
+git checkout master
+git merge upstream/master
+
+# If there were any new commits, rebase your development branch
+git checkout newfeature
+git rebase master
+</code></pre>
+<p>If too much code has changed for git to automatically apply your branches
+changes to the new master, you will need to manually resolve the merge
+conflicts yourself.</p>
+<p>Once your new branch has no conflicts and works correctly, you can override
+your old branch using this command:</p>
+<pre><code>git push -f
+</code></pre>
+<p>Note that this will overwrite the old branch on the server, so make sure you
+are happy with your changes first!</p>
+<h2 id="additional-resources">Additional resources</h2>
+<ul>
+<li><a href="https://help.github.com/en/articles/creating-a-pull-request">Creating a pull request</a> from GitHub</li>
+<li><a href="https://help.github.com/en/articles/configuring-a-remote-for-a-fork">Configuring a remote for a fork</a></li>
+<li><a href="https://help.github.com/en/articles/which-remote-url-should-i-use">Which remote URL should I use?</a></li>
+<li><a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">Git Branching and Merging</a></li>
+<li><a href="https://git-scm.com/book/en/v1/Git-Branching-Branching-Workflows">Feature Branching and Workflows</a></li>
+<li><a href="https://help.github.com/en/articles/resolving-a-merge-conflict-on-github">Resolving merge conflicts</a></li>
+</ul>
+<p><em>Credits: This page was adapted from an <a href="https://github.com/embeddedartistry/embedded-resources/blob/master/docs/">EmbeddedArtistry template</a></em>
+<em>and adapted from the
+<a href="https://github.com/gatsbyjs/gatsby/blob/master/docs/contributing/">Gatsbj.js project</a></em></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/randym32/Blackwood.IO/blob/main/Documentation/contributing/pull-requests.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container-fluid">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright (c) 2020-2021 by Randall Maas</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
