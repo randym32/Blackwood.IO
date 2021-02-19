@@ -61,7 +61,7 @@ public class EmbeddedResources : IFolderWrapper
     public Stream Stream(string relativePath)
     {
         // Convert to a name that we can look up
-        var fileName = assembly.GetName().Name + "." + relativePath.Replace('/', '.');
+        var fileName = assembly.GetName().Name + "." + relativePath.Replace('/', '.').Replace('\\','.');
         // Try a compressed stream first
         var stream = assembly.GetManifestResourceStream(fileName+".gz");
         if (null != stream)
