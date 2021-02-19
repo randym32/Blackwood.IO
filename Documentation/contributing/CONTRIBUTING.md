@@ -26,11 +26,8 @@ code contributions, and more.
 ## Not sure how to start contributing?
 
 If you are worried or don't know where to start, 
-you can reach out with questions to anyone from the
-Project Victor team on
+you can reach out with questions to
 
-* [**Official Anki developer forums**](https://forums.anki.com/)
-* [**Anki robots Discord chat**](https://discord.gg/FT8EYwu)
 * [**GitHub Discussions**][9]
   is directly integrated with the repository.  You can use this to ask for help
   or share ideas related to improving the documentation or deploying it.
@@ -98,6 +95,6 @@ are happy with your changes first!
 [4]: http://www.firsttimersonly.com
 [5]: https://gist.github.com/Chaser324/ce0505fbed06b947d962
 [7]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
-[9]: https://github.com/digital-dream-labs/api/discussions)
+[9]: https://github.com/randym32/Blackwood.IO/discussions
 
 _Credits: This page was adapted from an [EmbeddedArtistry template](https://github.com/embeddedartistry/embedded-resources/blob/master/docs/CODE_OF_CONDUCT_template.md)_
