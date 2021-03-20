@@ -14,7 +14,6 @@ There are many ways to contribute.  You can also help us by:
   grammar mistakes, and so on
 * Create new documentation
 * Create an example of some changes / fixes/ hacks
-* Creating blog posts, and tutorials about one of Vector's many features
 * Reviewing submissions
 * Contributing bits that can be incorporated into this or related projects.
 

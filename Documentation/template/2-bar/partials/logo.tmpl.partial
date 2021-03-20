@@ -2,5 +2,5 @@
 
 <a class="navbar-brand" href="{{_rel}}index.html">
     <img id="logo" class="png" src="{{_rel}}{{{_appLogoPath}}}{{^_appLogoPath}}logo-small.png{{/_appLogoPath}}" alt="{{_appName}}" >
-    Vector Resource SDK Documentation
+    Blackwood.IO Documentation
 </a>

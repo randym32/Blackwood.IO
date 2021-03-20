@@ -52,6 +52,7 @@
     <None Include="docfx.json" />
     <None Include="filterConfig.yml" />
     <None Include="index.md" />
+    <None Include="packages.config" />
     <None Include="toc.yml" />
   </ItemGroup>
   <ItemGroup>
@@ -64,5 +65,7 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\docfx.console.2.56.6\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\docfx.console.2.56.6\build\docfx.console.targets'))" />
+    <Error Condition="!Exists('..\packages\docfx.console.2.56.7\build\docfx.console.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\docfx.console.2.56.7\build\docfx.console.targets'))" />
   </Target>
+  <Import Project="..\packages\docfx.console.2.56.7\build\docfx.console.targets" Condition="Exists('..\packages\docfx.console.2.56.7\build\docfx.console.targets')" />
 </Project>

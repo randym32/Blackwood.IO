@@ -13,9 +13,7 @@ The `.proto` files should follow [Google's protobuf style][0] guidelines.
 Links ought to be relative instead of absolute when linking to documents.  That
 is to say, the should not include the full domain.
 For example `/documents/some-reference/` instead of
-`https://randym32.github.io/Anki.Vector.Documentation/some-reference/`
-
-
+`https://randym32.github.io/Blackwood.IO/some-reference/`
 
 
 
