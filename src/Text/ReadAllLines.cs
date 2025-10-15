@@ -1,10 +1,9 @@
-﻿// Copyright © 2020-2021 Randall Maas. All rights reserved.
-// See LICENSE file in the project root for full license information.  
+﻿// Copyright © 2020-2025 Randall Maas. All rights reserved.
+// See LICENSE file in the project root for full license information.
 using System.IO;
 using System.Text;
 
-namespace Blackwood
-{
+namespace Blackwood;
 
 public static partial class Text
 {
@@ -29,5 +28,4 @@ public static partial class Text
         // return the result
         return SB.ToString();
     }
-}
 }

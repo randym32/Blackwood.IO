@@ -1,18 +1,18 @@
-﻿// Copyright © 2020-2021 Randall Maas. All rights reserved.
-// See LICENSE file in the project root for full license information.  
+﻿// Copyright © 2020-2025 Randall Maas. All rights reserved.
+// See LICENSE file in the project root for full license information.
 using System;
 using System.Diagnostics;
 
-namespace Blackwood
-{
+namespace Blackwood;
+
 /// <summary>
-/// This is a utility class to provide some information about the application
+/// This is a utility class to provide some information about the application.
 /// </summary>
 public static partial class Application
 {
     #region Application Name
     /// <summary>
-    /// The application name cached for reuse
+    /// The application name cached for reuse.
     /// </summary>
     static string _appName;
 
@@ -22,7 +22,7 @@ public static partial class Application
     /// <value>
     /// The application name.
     /// </value>
-    public static string Name
+    public static string Name
     {
         get
         {
@@ -31,24 +31,23 @@ public static partial class Application
                 return _appName;
             try
             {
-                // Try to look up the real assembly for the application
-                var assembly = System.Reflection.Assembly.GetEntryAssembly();
+                // Try to look up the real assembly for the application.
+                var assembly = System.Reflection.Assembly.GetEntryAssembly();
                 if (null == assembly)
                 {
                     var frames = new StackTrace().GetFrames();
                     assembly = frames[frames.Length - 1].GetMethod().Module.Assembly;
                 }
 
-                // use the name from the assembly
+                // use the name from the assembly.
                 return _appName = assembly.GetName().Name;
             }
             catch (Exception)
             { }
 
-            // There was an error, fall back to a default name
+            // There was an error, fall back to a default name.
             return "unknownApp";
         }
     }
     #endregion
-}
 }

@@ -1,11 +1,11 @@
-﻿// Copyright © 2021 Randall Maas. All rights reserved.
+﻿// Copyright © 2021-2025 Randall Maas. All rights reserved.
 // See LICENSE file in the project root for full license information.  
 using System.IO;
 using System.IO.Compression;
 using System.Reflection;
 
-namespace Blackwood
-{
+namespace Blackwood;
+
 /// <summary>
 /// This is an interface to allow access to resources within a folder or archive
 /// </summary>
@@ -78,5 +78,4 @@ public class EmbeddedResources : IFolderWrapper
         // Fall back assuming it was not compressed
         return assembly.GetManifestResourceStream(fileName);
     }
-}
 }

@@ -3,8 +3,8 @@
 using System;
 using System.IO;
 
-namespace Blackwood
-{
+namespace Blackwood;
+
 
 /// <summary>
 /// This is a class to allow access to resources within a folder.
@@ -74,5 +74,4 @@ public class FolderWrapper:IFolderWrapper
         // Open a file stream for it
         return File.OpenRead(filePath);
     }
-}
 }

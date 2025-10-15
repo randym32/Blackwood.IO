@@ -1,10 +1,10 @@
-﻿// Copyright © 2020-2021 Randall Maas. All rights reserved.
-// See LICENSE file in the project root for full license information.  
+﻿// Copyright © 2020-2025 Randall Maas. All rights reserved.
+// See LICENSE file in the project root for full license information.
 using System;
 using System.Reflection;
 
-namespace Blackwood
-{
+namespace Blackwood;
+
 public static partial class FS
 {
     /// <summary>
@@ -41,5 +41,4 @@ public static partial class FS
     /// The path to the executable.
     /// </value>
     public static string ExeFilePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-}
 }

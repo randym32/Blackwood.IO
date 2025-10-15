@@ -1,12 +1,12 @@
-﻿// Copyright © 2020-2021 Randall Maas. All rights reserved.
-// See LICENSE file in the project root for full license information.  
+﻿// Copyright © 2020-2025 Randall Maas. All rights reserved.
+// See LICENSE file in the project root for full license information.
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-namespace Blackwood
-{
+namespace Blackwood;
+
 /// <summary>
 /// This class provides a variety of utilities such as the path's to key points,
 /// and process path strings.
@@ -14,7 +14,7 @@ namespace Blackwood
 public static partial class FS
 {
     /// <summary>
-    /// A place to cache the path
+    /// A place to cache the path.
     /// </summary>
     static string _assemblyDirectory;
 
@@ -35,7 +35,7 @@ public static partial class FS
             if (null != _assemblyDirectory)
                 return _assemblyDirectory;
 
-            var codeBase = Assembly.GetExecutingAssembly().CodeBase;
+            var codeBase = Assembly.GetExecutingAssembly().Location;
             var uri      = new UriBuilder(codeBase);
             var path     = Uri.UnescapeDataString(uri.Path);
             return _assemblyDirectory = System.IO.Path.GetDirectoryName(path);
@@ -43,7 +43,7 @@ public static partial class FS
     }
 
     /// <summary>
-    /// This is use to remove the base path from the full path
+    /// This is use to remove the base path from the full path.
     /// </summary>
     /// <param name="basePath">The path that should be removed</param>
     /// <param name="path">The path that is to be modified</param>
@@ -66,7 +66,7 @@ public static partial class FS
 
 
     /// <summary>
-    /// A helper to go from partial file name to the full file name
+    /// A helper to go from partial file name to the full file name.
     /// </summary>
     /// <param name="path">The path to search within</param>
     /// <param name="extension">The file name extension (defualt is json)</param>
@@ -89,5 +89,4 @@ public static partial class FS
         // return the resulting cross reference table
         return ret;
     }
-}
 }

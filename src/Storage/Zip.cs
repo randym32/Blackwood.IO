@@ -1,10 +1,10 @@
-﻿// Copyright © 2020-2021 Randall Maas. All rights reserved.
+﻿// Copyright © 2020-2025 Randall Maas. All rights reserved.
 // See LICENSE file in the project root for full license information.  
 using System.IO;
 using System.IO.Compression;
 
-namespace Blackwood
-{
+namespace Blackwood;
+
 static partial class Util
 {
     /// <summary>
@@ -46,5 +46,4 @@ static partial class Util
         zip.CopyTo(decompressed);
         return decompressed.ToArray();
     }
-}
 }

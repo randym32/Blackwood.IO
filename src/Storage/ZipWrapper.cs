@@ -1,12 +1,12 @@
-﻿// Copyright © 2020-2021 Randall Maas. All rights reserved.
-// See LICENSE file in the project root for full license information.  
+﻿// Copyright © 2020-2025 Randall Maas. All rights reserved.
+// See LICENSE file in the project root for full license information.
 using System;
 using System.IO;
 using System.IO.Compression;
 using System.Threading;
 
-namespace Blackwood
-{
+namespace Blackwood;
+
 /// <summary>
 /// This is a class to allow access to resources within an archive.
 /// It is a sibling to FolderWrapper that can access resources within a folder
@@ -14,27 +14,27 @@ namespace Blackwood
 public class ZipWrapper:IFolderWrapper
 {
     /// <summary>
-    /// The count of the number of users of this stream
+    /// The count of the number of users of this stream.
     /// </summary>
     int refCnt;
 
     /// <summary>
-    /// The path to the folder holding the configuration
+    /// The path to the folder holding the configuration.
     /// </summary>
     readonly string basePath;
 
     /// <summary>
-    /// The archive accessor object
+    /// The archive accessor object.
     /// </summary>
     readonly ZipArchive zip;
 
     /// <summary>
-    /// The file underlying the zip object
+    /// The file underlying the zip object.
     /// </summary>
     readonly Stream file;
 
     /// <summary>
-    /// Creates an object that can access resources within an archive
+    /// Creates an object that can access resources within an archive.
     /// </summary>
     /// <param name="path">The path to the archive file</param>
     public ZipWrapper(string path)
@@ -45,7 +45,7 @@ public class ZipWrapper:IFolderWrapper
     }
 
     /// <summary>
-    /// Creates an object that can access resources within an archive
+    /// Creates an object that can access resources within an archive.
     /// </summary>
     /// <param name="stream">The stream to the archive file</param>
     public ZipWrapper(Stream  stream)
@@ -65,7 +65,7 @@ public class ZipWrapper:IFolderWrapper
     }
 
     /// <summary>
-    /// Dispose of any internal resources
+    /// Dispose of any internal resources.
     /// </summary>
     public void Dispose()
     {
@@ -82,7 +82,7 @@ public class ZipWrapper:IFolderWrapper
 
 
     /// <summary>
-    /// Dispose of the archive
+    /// Dispose of the archive.
     /// </summary>
     /// <param name="disposing">true, right?</param>
     protected virtual void Dispose(bool disposing)
@@ -99,7 +99,7 @@ public class ZipWrapper:IFolderWrapper
     /// <summary>
     /// Determines whether the specified file exists.
     /// </summary>
-    /// <param name="relativePath">The name of file within the wrapper</param>
+    /// <param name="relativePath">The name of file within the wrapper.</param>
     /// <returns>true if the file exists within the wrapper, false otherwise</returns>
     public bool Exists(string relativePath)
     {
@@ -117,7 +117,7 @@ public class ZipWrapper:IFolderWrapper
 
 
     /// <summary>
-    /// This creates a stream for the given resources within the container
+    /// This creates a stream for the given resources within the container.
     /// </summary>
     /// <param name="relativePath">The name of file within the container</param>
     /// <returns>null on error, otherwise a stream that can be used to access the file data</returns>
@@ -143,5 +143,4 @@ public class ZipWrapper:IFolderWrapper
         catch(Exception){ }
         return null;
     }
-}
 }

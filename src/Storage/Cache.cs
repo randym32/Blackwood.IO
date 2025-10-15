@@ -1,41 +1,41 @@
-﻿// Copyright © 2020-2021 Randall Maas. All rights reserved.
-// See LICENSE file in the project root for full license information.  
+﻿// Copyright © 2020-2025 Randall Maas. All rights reserved.
+// See LICENSE file in the project root for full license information.
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace Blackwood
-{
+namespace Blackwood;
+
 /// <summary>
 /// An item in the doubly linked list.
 /// </summary>
-/// <typeparam name="t">The type of item to cache.</typeparam>
-public class CacheItem<t>
+/// <typeparam name="itemType">The type of item to cache.</typeparam>
+public class CacheItem<itemType>
 {
     /// <summary>
     /// The value to cache
     /// </summary>
     /// <value>The type of item to cache.</value>
-    public readonly t key;
+    public readonly itemType key;
 
     /// <summary>
     /// The next item in the chain.
     /// </summary>
-    internal CacheItem<t> next;
+    internal CacheItem<itemType> next;
 
     /// <summary>
     /// The previous item in the chain.
     /// </summary>
-    internal CacheItem<t> prev;
+    internal CacheItem<itemType> prev;
 
     /// <summary>
     /// Creates a cache slot to hold the item
     /// </summary>
     /// <param name="value">The value to cache</param>
-    internal CacheItem(t value)
+    internal CacheItem(itemType value)
     {
         next = this;
         prev = this;
-        this.key = value;
+        key = value;
     }
 
     /// <summary>
@@ -55,7 +55,7 @@ public class CacheItem<t>
     /// Put this item in before the given item
     /// </summary>
     /// <param name="before">The item to come after</param>
-    internal void Link(CacheItem<t> before)
+    internal void Link(CacheItem<itemType> before)
     {
         // Sanity check
         if (null == before)
@@ -78,20 +78,20 @@ public class CacheItem<t>
 /// <summary>
 /// A helper that tracks the key, which is needed when evicting items from the cache
 /// </summary>
-/// <typeparam name="kt"></typeparam>
-/// <typeparam name="vt"></typeparam>
-struct A<kt, vt>
+/// <typeparam name="keyType">The type of the key used for lookup.</typeparam>
+/// <typeparam name="valueType">The type of the value stored in the cache.</typeparam>
+struct A<keyType, valueType>
 {
     /// <summary>
     /// The key from the associative look up
     /// </summary>
-    internal readonly kt key;
+    internal readonly keyType key;
 
     /// <summary>
-    /// The value that is the intended to be look ed 
+    /// The value that is the intended to be look ed
     /// </summary>
-    internal readonly vt value;
-    internal A(kt key, vt value)
+    internal readonly valueType value;
+    internal A(keyType key, valueType value)
     {
         this.key = key;
         this.value = value;
@@ -102,22 +102,22 @@ struct A<kt, vt>
 /// An associative Most-Recently-Used cache.  The least recently used items are subject to
 /// being ejected.
 /// </summary>
-/// <typeparam name="kt">The type of the key</typeparam>
-/// <typeparam name="vt">The type of the item to cache</typeparam>
+/// <typeparam name="keyType">The type of the key</typeparam>
+/// <typeparam name="valueType">The type of the item to cache</typeparam>
 /// <remarks>A ring buffer is used track the oldest item for eviction.
 /// If the dictionary is allowed to grow too big, it becomes a botle neck</remarks>
-public class MRUCache<kt, vt>
+public class MRUCache<keyType, valueType>
 {
     /// <summary>
     /// This is used to map the key to the value
     /// </summary>
-    readonly ConcurrentDictionary<kt, A<CacheItem<kt>, vt>> lookup;
+    readonly ConcurrentDictionary<keyType, A<CacheItem<keyType>, valueType>> lookup;
 
     /// <summary>
     /// The most recently used item.
     /// </summary>
     /// <value>The cache-item, specialized for type of the key, to hold the recently used item.</value>
-    protected volatile CacheItem<kt> head;
+    protected volatile CacheItem<keyType> head;
 
     /// <summary>
     /// The maximum number of items to hold in the cache; more than this, the
@@ -134,7 +134,7 @@ public class MRUCache<kt, vt>
     public MRUCache(int maxItems = 1024)
     {
         this.maxItems = maxItems;
-        lookup = new ConcurrentDictionary<kt, A<CacheItem<kt>, vt>>(4,maxItems);
+        lookup = new ConcurrentDictionary<keyType, A<CacheItem<keyType>, valueType>>(4,maxItems);
     }
 
 
@@ -148,16 +148,13 @@ public class MRUCache<kt, vt>
     /// </summary>
     /// <param name="item">The item to insert</param>
     /// <returns>The item</returns>
-    internal CacheItem<kt> Insert(CacheItem<kt> item)
+    internal CacheItem<keyType> Insert(CacheItem<keyType> item)
     {
-        lock (this)
+        if (head != item)
         {
-            if (head != item)
-            {
-                item.Unlink();
-                item.Link(head);
-                return head = item;
-            }
+            item.Unlink();
+            item.Link(head);
+            return head = item;
         }
         return item;
     }
@@ -167,23 +164,20 @@ public class MRUCache<kt, vt>
     /// </summary>
     void Evict()
     {
-        lock (this)
-        {
-            var prev = head.prev;
-            prev.Unlink();
-            lookup.TryRemove(prev.key, out _);
-            numItems--;
-            Evicts++;
-        }
+        var prev = head.prev;
+        prev.Unlink();
+        lookup.TryRemove(prev.key, out _);
+        numItems--;
+        Evicts++;
     }
 
     /// <summary>
     /// Allow iteration over all of the items in the cache
     /// </summary>
     /// <returns>Each of the cache slots.. the slot is returned to allow managing the list</returns>
-    public IEnumerable<CacheItem<kt>> Enumerate()
+    public IEnumerable<CacheItem<keyType>> Enumerate()
     {
-        var ret = new List<CacheItem<kt>>();
+        var ret = new List<CacheItem<keyType>>();
         // Is there any thing in there anyway?
         if (null == head)
             return ret ;
@@ -204,13 +198,14 @@ public class MRUCache<kt, vt>
     /// </summary>
     /// <param name="key">The key used to associate with the item.</param>
     /// <returns>The associated value</returns>
-    public vt this[kt key]
+    public valueType this[keyType key]
     {
         get
         {
-            // Look up a weak reference and, if still valid, return the value
-            if (lookup.TryGetValue(key, out var w))
-                lock(this)
+            lock(this)
+            {
+                // Look up a weak reference and, if still valid, return the value
+                if (lookup.TryGetValue(key, out var w))
                 {
                     // Update the cache
                     // Move the item to the head of the cache
@@ -219,36 +214,37 @@ public class MRUCache<kt, vt>
                     return w.value;
                 }
 
-            // Didn't find the value
-            Misses++;
-            return default;
+                // Didn't find the value
+                Misses++;
+                return default;
+            }
         }
 
         // Store a weak reference to the item
         set
         {
-            // Look up a weak reference and, if still valid, move the item to the head
-            if (lookup.TryGetValue(key, out var w))
-                lock (this)
+            lock (this)
+            {
+                // Look up a weak reference and, if still valid, move the item to the head
+                if (lookup.TryGetValue(key, out var w))
                 {
                     // Unlink the previous one
                     w.key.Unlink();
                 }
-            CacheItem<kt> ret;
-            lock (this)
-            {
+
                 // Add this item to the MRU list
-                ret = Insert(new CacheItem<kt>(key));
+                var ret = Insert(new CacheItem<keyType>(key));
 
                 // See if we need to evict an old item
                 numItems++;
                 if (numItems > maxItems)
                     Evict();
                 Inserts++;
+
+                // Update the dictionary within the lock to prevent race conditions
+                lookup[key] = new A<CacheItem<keyType>, valueType>(ret, value);
             }
-            lookup[key] = new A<CacheItem<kt>, vt>(ret, value);
         }
     }
 
-}
 }
