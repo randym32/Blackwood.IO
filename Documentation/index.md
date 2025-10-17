@@ -14,6 +14,10 @@ This documentation covers the API reference and usage examples for Blackwood.IO.
 
 The API documentation is automatically generated from the source code.
 
+## Glossary
+
+For definitions of key terms and concepts used throughout this documentation, see the [Glossary](glossary.md).
+
 ## Contributing
 
 Please see the [Contributing Guide](contributing/CONTRIBUTING.md) for information on how to contribute to this project.
