@@ -3,4 +3,3 @@ apiRules:
     uidRegex: ^System\.Object
 - exclude:
     uidRegex: ^System\.Exception
-    

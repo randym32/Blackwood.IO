@@ -2,7 +2,7 @@
 
 The `.proto` files should follow [Google's protobuf style][0] guidelines.
 
-## Documentation style 
+## Documentation style
 
 ### Markdown files
 

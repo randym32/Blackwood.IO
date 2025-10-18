@@ -1,0 +1,22 @@
+- name: Documentation
+  href: ../index.md
+- name: Articles
+  href: ../articles/intro.md
+  items:
+  - name: Building the Documentation
+    href: ../building-docs.md
+- name: API Reference
+  href: ../api/index.md
+- name: Contribution Guidelines
+  href: CONTRIBUTING.md
+  items:
+  - name: Code of Conduct
+    href: code_of_conduct.md
+  - name: How to File an Issue
+    href: how-to-file-an-issue.md
+  - name: Pull Requests
+    href: pull-requests.md
+  - name: Style Guide
+    href: style-guide.md
+- name: Glossary
+  href: ../glossary.md

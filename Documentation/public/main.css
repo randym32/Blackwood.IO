@@ -1,0 +1,11 @@
+header { display: none !important; height: 0 !important; }
+.article {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+.footer {
+    padding-top: 1px 0 !important;
+}
+.toc-offcanvas {
+    max-width: 200px !important;
+}

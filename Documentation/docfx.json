@@ -3,49 +3,33 @@
     {
       "src": [
         {
-          "files": [
-            "**.csproj"
-          ],
-          "exclude": [ "**/bin/**", "**/obj/**", "**/.editorconfig" ],
+          "files": [ "**.csproj" ],
+          "exclude": [ "**/bin/**", "**/obj/**" ],
           "src": "../src"
         }
       ],
-      "dest": "obj/api",
-      "filter": "filterConfig.yml",
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "dest": "api",
+      "filter": "filterConfig.yml"
     }
   ],
   "build": {
-    "content": [
+   "content": [
       {
-        "files": [
-          "api/**.yml"
-        ],
-        "cwd": "obj"
+         "files": [ "api/**.md", "api/**.yml", "api/**/toc.yml" ]
       },
       {
-        "files": [
-          "api/**.md",
-          "contributing/**.md"
-        ]
+         "files": [ "articles/**.md", "articles/**/toc.yml" ]
       },
       {
-        "files": [
-          "articles/**.md",
-          "articles/**/toc.yml",
-          "toc.yml",
-          "*.md"
-        ]
+         "files": [ "contributing/**.md", "contributing/**/toc.yml" ]
+      },
+      {
+         "files": [ "**.md", "toc.yml" ]
       }
-    ],
+   ],
     "resource": [
       {
-        "files": [
-          "images/**",
-          "favicon.ico",
-          "icon-small.png"
-        ]
+         "files": [ "logo-small.png", "favicon.ico", "public/**" ]
       }
     ],
     "postProcessors": [ "ExtractSearchIndex" ],
@@ -53,22 +37,26 @@
       "_enableSearch": "true",
       "_appTitle": "Blackwood.IO",
       "_appFaviconPath": "favicon.ico",
-      "_appLogoPath": "logo-small.png"
+      "_appLogoPath": "logo-small.png",
+      "_appFooter": "Copyright 2021-2025 Randall Maas",
+      "_disableEdit": true,
+      "_disableNavbar": true,
+      "_disableBreadcrumb": true,
+      "_disableHeader": true,
+      "_disableContribution": true,
+      "_disableToc": false
     },
-    "xrefService": [
-      "https://xref.docs.microsoft.com/query?uid={uid}"
-    ],
     "dest": "../docs",
-    "globalMetadataFiles": [],
-    "fileMetadataFiles": [],
     "template": [
       "default",
+      "modern",
       "template"
     ],
     "markdownEngineName": "markdig",
-    "noLangKeyword": false,
-    "keepFileLink": false,
-    "cleanupCacheHistory": false,
-    "disableGitFeatures": false
+    "markdownEngineProperties": {
+      "markdigExtensions": [
+        "SmartyPants"
+      ]
+    }
   }
 }
