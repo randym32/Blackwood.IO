@@ -1,69 +1,75 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Pull Requests | Blackwood.IO </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Pull Requests | Blackwood.IO ">
-    <meta name="generator" content="docfx 2.56.6.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <title>Pull Requests | Blackwood.IO </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Pull Requests | Blackwood.IO ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/randym32/Blackwood.IO/blob/main/Documentation/contributing/pull-requests.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                  <img id="logo" class="png" src="../logo-small.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar"></div>
-          </div>
-        </nav>
-        
-    <div class="topcorner">
-      <form class="navbar-form navbar-right" role="search" id="search">
-        <div class="form-group">
-          <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-        </div>
-      </form>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+    </header>
+      <div class="affix" style="position: fixed; top: 1px; right: 20px; width: 230px; z-index: 1050; height: 48px;">
+              <form class="search" role="search" id="search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search" style="height:32px; padding-top:2px; padding-bottom:2px;">
+              </form>
       </div>
-      </header>
-      <div class="container-fluid body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container-fluid body-content hide-when-search">
-        <div class="article row grid">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+        </div>
+
+        <article data-uid="">
 <h1 id="pull-requests">Pull Requests</h1>
 
 <p>This document describes what you needed to know about the pull request process.</p>
@@ -83,7 +89,7 @@ review the potential changes with collaborators and add follow-up commits
 before your changes are merged into the base branch.</p>
 </blockquote>
 <p>The pull request allows others to review the changes, test them, and provide
-feedback -- including requests to makes to the changees, so that they better
+feedback &ndash; including requests to makes to the changees, so that they better
 fit into the project.</p>
 <p><a name="pull-request-process"></a></p>
 <h2 id="pull-request-process">Pull Request Process</h2>
@@ -120,7 +126,7 @@ can approve them in Github.  In some cases, multiple people will have the
 chance to review/comment.</p>
 <p>Please check your pull request for comments, feedback, and suggested changes:</p>
 <ul>
-<li>Review the suggested changes using the &quot;View changes&quot; button.</li>
+<li>Review the suggested changes using the &ldquo;View changes&rdquo; button.</li>
 <li><a href="https://help.github.com/en/articles/incorporating-feedback-in-your-pull-request#applying-suggested-changes">Commit</a> the suggestions.</li>
 <li><a href="https://help.github.com/en/articles/about-conversations-on-github">Discuss suggestions</a> to ask questions about the suggested changes.</li>
 <li>Incoprorate the <a href="https://help.github.com/en/articles/incorporating-feedback-in-your-pull-request">suggestions to your changes</a></li>
@@ -130,7 +136,7 @@ chance to review/comment.</p>
 feedback may be provided. Feedback isn't meant as an attack, but to help make
 sure the highest-quality workmanship makes it into our project. Changes will be
 approved once required feedback has been addressed.</p>
-<p>If a maintainer asks you to &quot;rebase&quot; your PR, they're saying that a lot of
+<p>If a maintainer asks you to &ldquo;rebase&rdquo; your PR, they're saying that a lot of
 files has changed, and that you need to update your fork so it's easier to
 merge.</p>
 <p>To update your forked repository, follow these steps:</p>
@@ -164,42 +170,27 @@ are happy with your changes first!</p>
 <p><em>Credits: This page was adapted from an <a href="https://github.com/embeddedartistry/embedded-resources/blob/master/docs/">EmbeddedArtistry template</a></em>
 <em>and adapted from the
 <a href="https://github.com/gatsbyjs/gatsby/blob/master/docs/contributing/">Gatsbj.js project</a></em></p>
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/randym32/Blackwood.IO/blob/gh-pages/Documentation/contributing/pull-requests.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright 2021-2025 Randall Maas
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container-fluid">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Copyright (c) 2020-2021 by Randall Maas</span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

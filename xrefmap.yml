@@ -27,22 +27,22 @@ references:
   fullName: Blackwood.Application.Name
   nameWithType: Application.Name
 - uid: Blackwood.CacheItem`1
-  name: CacheItem<t>
+  name: CacheItem<itemType>
   href: api/Blackwood.CacheItem-1.html
   commentId: T:Blackwood.CacheItem`1
-  name.vb: CacheItem(Of t)
-  fullName: Blackwood.CacheItem<t>
-  fullName.vb: Blackwood.CacheItem(Of t)
-  nameWithType: CacheItem<t>
-  nameWithType.vb: CacheItem(Of t)
+  name.vb: CacheItem(Of itemType)
+  fullName: Blackwood.CacheItem<itemType>
+  fullName.vb: Blackwood.CacheItem(Of itemType)
+  nameWithType: CacheItem<itemType>
+  nameWithType.vb: CacheItem(Of itemType)
 - uid: Blackwood.CacheItem`1.key
   name: key
   href: api/Blackwood.CacheItem-1.html#Blackwood_CacheItem_1_key
   commentId: F:Blackwood.CacheItem`1.key
-  fullName: Blackwood.CacheItem<t>.key
-  fullName.vb: Blackwood.CacheItem(Of t).key
-  nameWithType: CacheItem<t>.key
-  nameWithType.vb: CacheItem(Of t).key
+  fullName: Blackwood.CacheItem<itemType>.key
+  fullName.vb: Blackwood.CacheItem(Of itemType).key
+  nameWithType: CacheItem<itemType>.key
+  nameWithType.vb: CacheItem(Of itemType).key
 - uid: Blackwood.EmbeddedResources
   name: EmbeddedResources
   href: api/Blackwood.EmbeddedResources.html
@@ -53,21 +53,30 @@ references:
   name: EmbeddedResources()
   href: api/Blackwood.EmbeddedResources.html#Blackwood_EmbeddedResources__ctor
   commentId: M:Blackwood.EmbeddedResources.#ctor
+  name.vb: New()
   fullName: Blackwood.EmbeddedResources.EmbeddedResources()
+  fullName.vb: Blackwood.EmbeddedResources.New()
   nameWithType: EmbeddedResources.EmbeddedResources()
+  nameWithType.vb: EmbeddedResources.New()
 - uid: Blackwood.EmbeddedResources.#ctor(System.Reflection.Assembly)
   name: EmbeddedResources(Assembly)
   href: api/Blackwood.EmbeddedResources.html#Blackwood_EmbeddedResources__ctor_System_Reflection_Assembly_
   commentId: M:Blackwood.EmbeddedResources.#ctor(System.Reflection.Assembly)
+  name.vb: New(Assembly)
   fullName: Blackwood.EmbeddedResources.EmbeddedResources(System.Reflection.Assembly)
+  fullName.vb: Blackwood.EmbeddedResources.New(System.Reflection.Assembly)
   nameWithType: EmbeddedResources.EmbeddedResources(Assembly)
+  nameWithType.vb: EmbeddedResources.New(Assembly)
 - uid: Blackwood.EmbeddedResources.#ctor*
   name: EmbeddedResources
   href: api/Blackwood.EmbeddedResources.html#Blackwood_EmbeddedResources__ctor_
   commentId: Overload:Blackwood.EmbeddedResources.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Blackwood.EmbeddedResources.EmbeddedResources
+  fullName.vb: Blackwood.EmbeddedResources.New
   nameWithType: EmbeddedResources.EmbeddedResources
+  nameWithType.vb: EmbeddedResources.New
 - uid: Blackwood.EmbeddedResources.Dispose
   name: Dispose()
   href: api/Blackwood.EmbeddedResources.html#Blackwood_EmbeddedResources_Dispose
@@ -82,11 +91,14 @@ references:
   fullName: Blackwood.EmbeddedResources.Dispose
   nameWithType: EmbeddedResources.Dispose
 - uid: Blackwood.EmbeddedResources.Exists(System.String)
-  name: Exists(String)
+  name: Exists(string)
   href: api/Blackwood.EmbeddedResources.html#Blackwood_EmbeddedResources_Exists_System_String_
   commentId: M:Blackwood.EmbeddedResources.Exists(System.String)
-  fullName: Blackwood.EmbeddedResources.Exists(System.String)
-  nameWithType: EmbeddedResources.Exists(String)
+  name.vb: Exists(String)
+  fullName: Blackwood.EmbeddedResources.Exists(string)
+  fullName.vb: Blackwood.EmbeddedResources.Exists(String)
+  nameWithType: EmbeddedResources.Exists(string)
+  nameWithType.vb: EmbeddedResources.Exists(String)
 - uid: Blackwood.EmbeddedResources.Exists*
   name: Exists
   href: api/Blackwood.EmbeddedResources.html#Blackwood_EmbeddedResources_Exists_
@@ -95,11 +107,14 @@ references:
   fullName: Blackwood.EmbeddedResources.Exists
   nameWithType: EmbeddedResources.Exists
 - uid: Blackwood.EmbeddedResources.Stream(System.String)
-  name: Stream(String)
+  name: Stream(string)
   href: api/Blackwood.EmbeddedResources.html#Blackwood_EmbeddedResources_Stream_System_String_
   commentId: M:Blackwood.EmbeddedResources.Stream(System.String)
-  fullName: Blackwood.EmbeddedResources.Stream(System.String)
-  nameWithType: EmbeddedResources.Stream(String)
+  name.vb: Stream(String)
+  fullName: Blackwood.EmbeddedResources.Stream(string)
+  fullName.vb: Blackwood.EmbeddedResources.Stream(String)
+  nameWithType: EmbeddedResources.Stream(string)
+  nameWithType.vb: EmbeddedResources.Stream(String)
 - uid: Blackwood.EmbeddedResources.Stream*
   name: Stream
   href: api/Blackwood.EmbeddedResources.html#Blackwood_EmbeddedResources_Stream_
@@ -107,70 +122,6 @@ references:
   isSpec: "True"
   fullName: Blackwood.EmbeddedResources.Stream
   nameWithType: EmbeddedResources.Stream
-- uid: Blackwood.FolderWrapper
-  name: FolderWrapper
-  href: api/Blackwood.FolderWrapper.html
-  commentId: T:Blackwood.FolderWrapper
-  fullName: Blackwood.FolderWrapper
-  nameWithType: FolderWrapper
-- uid: Blackwood.FolderWrapper.#ctor(System.String)
-  name: FolderWrapper(String)
-  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper__ctor_System_String_
-  commentId: M:Blackwood.FolderWrapper.#ctor(System.String)
-  fullName: Blackwood.FolderWrapper.FolderWrapper(System.String)
-  nameWithType: FolderWrapper.FolderWrapper(String)
-- uid: Blackwood.FolderWrapper.#ctor*
-  name: FolderWrapper
-  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper__ctor_
-  commentId: Overload:Blackwood.FolderWrapper.#ctor
-  isSpec: "True"
-  fullName: Blackwood.FolderWrapper.FolderWrapper
-  nameWithType: FolderWrapper.FolderWrapper
-- uid: Blackwood.FolderWrapper.Dispose
-  name: Dispose()
-  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Dispose
-  commentId: M:Blackwood.FolderWrapper.Dispose
-  fullName: Blackwood.FolderWrapper.Dispose()
-  nameWithType: FolderWrapper.Dispose()
-- uid: Blackwood.FolderWrapper.Dispose(System.Boolean)
-  name: Dispose(Boolean)
-  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Dispose_System_Boolean_
-  commentId: M:Blackwood.FolderWrapper.Dispose(System.Boolean)
-  fullName: Blackwood.FolderWrapper.Dispose(System.Boolean)
-  nameWithType: FolderWrapper.Dispose(Boolean)
-- uid: Blackwood.FolderWrapper.Dispose*
-  name: Dispose
-  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Dispose_
-  commentId: Overload:Blackwood.FolderWrapper.Dispose
-  isSpec: "True"
-  fullName: Blackwood.FolderWrapper.Dispose
-  nameWithType: FolderWrapper.Dispose
-- uid: Blackwood.FolderWrapper.Exists(System.String)
-  name: Exists(String)
-  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Exists_System_String_
-  commentId: M:Blackwood.FolderWrapper.Exists(System.String)
-  fullName: Blackwood.FolderWrapper.Exists(System.String)
-  nameWithType: FolderWrapper.Exists(String)
-- uid: Blackwood.FolderWrapper.Exists*
-  name: Exists
-  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Exists_
-  commentId: Overload:Blackwood.FolderWrapper.Exists
-  isSpec: "True"
-  fullName: Blackwood.FolderWrapper.Exists
-  nameWithType: FolderWrapper.Exists
-- uid: Blackwood.FolderWrapper.Stream(System.String)
-  name: Stream(String)
-  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Stream_System_String_
-  commentId: M:Blackwood.FolderWrapper.Stream(System.String)
-  fullName: Blackwood.FolderWrapper.Stream(System.String)
-  nameWithType: FolderWrapper.Stream(String)
-- uid: Blackwood.FolderWrapper.Stream*
-  name: Stream
-  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Stream_
-  commentId: Overload:Blackwood.FolderWrapper.Stream
-  isSpec: "True"
-  fullName: Blackwood.FolderWrapper.Stream
-  nameWithType: FolderWrapper.Stream
 - uid: Blackwood.FS
   name: FS
   href: api/Blackwood.FS.html
@@ -204,11 +155,14 @@ references:
   fullName: Blackwood.FS.AssemblyDirectory
   nameWithType: FS.AssemblyDirectory
 - uid: Blackwood.FS.BuildNameToRelativePathXref(System.String,System.String)
-  name: BuildNameToRelativePathXref(String, String)
+  name: BuildNameToRelativePathXref(string, string)
   href: api/Blackwood.FS.html#Blackwood_FS_BuildNameToRelativePathXref_System_String_System_String_
   commentId: M:Blackwood.FS.BuildNameToRelativePathXref(System.String,System.String)
-  fullName: Blackwood.FS.BuildNameToRelativePathXref(System.String, System.String)
-  nameWithType: FS.BuildNameToRelativePathXref(String, String)
+  name.vb: BuildNameToRelativePathXref(String, String)
+  fullName: Blackwood.FS.BuildNameToRelativePathXref(string, string)
+  fullName.vb: Blackwood.FS.BuildNameToRelativePathXref(String, String)
+  nameWithType: FS.BuildNameToRelativePathXref(string, string)
+  nameWithType.vb: FS.BuildNameToRelativePathXref(String, String)
 - uid: Blackwood.FS.BuildNameToRelativePathXref*
   name: BuildNameToRelativePathXref
   href: api/Blackwood.FS.html#Blackwood_FS_BuildNameToRelativePathXref_
@@ -236,11 +190,14 @@ references:
   fullName: Blackwood.FS.ExeFilePath
   nameWithType: FS.ExeFilePath
 - uid: Blackwood.FS.RemoveBasePath(System.String,System.String)
-  name: RemoveBasePath(String, String)
+  name: RemoveBasePath(string, string)
   href: api/Blackwood.FS.html#Blackwood_FS_RemoveBasePath_System_String_System_String_
   commentId: M:Blackwood.FS.RemoveBasePath(System.String,System.String)
-  fullName: Blackwood.FS.RemoveBasePath(System.String, System.String)
-  nameWithType: FS.RemoveBasePath(String, String)
+  name.vb: RemoveBasePath(String, String)
+  fullName: Blackwood.FS.RemoveBasePath(string, string)
+  fullName.vb: Blackwood.FS.RemoveBasePath(String, String)
+  nameWithType: FS.RemoveBasePath(string, string)
+  nameWithType.vb: FS.RemoveBasePath(String, String)
 - uid: Blackwood.FS.RemoveBasePath*
   name: RemoveBasePath
   href: api/Blackwood.FS.html#Blackwood_FS_RemoveBasePath_
@@ -248,6 +205,85 @@ references:
   isSpec: "True"
   fullName: Blackwood.FS.RemoveBasePath
   nameWithType: FS.RemoveBasePath
+- uid: Blackwood.FolderWrapper
+  name: FolderWrapper
+  href: api/Blackwood.FolderWrapper.html
+  commentId: T:Blackwood.FolderWrapper
+  fullName: Blackwood.FolderWrapper
+  nameWithType: FolderWrapper
+- uid: Blackwood.FolderWrapper.#ctor(System.String)
+  name: FolderWrapper(string)
+  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper__ctor_System_String_
+  commentId: M:Blackwood.FolderWrapper.#ctor(System.String)
+  name.vb: New(String)
+  fullName: Blackwood.FolderWrapper.FolderWrapper(string)
+  fullName.vb: Blackwood.FolderWrapper.New(String)
+  nameWithType: FolderWrapper.FolderWrapper(string)
+  nameWithType.vb: FolderWrapper.New(String)
+- uid: Blackwood.FolderWrapper.#ctor*
+  name: FolderWrapper
+  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper__ctor_
+  commentId: Overload:Blackwood.FolderWrapper.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: Blackwood.FolderWrapper.FolderWrapper
+  fullName.vb: Blackwood.FolderWrapper.New
+  nameWithType: FolderWrapper.FolderWrapper
+  nameWithType.vb: FolderWrapper.New
+- uid: Blackwood.FolderWrapper.Dispose
+  name: Dispose()
+  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Dispose
+  commentId: M:Blackwood.FolderWrapper.Dispose
+  fullName: Blackwood.FolderWrapper.Dispose()
+  nameWithType: FolderWrapper.Dispose()
+- uid: Blackwood.FolderWrapper.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Dispose_System_Boolean_
+  commentId: M:Blackwood.FolderWrapper.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: Blackwood.FolderWrapper.Dispose(bool)
+  fullName.vb: Blackwood.FolderWrapper.Dispose(Boolean)
+  nameWithType: FolderWrapper.Dispose(bool)
+  nameWithType.vb: FolderWrapper.Dispose(Boolean)
+- uid: Blackwood.FolderWrapper.Dispose*
+  name: Dispose
+  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Dispose_
+  commentId: Overload:Blackwood.FolderWrapper.Dispose
+  isSpec: "True"
+  fullName: Blackwood.FolderWrapper.Dispose
+  nameWithType: FolderWrapper.Dispose
+- uid: Blackwood.FolderWrapper.Exists(System.String)
+  name: Exists(string)
+  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Exists_System_String_
+  commentId: M:Blackwood.FolderWrapper.Exists(System.String)
+  name.vb: Exists(String)
+  fullName: Blackwood.FolderWrapper.Exists(string)
+  fullName.vb: Blackwood.FolderWrapper.Exists(String)
+  nameWithType: FolderWrapper.Exists(string)
+  nameWithType.vb: FolderWrapper.Exists(String)
+- uid: Blackwood.FolderWrapper.Exists*
+  name: Exists
+  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Exists_
+  commentId: Overload:Blackwood.FolderWrapper.Exists
+  isSpec: "True"
+  fullName: Blackwood.FolderWrapper.Exists
+  nameWithType: FolderWrapper.Exists
+- uid: Blackwood.FolderWrapper.Stream(System.String)
+  name: Stream(string)
+  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Stream_System_String_
+  commentId: M:Blackwood.FolderWrapper.Stream(System.String)
+  name.vb: Stream(String)
+  fullName: Blackwood.FolderWrapper.Stream(string)
+  fullName.vb: Blackwood.FolderWrapper.Stream(String)
+  nameWithType: FolderWrapper.Stream(string)
+  nameWithType.vb: FolderWrapper.Stream(String)
+- uid: Blackwood.FolderWrapper.Stream*
+  name: Stream
+  href: api/Blackwood.FolderWrapper.html#Blackwood_FolderWrapper_Stream_
+  commentId: Overload:Blackwood.FolderWrapper.Stream
+  isSpec: "True"
+  fullName: Blackwood.FolderWrapper.Stream
+  nameWithType: FolderWrapper.Stream
 - uid: Blackwood.IFolderWrapper
   name: IFolderWrapper
   href: api/Blackwood.IFolderWrapper.html
@@ -255,11 +291,14 @@ references:
   fullName: Blackwood.IFolderWrapper
   nameWithType: IFolderWrapper
 - uid: Blackwood.IFolderWrapper.Exists(System.String)
-  name: Exists(String)
+  name: Exists(string)
   href: api/Blackwood.IFolderWrapper.html#Blackwood_IFolderWrapper_Exists_System_String_
   commentId: M:Blackwood.IFolderWrapper.Exists(System.String)
-  fullName: Blackwood.IFolderWrapper.Exists(System.String)
-  nameWithType: IFolderWrapper.Exists(String)
+  name.vb: Exists(String)
+  fullName: Blackwood.IFolderWrapper.Exists(string)
+  fullName.vb: Blackwood.IFolderWrapper.Exists(String)
+  nameWithType: IFolderWrapper.Exists(string)
+  nameWithType.vb: IFolderWrapper.Exists(String)
 - uid: Blackwood.IFolderWrapper.Exists*
   name: Exists
   href: api/Blackwood.IFolderWrapper.html#Blackwood_IFolderWrapper_Exists_
@@ -268,11 +307,14 @@ references:
   fullName: Blackwood.IFolderWrapper.Exists
   nameWithType: IFolderWrapper.Exists
 - uid: Blackwood.IFolderWrapper.Stream(System.String)
-  name: Stream(String)
+  name: Stream(string)
   href: api/Blackwood.IFolderWrapper.html#Blackwood_IFolderWrapper_Stream_System_String_
   commentId: M:Blackwood.IFolderWrapper.Stream(System.String)
-  fullName: Blackwood.IFolderWrapper.Stream(System.String)
-  nameWithType: IFolderWrapper.Stream(String)
+  name.vb: Stream(String)
+  fullName: Blackwood.IFolderWrapper.Stream(string)
+  fullName.vb: Blackwood.IFolderWrapper.Stream(String)
+  nameWithType: IFolderWrapper.Stream(string)
+  nameWithType.vb: IFolderWrapper.Stream(String)
 - uid: Blackwood.IFolderWrapper.Stream*
   name: Stream
   href: api/Blackwood.IFolderWrapper.html#Blackwood_IFolderWrapper_Stream_
@@ -281,74 +323,77 @@ references:
   fullName: Blackwood.IFolderWrapper.Stream
   nameWithType: IFolderWrapper.Stream
 - uid: Blackwood.MRUCache`2
-  name: MRUCache<kt, vt>
+  name: MRUCache<keyType, valueType>
   href: api/Blackwood.MRUCache-2.html
   commentId: T:Blackwood.MRUCache`2
-  name.vb: MRUCache(Of kt, vt)
-  fullName: Blackwood.MRUCache<kt, vt>
-  fullName.vb: Blackwood.MRUCache(Of kt, vt)
-  nameWithType: MRUCache<kt, vt>
-  nameWithType.vb: MRUCache(Of kt, vt)
+  name.vb: MRUCache(Of keyType, valueType)
+  fullName: Blackwood.MRUCache<keyType, valueType>
+  fullName.vb: Blackwood.MRUCache(Of keyType, valueType)
+  nameWithType: MRUCache<keyType, valueType>
+  nameWithType.vb: MRUCache(Of keyType, valueType)
 - uid: Blackwood.MRUCache`2.#ctor(System.Int32)
-  name: MRUCache(Int32)
+  name: MRUCache(int)
   href: api/Blackwood.MRUCache-2.html#Blackwood_MRUCache_2__ctor_System_Int32_
   commentId: M:Blackwood.MRUCache`2.#ctor(System.Int32)
-  fullName: Blackwood.MRUCache<kt, vt>.MRUCache(System.Int32)
-  fullName.vb: Blackwood.MRUCache(Of kt, vt).MRUCache(System.Int32)
-  nameWithType: MRUCache<kt, vt>.MRUCache(Int32)
-  nameWithType.vb: MRUCache(Of kt, vt).MRUCache(Int32)
+  name.vb: New(Integer)
+  fullName: Blackwood.MRUCache<keyType, valueType>.MRUCache(int)
+  fullName.vb: Blackwood.MRUCache(Of keyType, valueType).New(Integer)
+  nameWithType: MRUCache<keyType, valueType>.MRUCache(int)
+  nameWithType.vb: MRUCache(Of keyType, valueType).New(Integer)
 - uid: Blackwood.MRUCache`2.#ctor*
   name: MRUCache
   href: api/Blackwood.MRUCache-2.html#Blackwood_MRUCache_2__ctor_
   commentId: Overload:Blackwood.MRUCache`2.#ctor
   isSpec: "True"
-  fullName: Blackwood.MRUCache<kt, vt>.MRUCache
-  fullName.vb: Blackwood.MRUCache(Of kt, vt).MRUCache
-  nameWithType: MRUCache<kt, vt>.MRUCache
-  nameWithType.vb: MRUCache(Of kt, vt).MRUCache
+  name.vb: New
+  fullName: Blackwood.MRUCache<keyType, valueType>.MRUCache
+  fullName.vb: Blackwood.MRUCache(Of keyType, valueType).New
+  nameWithType: MRUCache<keyType, valueType>.MRUCache
+  nameWithType.vb: MRUCache(Of keyType, valueType).New
 - uid: Blackwood.MRUCache`2.Enumerate
   name: Enumerate()
   href: api/Blackwood.MRUCache-2.html#Blackwood_MRUCache_2_Enumerate
   commentId: M:Blackwood.MRUCache`2.Enumerate
-  fullName: Blackwood.MRUCache<kt, vt>.Enumerate()
-  fullName.vb: Blackwood.MRUCache(Of kt, vt).Enumerate()
-  nameWithType: MRUCache<kt, vt>.Enumerate()
-  nameWithType.vb: MRUCache(Of kt, vt).Enumerate()
+  fullName: Blackwood.MRUCache<keyType, valueType>.Enumerate()
+  fullName.vb: Blackwood.MRUCache(Of keyType, valueType).Enumerate()
+  nameWithType: MRUCache<keyType, valueType>.Enumerate()
+  nameWithType.vb: MRUCache(Of keyType, valueType).Enumerate()
 - uid: Blackwood.MRUCache`2.Enumerate*
   name: Enumerate
   href: api/Blackwood.MRUCache-2.html#Blackwood_MRUCache_2_Enumerate_
   commentId: Overload:Blackwood.MRUCache`2.Enumerate
   isSpec: "True"
-  fullName: Blackwood.MRUCache<kt, vt>.Enumerate
-  fullName.vb: Blackwood.MRUCache(Of kt, vt).Enumerate
-  nameWithType: MRUCache<kt, vt>.Enumerate
-  nameWithType.vb: MRUCache(Of kt, vt).Enumerate
+  fullName: Blackwood.MRUCache<keyType, valueType>.Enumerate
+  fullName.vb: Blackwood.MRUCache(Of keyType, valueType).Enumerate
+  nameWithType: MRUCache<keyType, valueType>.Enumerate
+  nameWithType.vb: MRUCache(Of keyType, valueType).Enumerate
+- uid: Blackwood.MRUCache`2.Item(`0)
+  name: this[keyType]
+  href: api/Blackwood.MRUCache-2.html#Blackwood_MRUCache_2_Item__0_
+  commentId: P:Blackwood.MRUCache`2.Item(`0)
+  name.vb: this[](keyType)
+  fullName: Blackwood.MRUCache<keyType, valueType>.this[keyType]
+  fullName.vb: Blackwood.MRUCache(Of keyType, valueType).this[](keyType)
+  nameWithType: MRUCache<keyType, valueType>.this[keyType]
+  nameWithType.vb: MRUCache(Of keyType, valueType).this[](keyType)
+- uid: Blackwood.MRUCache`2.Item*
+  name: this
+  href: api/Blackwood.MRUCache-2.html#Blackwood_MRUCache_2_Item_
+  commentId: Overload:Blackwood.MRUCache`2.Item
+  isSpec: "True"
+  name.vb: this[]
+  fullName: Blackwood.MRUCache<keyType, valueType>.this
+  fullName.vb: Blackwood.MRUCache(Of keyType, valueType).this[]
+  nameWithType: MRUCache<keyType, valueType>.this
+  nameWithType.vb: MRUCache(Of keyType, valueType).this[]
 - uid: Blackwood.MRUCache`2.head
   name: head
   href: api/Blackwood.MRUCache-2.html#Blackwood_MRUCache_2_head
   commentId: F:Blackwood.MRUCache`2.head
-  fullName: Blackwood.MRUCache<kt, vt>.head
-  fullName.vb: Blackwood.MRUCache(Of kt, vt).head
-  nameWithType: MRUCache<kt, vt>.head
-  nameWithType.vb: MRUCache(Of kt, vt).head
-- uid: Blackwood.MRUCache`2.Item(`0)
-  name: Item[kt]
-  href: api/Blackwood.MRUCache-2.html#Blackwood_MRUCache_2_Item__0_
-  commentId: P:Blackwood.MRUCache`2.Item(`0)
-  name.vb: Item(kt)
-  fullName: Blackwood.MRUCache<kt, vt>.Item[kt]
-  fullName.vb: Blackwood.MRUCache(Of kt, vt).Item(kt)
-  nameWithType: MRUCache<kt, vt>.Item[kt]
-  nameWithType.vb: MRUCache(Of kt, vt).Item(kt)
-- uid: Blackwood.MRUCache`2.Item*
-  name: Item
-  href: api/Blackwood.MRUCache-2.html#Blackwood_MRUCache_2_Item_
-  commentId: Overload:Blackwood.MRUCache`2.Item
-  isSpec: "True"
-  fullName: Blackwood.MRUCache<kt, vt>.Item
-  fullName.vb: Blackwood.MRUCache(Of kt, vt).Item
-  nameWithType: MRUCache<kt, vt>.Item
-  nameWithType.vb: MRUCache(Of kt, vt).Item
+  fullName: Blackwood.MRUCache<keyType, valueType>.head
+  fullName.vb: Blackwood.MRUCache(Of keyType, valueType).head
+  nameWithType: MRUCache<keyType, valueType>.head
+  nameWithType.vb: MRUCache(Of keyType, valueType).head
 - uid: Blackwood.Text
   name: Text
   href: api/Blackwood.Text.html
@@ -369,13 +414,13 @@ references:
   fullName: Blackwood.Text.ReadAllLines
   nameWithType: Text.ReadAllLines
 - uid: Blackwood.Text.SubstituteVars(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})
-  name: SubstituteVars(String, IDictionary<String, Object>)
+  name: SubstituteVars(string, IDictionary<string, object>)
   href: api/Blackwood.Text.html#Blackwood_Text_SubstituteVars_System_String_System_Collections_Generic_IDictionary_System_String_System_Object__
   commentId: M:Blackwood.Text.SubstituteVars(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})
   name.vb: SubstituteVars(String, IDictionary(Of String, Object))
-  fullName: Blackwood.Text.SubstituteVars(System.String, System.Collections.Generic.IDictionary<System.String, System.Object>)
-  fullName.vb: Blackwood.Text.SubstituteVars(System.String, System.Collections.Generic.IDictionary(Of System.String, System.Object))
-  nameWithType: Text.SubstituteVars(String, IDictionary<String, Object>)
+  fullName: Blackwood.Text.SubstituteVars(string, System.Collections.Generic.IDictionary<string, object>)
+  fullName.vb: Blackwood.Text.SubstituteVars(String, System.Collections.Generic.IDictionary(Of String, Object))
+  nameWithType: Text.SubstituteVars(string, IDictionary<string, object>)
   nameWithType.vb: Text.SubstituteVars(String, IDictionary(Of String, Object))
 - uid: Blackwood.Text.SubstituteVars*
   name: SubstituteVars
@@ -390,18 +435,15 @@ references:
   commentId: T:Blackwood.Util
   fullName: Blackwood.Util
   nameWithType: Util
-- uid: Blackwood.Util.dWriteBackground
-  name: Util.dWriteBackground
-  href: api/Blackwood.Util.dWriteBackground.html
-  commentId: T:Blackwood.Util.dWriteBackground
-  fullName: Blackwood.Util.dWriteBackground
-  nameWithType: Util.dWriteBackground
 - uid: Blackwood.Util.RunCommand(System.String,System.String,System.String)
-  name: RunCommand(String, String, String)
+  name: RunCommand(string, string, string)
   href: api/Blackwood.Util.html#Blackwood_Util_RunCommand_System_String_System_String_System_String_
   commentId: M:Blackwood.Util.RunCommand(System.String,System.String,System.String)
-  fullName: Blackwood.Util.RunCommand(System.String, System.String, System.String)
-  nameWithType: Util.RunCommand(String, String, String)
+  name.vb: RunCommand(String, String, String)
+  fullName: Blackwood.Util.RunCommand(string, string, string)
+  fullName.vb: Blackwood.Util.RunCommand(String, String, String)
+  nameWithType: Util.RunCommand(string, string, string)
+  nameWithType.vb: Util.RunCommand(String, String, String)
 - uid: Blackwood.Util.RunCommand*
   name: RunCommand
   href: api/Blackwood.Util.html#Blackwood_Util_RunCommand_
@@ -410,11 +452,14 @@ references:
   fullName: Blackwood.Util.RunCommand
   nameWithType: Util.RunCommand
 - uid: Blackwood.Util.Save(System.String,Blackwood.Util.dWriteBackground)
-  name: Save(String, Util.dWriteBackground)
+  name: Save(string, dWriteBackground)
   href: api/Blackwood.Util.html#Blackwood_Util_Save_System_String_Blackwood_Util_dWriteBackground_
   commentId: M:Blackwood.Util.Save(System.String,Blackwood.Util.dWriteBackground)
-  fullName: Blackwood.Util.Save(System.String, Blackwood.Util.dWriteBackground)
-  nameWithType: Util.Save(String, Util.dWriteBackground)
+  name.vb: Save(String, dWriteBackground)
+  fullName: Blackwood.Util.Save(string, Blackwood.Util.dWriteBackground)
+  fullName.vb: Blackwood.Util.Save(String, Blackwood.Util.dWriteBackground)
+  nameWithType: Util.Save(string, Util.dWriteBackground)
+  nameWithType.vb: Util.Save(String, Util.dWriteBackground)
 - uid: Blackwood.Util.Save*
   name: Save
   href: api/Blackwood.Util.html#Blackwood_Util_Save_
@@ -423,13 +468,13 @@ references:
   fullName: Blackwood.Util.Save
   nameWithType: Util.Save
 - uid: Blackwood.Util.Unzip(System.Byte[])
-  name: Unzip(Byte[])
+  name: Unzip(byte[])
   href: api/Blackwood.Util.html#Blackwood_Util_Unzip_System_Byte___
   commentId: M:Blackwood.Util.Unzip(System.Byte[])
   name.vb: Unzip(Byte())
-  fullName: Blackwood.Util.Unzip(System.Byte[])
-  fullName.vb: Blackwood.Util.Unzip(System.Byte())
-  nameWithType: Util.Unzip(Byte[])
+  fullName: Blackwood.Util.Unzip(byte[])
+  fullName.vb: Blackwood.Util.Unzip(Byte())
+  nameWithType: Util.Unzip(byte[])
   nameWithType.vb: Util.Unzip(Byte())
 - uid: Blackwood.Util.Unzip*
   name: Unzip
@@ -439,14 +484,14 @@ references:
   fullName: Blackwood.Util.Unzip
   nameWithType: Util.Unzip
 - uid: Blackwood.Util.Zip(System.Byte[],System.Int32,System.Int32)
-  name: Zip(Byte[], Int32, Int32)
+  name: Zip(byte[], int, int)
   href: api/Blackwood.Util.html#Blackwood_Util_Zip_System_Byte___System_Int32_System_Int32_
   commentId: M:Blackwood.Util.Zip(System.Byte[],System.Int32,System.Int32)
-  name.vb: Zip(Byte(), Int32, Int32)
-  fullName: Blackwood.Util.Zip(System.Byte[], System.Int32, System.Int32)
-  fullName.vb: Blackwood.Util.Zip(System.Byte(), System.Int32, System.Int32)
-  nameWithType: Util.Zip(Byte[], Int32, Int32)
-  nameWithType.vb: Util.Zip(Byte(), Int32, Int32)
+  name.vb: Zip(Byte(), Integer, Integer)
+  fullName: Blackwood.Util.Zip(byte[], int, int)
+  fullName.vb: Blackwood.Util.Zip(Byte(), Integer, Integer)
+  nameWithType: Util.Zip(byte[], int, int)
+  nameWithType.vb: Util.Zip(Byte(), Integer, Integer)
 - uid: Blackwood.Util.Zip*
   name: Zip
   href: api/Blackwood.Util.html#Blackwood_Util_Zip_
@@ -454,6 +499,12 @@ references:
   isSpec: "True"
   fullName: Blackwood.Util.Zip
   nameWithType: Util.Zip
+- uid: Blackwood.Util.dWriteBackground
+  name: Util.dWriteBackground
+  href: api/Blackwood.Util.dWriteBackground.html
+  commentId: T:Blackwood.Util.dWriteBackground
+  fullName: Blackwood.Util.dWriteBackground
+  nameWithType: Util.dWriteBackground
 - uid: Blackwood.ZipWrapper
   name: ZipWrapper
   href: api/Blackwood.ZipWrapper.html
@@ -464,21 +515,30 @@ references:
   name: ZipWrapper(Stream)
   href: api/Blackwood.ZipWrapper.html#Blackwood_ZipWrapper__ctor_System_IO_Stream_
   commentId: M:Blackwood.ZipWrapper.#ctor(System.IO.Stream)
+  name.vb: New(Stream)
   fullName: Blackwood.ZipWrapper.ZipWrapper(System.IO.Stream)
+  fullName.vb: Blackwood.ZipWrapper.New(System.IO.Stream)
   nameWithType: ZipWrapper.ZipWrapper(Stream)
+  nameWithType.vb: ZipWrapper.New(Stream)
 - uid: Blackwood.ZipWrapper.#ctor(System.String)
-  name: ZipWrapper(String)
+  name: ZipWrapper(string)
   href: api/Blackwood.ZipWrapper.html#Blackwood_ZipWrapper__ctor_System_String_
   commentId: M:Blackwood.ZipWrapper.#ctor(System.String)
-  fullName: Blackwood.ZipWrapper.ZipWrapper(System.String)
-  nameWithType: ZipWrapper.ZipWrapper(String)
+  name.vb: New(String)
+  fullName: Blackwood.ZipWrapper.ZipWrapper(string)
+  fullName.vb: Blackwood.ZipWrapper.New(String)
+  nameWithType: ZipWrapper.ZipWrapper(string)
+  nameWithType.vb: ZipWrapper.New(String)
 - uid: Blackwood.ZipWrapper.#ctor*
   name: ZipWrapper
   href: api/Blackwood.ZipWrapper.html#Blackwood_ZipWrapper__ctor_
   commentId: Overload:Blackwood.ZipWrapper.#ctor
   isSpec: "True"
+  name.vb: New
   fullName: Blackwood.ZipWrapper.ZipWrapper
+  fullName.vb: Blackwood.ZipWrapper.New
   nameWithType: ZipWrapper.ZipWrapper
+  nameWithType.vb: ZipWrapper.New
 - uid: Blackwood.ZipWrapper.Dispose
   name: Dispose()
   href: api/Blackwood.ZipWrapper.html#Blackwood_ZipWrapper_Dispose
@@ -486,11 +546,14 @@ references:
   fullName: Blackwood.ZipWrapper.Dispose()
   nameWithType: ZipWrapper.Dispose()
 - uid: Blackwood.ZipWrapper.Dispose(System.Boolean)
-  name: Dispose(Boolean)
+  name: Dispose(bool)
   href: api/Blackwood.ZipWrapper.html#Blackwood_ZipWrapper_Dispose_System_Boolean_
   commentId: M:Blackwood.ZipWrapper.Dispose(System.Boolean)
-  fullName: Blackwood.ZipWrapper.Dispose(System.Boolean)
-  nameWithType: ZipWrapper.Dispose(Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: Blackwood.ZipWrapper.Dispose(bool)
+  fullName.vb: Blackwood.ZipWrapper.Dispose(Boolean)
+  nameWithType: ZipWrapper.Dispose(bool)
+  nameWithType.vb: ZipWrapper.Dispose(Boolean)
 - uid: Blackwood.ZipWrapper.Dispose*
   name: Dispose
   href: api/Blackwood.ZipWrapper.html#Blackwood_ZipWrapper_Dispose_
@@ -499,11 +562,14 @@ references:
   fullName: Blackwood.ZipWrapper.Dispose
   nameWithType: ZipWrapper.Dispose
 - uid: Blackwood.ZipWrapper.Exists(System.String)
-  name: Exists(String)
+  name: Exists(string)
   href: api/Blackwood.ZipWrapper.html#Blackwood_ZipWrapper_Exists_System_String_
   commentId: M:Blackwood.ZipWrapper.Exists(System.String)
-  fullName: Blackwood.ZipWrapper.Exists(System.String)
-  nameWithType: ZipWrapper.Exists(String)
+  name.vb: Exists(String)
+  fullName: Blackwood.ZipWrapper.Exists(string)
+  fullName.vb: Blackwood.ZipWrapper.Exists(String)
+  nameWithType: ZipWrapper.Exists(string)
+  nameWithType.vb: ZipWrapper.Exists(String)
 - uid: Blackwood.ZipWrapper.Exists*
   name: Exists
   href: api/Blackwood.ZipWrapper.html#Blackwood_ZipWrapper_Exists_
@@ -525,11 +591,14 @@ references:
   fullName: Blackwood.ZipWrapper.Retain
   nameWithType: ZipWrapper.Retain
 - uid: Blackwood.ZipWrapper.Stream(System.String)
-  name: Stream(String)
+  name: Stream(string)
   href: api/Blackwood.ZipWrapper.html#Blackwood_ZipWrapper_Stream_System_String_
   commentId: M:Blackwood.ZipWrapper.Stream(System.String)
-  fullName: Blackwood.ZipWrapper.Stream(System.String)
-  nameWithType: ZipWrapper.Stream(String)
+  name.vb: Stream(String)
+  fullName: Blackwood.ZipWrapper.Stream(string)
+  fullName.vb: Blackwood.ZipWrapper.Stream(String)
+  nameWithType: ZipWrapper.Stream(string)
+  nameWithType.vb: ZipWrapper.Stream(String)
 - uid: Blackwood.ZipWrapper.Stream*
   name: Stream
   href: api/Blackwood.ZipWrapper.html#Blackwood_ZipWrapper_Stream_

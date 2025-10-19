@@ -1,352 +1,305 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class Util
-   | Blackwood.IO </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class Util
-   | Blackwood.IO ">
-    <meta name="generator" content="docfx 2.56.6.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <title>Class Util | Blackwood.IO </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class Util | Blackwood.IO ">
+      
+      <meta name="description" content="This is a helper class to provide a variety of utility procedures.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/randym32/Blackwood.IO/new/main/apiSpec/new?filename=Blackwood_Util.md&amp;value=---%0Auid%3A%20Blackwood.Util%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                  <img id="logo" class="png" src="../logo-small.png" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar"></div>
-          </div>
-        </nav>
-        
-    <div class="topcorner">
-      <form class="navbar-form navbar-right" role="search" id="search">
-        <div class="form-group">
-          <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-        </div>
-      </form>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+    </header>
+      <div class="affix" style="position: fixed; top: 1px; right: 20px; width: 230px; z-index: 1050; height: 48px;">
+              <form class="search" role="search" id="search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search" style="height:32px; padding-top:2px; padding-bottom:2px;">
+              </form>
       </div>
-      </header>
-      <div class="container-fluid body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container-fluid body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search" style="margin-left: -15px">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-             <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Blackwood.Util">
-  
-  
-  <h1 id="Blackwood_Util" data-uid="Blackwood.Util" class="text-break">Class Util
+
+        <article data-uid="Blackwood.Util">
+
+
+
+  <h1 id="Blackwood_Util" data-uid="Blackwood.Util" class="text-break">
+Class Util  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Zip.cs/#L8"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>This is a helper class to provide a variety of utility procedures.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">Util</span></div>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="Blackwood.html">Blackwood</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>Blackwood.IO.dll</dd></dl>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Blackwood.html">Blackwood</a></h6>
-  <h6><strong>Assembly</strong>: Blackwood.IO.dll</h6>
-  <h5 id="Blackwood_Util_syntax">Syntax</h5>
+
+  <div class="markdown summary"><p>This is a helper class to provide a variety of utility procedures.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static class Util</code></pre>
   </div>
-  <h3 id="methods">Methods
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/randym32/Blackwood.IO/new/gh-pages/apiSpec/new?filename=Blackwood_Util_RunCommand_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20Blackwood.Util.RunCommand(System.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/randym32/Blackwood.IO/blob/gh-pages/src/RunProgram.cs/#L15">View Source</a>
-  </span>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">Util</span></div>
+    </dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="Blackwood_Util_RunCommand_" data-uid="Blackwood.Util.RunCommand*"></a>
-  <h4 id="Blackwood_Util_RunCommand_System_String_System_String_System_String_" data-uid="Blackwood.Util.RunCommand(System.String,System.String,System.String)">RunCommand(String, String, String)</h4>
+
+  <h3 id="Blackwood_Util_RunCommand_System_String_System_String_System_String_" data-uid="Blackwood.Util.RunCommand(System.String,System.String,System.String)">
+  RunCommand(string, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/RunProgram.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>This is used to run the program or verb-based commands in the background.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static IAsyncEnumerable&lt;string&gt; RunCommand(string toRun = null, string verb = null, string arguments = null)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">toRun</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">verb</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">arguments</span></td>
-        <td><p>The command line arguments</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
-        <td><p>An enumeration of teh text lines that the process emitted</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/randym32/Blackwood.IO/new/gh-pages/apiSpec/new?filename=Blackwood_Util_Save_System_String_Blackwood_Util_dWriteBackground_.md&amp;value=---%0Auid%3A%20Blackwood.Util.Save(System.String%2CBlackwood.Util.dWriteBackground)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/randym32/Blackwood.IO/blob/gh-pages/src/Storage/BackgroundSave.cs/#L31">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>toRun</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path to the executable or command to run.</p>
+</dd>
+    <dt><code>verb</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The verb to use to run the program.</p>
+</dd>
+    <dt><code>arguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The command line arguments</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.iasyncenumerable-1">IAsyncEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>An enumeration of the text lines that the process emitted</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Blackwood_Util_Save_" data-uid="Blackwood.Util.Save*"></a>
-  <h4 id="Blackwood_Util_Save_System_String_Blackwood_Util_dWriteBackground_" data-uid="Blackwood.Util.Save(System.String,Blackwood.Util.dWriteBackground)">Save(String, Util.dWriteBackground)</h4>
+
+  <h3 id="Blackwood_Util_Save_System_String_Blackwood_Util_dWriteBackground_" data-uid="Blackwood.Util.Save(System.String,Blackwood.Util.dWriteBackground)">
+  Save(string, dWriteBackground)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/BackgroundSave.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Saves the file to the given path.
 This is done in the background by first writing to a temporary file,
 then moving to the target.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static void Save(string path, Util.dWriteBackground writeBackground)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">path</span></td>
-        <td><p>The path to store the data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Blackwood.Util.dWriteBackground.html">Util.dWriteBackground</a></td>
-        <td><span class="parametername">writeBackground</span></td>
-        <td><p>The callback to populate the data in the file.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/randym32/Blackwood.IO/new/gh-pages/apiSpec/new?filename=Blackwood_Util_Unzip_System_Byte___.md&amp;value=---%0Auid%3A%20Blackwood.Util.Unzip(System.Byte%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/randym32/Blackwood.IO/blob/gh-pages/src/Storage/Zip.cs/#L35">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The path to store the data.</p>
+</dd>
+    <dt><code>writeBackground</code> <a class="xref" href="Blackwood.Util.html">Util</a>.<a class="xref" href="Blackwood.Util.dWriteBackground.html">dWriteBackground</a></dt>
+    <dd><p>The callback to populate the data in the file.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="Blackwood_Util_Unzip_" data-uid="Blackwood.Util.Unzip*"></a>
-  <h4 id="Blackwood_Util_Unzip_System_Byte___" data-uid="Blackwood.Util.Unzip(System.Byte[])">Unzip(Byte[])</h4>
+
+  <h3 id="Blackwood_Util_Unzip_System_Byte___" data-uid="Blackwood.Util.Unzip(System.Byte[])">
+  Unzip(byte[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Zip.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Decompresses the array</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static byte[] Unzip(byte[] zippedBuffer)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
-        <td><span class="parametername">zippedBuffer</span></td>
-        <td><p>The buffer of compressed data</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
-        <td><p>The decompressed data</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/randym32/Blackwood.IO/new/gh-pages/apiSpec/new?filename=Blackwood_Util_Zip_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Blackwood.Util.Zip(System.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/randym32/Blackwood.IO/blob/gh-pages/src/Storage/Zip.cs/#L15">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>zippedBuffer</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The buffer of compressed data</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The decompressed data</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="Blackwood_Util_Zip_" data-uid="Blackwood.Util.Zip*"></a>
-  <h4 id="Blackwood_Util_Zip_System_Byte___System_Int32_System_Int32_" data-uid="Blackwood.Util.Zip(System.Byte[],System.Int32,System.Int32)">Zip(Byte[], Int32, Int32)</h4>
+
+  <h3 id="Blackwood_Util_Zip_System_Byte___System_Int32_System_Int32_" data-uid="Blackwood.Util.Zip(System.Byte[],System.Int32,System.Int32)">
+  Zip(byte[], int, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Zip.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Compresses the array</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static byte[] Zip(byte[] array, int offset, int count)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
-        <td><span class="parametername">array</span></td>
-        <td><p>The array to compress</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">offset</span></td>
-        <td><p>The offset in the array to start</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">count</span></td>
-        <td><p>The number of bytes to compress</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
-        <td><p>The compressed bytes</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>array</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The array to compress</p>
+</dd>
+    <dt><code>offset</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The offset in the array to start</p>
+</dd>
+    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The number of bytes to compress</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a>[]</dt>
+    <dd><p>The compressed bytes</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/randym32/Blackwood.IO/new/gh-pages/apiSpec/new?filename=Blackwood_Util.md&amp;value=---%0Auid%3A%20Blackwood.Util%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/randym32/Blackwood.IO/blob/gh-pages/src/Storage/Zip.cs/#L6" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright 2021-2025 Randall Maas
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container-fluid">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Copyright (c) 2020-2021 by Randall Maas</span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

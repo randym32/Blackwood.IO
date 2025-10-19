@@ -1,6 +1,5 @@
 {
-  "homepages": [],
-  "source_base_path": "G:/projects/github/Blackwood.IO/Documentation",
+  "source_base_path": "C:/projects/2025-9-24/Blackwood.IO/Documentation",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,22 +8,207 @@
         "resource": {
           "relative_path": "index.json"
         }
-      },
-      "is_incremental": false
+      }
     },
     {
-      "log_codes": [
-        "UidNotFound"
-      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.Application.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Application.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.Application",
+      "Summary": "<p sourcefile=\"api/Blackwood.Application.yml\" sourcestartlinenumber=\"1\">This is a utility class to provide some information about the application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.CacheItem-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.CacheItem-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.CacheItem<itemType>",
+      "Summary": "<p sourcefile=\"api/Blackwood.CacheItem-1.yml\" sourcestartlinenumber=\"1\">An item in the doubly linked list.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.EmbeddedResources.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.EmbeddedResources.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.EmbeddedResources",
+      "Summary": "<p sourcefile=\"api/Blackwood.EmbeddedResources.yml\" sourcestartlinenumber=\"1\">This is an interface to allow access to resources within a folder or archive</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.FS.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.FS.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.FS",
+      "Summary": "<p sourcefile=\"api/Blackwood.FS.yml\" sourcestartlinenumber=\"1\">This class provides a variety of utilities such as the path's to key points,\nand process path strings.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.FolderWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.FolderWrapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.FolderWrapper",
+      "Summary": "<p sourcefile=\"api/Blackwood.FolderWrapper.yml\" sourcestartlinenumber=\"1\">This is a class to allow access to resources within a folder.\nIt is a sibling to ZipWrapper that can access resources within a zip file</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.IFolderWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.IFolderWrapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.IFolderWrapper",
+      "Summary": "<p sourcefile=\"api/Blackwood.IFolderWrapper.yml\" sourcestartlinenumber=\"1\">This is an interface to allow access to resources within a folder or archive</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.MRUCache-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.MRUCache-2.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.MRUCache<keyType, valueType>",
+      "Summary": "<p sourcefile=\"api/Blackwood.MRUCache-2.yml\" sourcestartlinenumber=\"1\">An associative Most-Recently-Used cache.  The least recently used items are subject to\nbeing ejected.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.Text.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Text.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.Text",
+      "Summary": "<p sourcefile=\"api/Blackwood.Text.yml\" sourcestartlinenumber=\"1\">This class holds a variety of helper utilities to modify text.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.Util.dWriteBackground.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Util.dWriteBackground.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.Util.dWriteBackground",
+      "Summary": "<p sourcefile=\"api/Blackwood.Util.dWriteBackground.yml\" sourcestartlinenumber=\"1\">This delegate will be called in the background to allow saving a file\nwithout causing the UI to experience an slowdown or stutter.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.Util.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Util.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.Util",
+      "Summary": "<p sourcefile=\"api/Blackwood.Util.yml\" sourcestartlinenumber=\"1\">This is a helper class to provide a variety of utility procedures.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.ZipWrapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.ZipWrapper.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.ZipWrapper",
+      "Summary": "<p sourcefile=\"api/Blackwood.ZipWrapper.yml\" sourcestartlinenumber=\"1\">This is a class to allow access to resources within an archive.\nIt is a sibling to FolderWrapper that can access resources within a folder</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood",
+      "Summary": null
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
-          "relative_path": "api/index.html",
-          "hash": "naTfirTY9RVGkAjoo8VNkQ=="
+          "relative_path": "api/index.html"
         }
       },
-      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/getting-started.html"
+        }
+      },
       "version": ""
     },
     {
@@ -32,23 +216,32 @@
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
-          "relative_path": "articles/intro.html",
-          "hash": "P5tTxuTQcJLHMjVn5a1m2w=="
+          "relative_path": "articles/intro.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
       "type": "Toc",
-      "source_relative_path": "articles/toc.md",
+      "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "articles/toc.html",
-          "hash": "CAHCG8tDDZSeZDvz6qY6Bw=="
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
         }
       },
-      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "building-docs.md",
+      "output": {
+        ".html": {
+          "relative_path": "building-docs.html"
+        }
+      },
       "version": ""
     },
     {
@@ -56,11 +249,9 @@
       "source_relative_path": "contributing/CONTRIBUTING.md",
       "output": {
         ".html": {
-          "relative_path": "contributing/CONTRIBUTING.html",
-          "hash": "1J0U9wH+B5Y44FXMd6/m3w=="
+          "relative_path": "contributing/CONTRIBUTING.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -68,11 +259,9 @@
       "source_relative_path": "contributing/code_of_conduct.md",
       "output": {
         ".html": {
-          "relative_path": "contributing/code_of_conduct.html",
-          "hash": "KY1ZLiTnzuFWcPm6Z9ZM+g=="
+          "relative_path": "contributing/code_of_conduct.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -80,11 +269,9 @@
       "source_relative_path": "contributing/how-to-file-an-issue.md",
       "output": {
         ".html": {
-          "relative_path": "contributing/how-to-file-an-issue.html",
-          "hash": "pVrmXRRLVn5m0Qwnn3LdCg=="
+          "relative_path": "contributing/how-to-file-an-issue.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -92,11 +279,9 @@
       "source_relative_path": "contributing/pull-requests.md",
       "output": {
         ".html": {
-          "relative_path": "contributing/pull-requests.html",
-          "hash": "eeDr7lagJCvf0qEEdY6U/A=="
+          "relative_path": "contributing/pull-requests.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -104,11 +289,42 @@
       "source_relative_path": "contributing/style-guide.md",
       "output": {
         ".html": {
-          "relative_path": "contributing/style-guide.html",
-          "hash": "mi5ItNQI38FQO7SBRNHEYg=="
+          "relative_path": "contributing/style-guide.html"
         }
       },
-      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "contributing/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "contributing/toc.html"
+        },
+        ".json": {
+          "relative_path": "contributing/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "glossary.md",
+      "output": {
+        ".html": {
+          "relative_path": "glossary.html"
+        }
+      },
       "version": ""
     },
     {
@@ -116,229 +332,45 @@
       "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "ajGqEZuooJOkGkuCGvBUgg=="
+          "relative_path": "index.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.Application.yml",
+      "type": "Resource",
+      "source_relative_path": "logo-small.png",
       "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.Application.html",
-          "hash": "uMf5D7FZybR7HRiUL16GzQ=="
+        "resource": {
+          "relative_path": "logo-small.png"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.CacheItem-1.yml",
+      "type": "Resource",
+      "source_relative_path": "public/main.css",
       "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.CacheItem-1.html",
-          "hash": "2X+Fh1/yTk1oQNTrQRdNIA=="
+        "resource": {
+          "relative_path": "public/main.css"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.EmbeddedResources.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.EmbeddedResources.html",
-          "hash": "T8/pnAMxKQ8hCzYBMj6vMw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.FS.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.FS.html",
-          "hash": "VaiRPuTDa/anscA3Q/HBGQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.FolderWrapper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.FolderWrapper.html",
-          "hash": "kiRUgMo6CkhaFpkRYSXkWg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.IFolderWrapper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.IFolderWrapper.html",
-          "hash": "z13ojiBedamGEFoZK0Ytew=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.MRUCache-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.MRUCache-2.html",
-          "hash": "jVR90rEh/gwVFxGncsYWxA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.Text.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.Text.html",
-          "hash": "v6w+KCC03lK7ort8I9TvlA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.Util.dWriteBackground.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.Util.dWriteBackground.html",
-          "hash": "kHbtJdZmBgCosPBU29PhaQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.Util.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.Util.html",
-          "hash": "VGSWgftsMCiSAImDjrDscA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.ZipWrapper.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.ZipWrapper.html",
-          "hash": "1Md/o0EKspokHQZPKOolug=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Blackwood.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Blackwood.html",
-          "hash": "I/p2UkUDNyWy0asEv+lHQQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "obj/api/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "3KsjQ7owZ0vaIxBxoPFvIA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
         ".html": {
-          "relative_path": "toc.html",
-          "hash": "HsSjvPcQHInzSBe2LC0/1w=="
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
-      "is_incremental": false,
       "version": ""
     }
   ],
-  "incremental_info": [
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
-        "incrementalPhase": "build",
-        "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
-      },
-      "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 8,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 12,
-          "skipped_file_count": 0
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        }
-      }
-    },
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
-        "incrementalPhase": "postProcessing",
-        "total_file_count": 0,
-        "skipped_file_count": 0
-      },
-      "processors": {}
-    }
-  ],
-  "version_info": {},
   "groups": [
     {
       "xrefmap": "xrefmap.yml"
