@@ -2,6 +2,7 @@
 // See LICENSE file in the project root for full license information.
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Blackwood;
 
@@ -117,7 +118,7 @@ public class MRUCache<keyType, valueType>
     /// The most recently used item.
     /// </summary>
     /// <value>The cache-item, specialized for type of the key, to hold the recently used item.</value>
-    protected volatile CacheItem<keyType> head;
+    protected CacheItem<keyType> head;
 
     /// <summary>
     /// The maximum number of items to hold in the cache; more than this, the
@@ -141,7 +142,7 @@ public class MRUCache<keyType, valueType>
     /// <summary>
     /// The number of items currently in the cache.
     /// </summary>
-    int numItems;
+    volatile int numItems;
 
     /// <summary>
     /// Inserts the given item onto the head of the list
@@ -154,7 +155,7 @@ public class MRUCache<keyType, valueType>
         {
             item.Unlink();
             item.Link(head);
-            return head = item;
+            head = item;
         }
         return item;
     }
@@ -164,11 +165,14 @@ public class MRUCache<keyType, valueType>
     /// </summary>
     void Evict()
     {
-        var prev = head.prev;
-        prev.Unlink();
-        lookup.TryRemove(prev.key, out _);
-        numItems--;
-        Evicts++;
+        if (head != null)
+        {
+            var prev = head.prev;
+            prev.Unlink();
+            lookup.TryRemove(prev.key, out _);
+            Interlocked.Decrement(ref numItems);
+            Evicts++;
+        }
     }
 
     /// <summary>
@@ -178,11 +182,12 @@ public class MRUCache<keyType, valueType>
     public IEnumerable<CacheItem<keyType>> Enumerate()
     {
         var ret = new List<CacheItem<keyType>>();
-        // Is there any thing in there anyway?
-        if (null == head)
-            return ret ;
         lock (this)
         {
+            // Is there any thing in there anyway?
+            if (null == head)
+                return ret;
+
             // Give the first item
             ret.Add(head);
             // Go round until we reach the beginning
@@ -236,8 +241,8 @@ public class MRUCache<keyType, valueType>
                 var ret = Insert(new CacheItem<keyType>(key));
 
                 // See if we need to evict an old item
-                numItems++;
-                if (numItems > maxItems)
+                var currentCount = Interlocked.Increment(ref numItems);
+                if (currentCount > maxItems)
                     Evict();
                 Inserts++;
 

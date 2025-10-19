@@ -40,14 +40,16 @@ public static partial class Util
         if (writeBackground == null)
             throw new ArgumentNullException(nameof(writeBackground));
 
+        // Capture the path in a local variable to ensure proper closure
+        var targetPath = path;
+
         // Have this run in the background, so that it doesn't cause the UI
         // to lag
         _ = ThreadPool.QueueUserWorkItem((object s) =>
             {
                 // Now that this background task is running we can save the
                 // state data to a file.
-                var tempFileCreated = false;
-                string tempName = null;
+                string? tempName = null;
 
                 // Create a temporary file to write to.  If there is an
                 // exception crash, the main file won't be corrupted.  Once we
@@ -59,20 +61,18 @@ public static partial class Util
                 try
                 {
                     // Create the temporary file and populate it.
-                    using (var fs = File.Create(tempName))
-                    {
-                        tempFileCreated = true;
+                    using FileStream fs = File.Create(tempName);
 
-                        // If I use an async/await fs.Write() here in the main
-                        // thread, it hangs and never returns.  So that's why I
-                        // backgrounded the writes.
-                        //
-                        // Call the call back to commit the data to the file.
-                        writeBackground(fs);
-                    }
+                    // If I use an async/await fs.Write() here in the main
+                    // thread, it hangs and never returns.  So that's why I
+                    // backgrounded the writes.
+                    //
+                    // Call the call back to commit the data to the file.
+                    writeBackground(fs);
+                    fs.Close();
 
                     // Ensure the directory for the target path exists
-                    var directory = Path.GetDirectoryName(path);
+                    var directory = Path.GetDirectoryName(targetPath);
                     if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
                     {
                         Directory.CreateDirectory(directory);
@@ -86,16 +86,16 @@ public static partial class Util
                         // Check to see if the destination already exists,
                         // if it does exist, replace the file; otherwise
                         // Move the temporary file into place
-                        if (File.Exists(path))
-                            File.Replace(tempName, path, path + ".bak");
+                        if (File.Exists(targetPath))
+                            File.Replace(tempName, targetPath, targetPath + ".bak");
                         else
-                            File.Move(tempName, path);
+                            File.Move(tempName, targetPath);
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
                     // There was a problem, clean up the temporary file if it was created
-                    if (tempFileCreated && !string.IsNullOrEmpty(tempName) && File.Exists(tempName))
+                    if (!string.IsNullOrEmpty(tempName) && File.Exists(tempName))
                     {
                         try
                         {
@@ -106,6 +106,9 @@ public static partial class Util
                             // Ignore cleanup errors
                         }
                     }
+
+                    // Log the exception for debugging (in a real application, you might want to use a proper logger)
+                    System.Diagnostics.Debug.WriteLine($"Background save failed for {targetPath}: {ex.Message}");
                 }
             });
     }
