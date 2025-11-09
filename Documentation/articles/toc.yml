@@ -3,6 +3,12 @@
 - name: Articles
   href: intro.md
   items:
+  - name: Getting Started
+    href: getting-started.md
+  - name: Examples
+    href: examples.md
+  - name: Embedded Resources
+    href: embedded-resources.md
   - name: Building the Documentation
     href: ../building-docs.md
 - name: API Reference

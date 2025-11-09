@@ -5,6 +5,8 @@
   items:
   - name: Building the Documentation
     href: building-docs.md
+  - name: Examples
+    href: articles/examples.md
 - name: API Reference
   href: api/index.md
 - name: Contribution Guidelines
