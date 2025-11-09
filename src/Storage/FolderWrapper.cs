@@ -1,5 +1,6 @@
 ﻿// Copyright (c) 2020-2021 Randall Maas. All rights reserved.
-// See LICENSE file in the project root for full license information.  
+// See LICENSE file in the project root for full license information.
+
 using System;
 using System.IO;
 
@@ -42,7 +43,7 @@ public class FolderWrapper:IFolderWrapper
     /// <summary>
     /// Dispose of the binary stream
     /// </summary>
-    /// <param name="disposing"></param>
+    /// <param name="disposing">True if disposing, false if finalizing</param>
     protected virtual void Dispose(bool disposing)
     {
     }
@@ -65,7 +66,7 @@ public class FolderWrapper:IFolderWrapper
     /// </summary>
     /// <param name="relativePath">The name of file within the wrapper</param>
     /// <returns>A stream that can be used to access the file</returns>
-    public Stream Stream(string relativePath)
+    public Stream? Stream(string relativePath)
     {
         // Get full path to the file
         var filePath = System.IO.Path.Combine(basePath, relativePath);

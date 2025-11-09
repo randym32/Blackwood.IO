@@ -21,7 +21,7 @@ public class ZipWrapper:IFolderWrapper
     /// <summary>
     /// The path to the folder holding the configuration.
     /// </summary>
-    readonly string basePath;
+    readonly string? basePath;
 
     /// <summary>
     /// The archive accessor object.
@@ -121,7 +121,7 @@ public class ZipWrapper:IFolderWrapper
     /// </summary>
     /// <param name="relativePath">The name of file within the container</param>
     /// <returns>null on error, otherwise a stream that can be used to access the file data</returns>
-    public Stream Stream(string relativePath)
+    public Stream? Stream(string relativePath)
     {
         // Get the entry within the file
         try

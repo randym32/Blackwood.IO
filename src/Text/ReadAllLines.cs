@@ -16,15 +16,14 @@ public static partial class Text
     {
         // This will read the file in and append it to a string buffer
         var SB = new StringBuilder();
-        using (var reader = new StreamReader(stream, Encoding.UTF8))
+        using var reader = new StreamReader(stream, Encoding.UTF8);
+        string? line;
+        // Read each of the lines
+        while ((line = reader.ReadLine()) != null)
         {
-            string line;
-            // Read each of the lines
-            while ((line = reader.ReadLine()) != null)
-            {
-                SB.AppendLine(line);
-            }
+            SB.AppendLine(line);
         }
+
         // return the result
         return SB.ToString();
     }

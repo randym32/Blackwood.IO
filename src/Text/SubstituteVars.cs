@@ -18,7 +18,7 @@ public static partial class Text
     /// <returns>The potentially modified string</returns>
     /// <remarks>This is not particularly effecient but it isn't intended to be
     /// used in an environment like that</remarks>
-    public static string SubstituteVars(string sourceText, IDictionary<string, object> tableau)
+    public static string SubstituteVars(string sourceText, IDictionary<string, object>? tableau)
     {
         // Check that the passed table has contents
         if (null == tableau)

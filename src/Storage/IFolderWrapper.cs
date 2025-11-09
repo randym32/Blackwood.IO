@@ -23,6 +23,6 @@ public interface IFolderWrapper:IDisposable
     /// </summary>
     /// <param name="relativePath">The name of file within the container</param>
     /// <returns>A stream that can be used to access the file data</returns>
-    Stream Stream(string relativePath);
+    Stream? Stream(string relativePath);
 }
 

@@ -1,4 +1,5 @@
 ﻿using System.IO.Compression;
+using System.Threading;
 
 namespace Blackwood.IO.Tests;
 
@@ -41,7 +42,7 @@ public class ZipWrapperTests
                 // If we can't delete immediately, try a few more times
                 for (int i = 0; i < 3; i++)
                 {
-                    System.Threading.Thread.Sleep(100);
+                    Thread.Sleep(100);
                     try
                     {
                         Directory.Delete(_tempDirectory, true);

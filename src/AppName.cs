@@ -1,5 +1,6 @@
 ﻿// Copyright (c) 2020-2025 Randall Maas. All rights reserved.
 // See LICENSE file in the project root for full license information.
+
 using System;
 using System.Diagnostics;
 
@@ -14,7 +15,7 @@ public static partial class Application
     /// <summary>
     /// The application name cached for reuse.
     /// </summary>
-    static string _appName;
+    static string? _appName;
 
     /// <summary>
     /// The application name.
@@ -22,7 +23,7 @@ public static partial class Application
     /// <value>
     /// The application name.
     /// </value>
-    public static string Name
+    public static string? Name
     {
         get
         {
@@ -36,11 +37,11 @@ public static partial class Application
                 if (null == assembly)
                 {
                     var frames = new StackTrace().GetFrames();
-                    assembly = frames[frames.Length - 1].GetMethod().Module.Assembly;
+                    assembly = frames[frames.Length - 1].GetMethod()?.Module.Assembly;
                 }
 
                 // use the name from the assembly.
-                return _appName = assembly.GetName().Name;
+                return _appName = assembly?.GetName()?.Name;
             }
             catch (Exception)
             { }

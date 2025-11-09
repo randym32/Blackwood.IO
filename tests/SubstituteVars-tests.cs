@@ -89,7 +89,7 @@ public class SubstituteVarsTests
     {
         // Arrange
         var sourceText = "Hello {{name}}";
-        IDictionary<string, object> tableau = null;
+        IDictionary<string, object>? tableau = null;
 
         // Act
         var result = Text.SubstituteVars(sourceText, tableau);
@@ -125,7 +125,7 @@ public class SubstituteVarsTests
     public void SubstituteVars_WithNullSourceText_ShouldThrowException()
     {
         // Arrange
-        string sourceText = null;
+        string? sourceText = null;
         var tableau = new Dictionary<string, object>
         {
             { "name", "John" }

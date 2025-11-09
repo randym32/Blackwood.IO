@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Blackwood.IO.Tests;
 [TestFixture]
 public class RunProgramTests
 {
-    private string _tempDirectory;
+    private string? _tempDirectory;
     private string _testScriptPath;
 
     /// <summary>
@@ -88,7 +89,7 @@ public class RunProgramTests
     public async Task RunCommand_WithNullParameters_ShouldThrowException()
     {
         // Act & Assert - Should throw exception for null command
-        Assert.ThrowsAsync<InvalidOperationException>(async () =>
+        Assert.ThrowsAsync<System.InvalidOperationException>(async () =>
         {
             var results = new List<string>();
             await foreach (var line in Util.RunCommand(null, null, null))
@@ -178,7 +179,7 @@ public class RunProgramTests
         var nonExistentCommand = "NonExistentCommand12345";
 
         // Act & Assert - Should throw exception for non-existent command
-        Assert.ThrowsAsync<System.ComponentModel.Win32Exception>(async () =>
+        Assert.ThrowsAsync<Win32Exception>(async () =>
         {
             var results = new List<string>();
             await foreach (var line in Util.RunCommand(nonExistentCommand))
@@ -321,7 +322,7 @@ public class RunProgramTests
 
         // Act
         var tasks = new List<Task<List<string>>>();
-        for (int i = 0; i < 3; i++)
+        for (int? i = 0; i < 3; i++)
         {
             tasks.Add(Task.Run(async () =>
             {

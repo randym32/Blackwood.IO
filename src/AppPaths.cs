@@ -25,7 +25,7 @@ public static partial class FS
     /// </value>
     public static string AppDataPath => System.IO.Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-        Application.Name);
+        Application.Name??".");
 
 #if false
     /// <summary>
@@ -40,5 +40,5 @@ public static partial class FS
     /// <value>
     /// The path to the executable.
     /// </value>
-    public static string ExeFilePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+    public static string? ExeFilePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 }

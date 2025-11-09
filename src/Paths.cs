@@ -1,5 +1,6 @@
 ﻿// Copyright (c) 2020-2025 Randall Maas. All rights reserved.
 // See LICENSE file in the project root for full license information.
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,7 +17,7 @@ public static partial class FS
     /// <summary>
     /// A place to cache the path.
     /// </summary>
-    static string _assemblyDirectory;
+    static string? _assemblyDirectory;
 
     /// <summary>
     /// The path of the executing assembly.
@@ -27,7 +28,7 @@ public static partial class FS
     /// <remarks>
     /// https://stackoverflow.com/questions/52797/how-do-i-get-the-path-of-the-assembly-the-code-is-in
     /// </remarks>
-    public static string AssemblyDirectory
+    public static string? AssemblyDirectory
     {
         get
         {
@@ -48,7 +49,7 @@ public static partial class FS
     /// <param name="basePath">The path that should be removed</param>
     /// <param name="path">The path that is to be modified</param>
     /// <returns>The resulting path</returns>
-    public static string RemoveBasePath(string basePath, string path)
+    public static string? RemoveBasePath(string basePath, string path)
     {
         if (null == basePath || null == path)
             return null;

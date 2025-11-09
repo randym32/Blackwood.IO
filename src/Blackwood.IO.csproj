@@ -11,6 +11,7 @@
     <PackageProjectUrl>https://github.com/randym32/Blackwood.IO</PackageProjectUrl>
     <RepositoryUrl>https://github.com/randym32/Blackwood.IO</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

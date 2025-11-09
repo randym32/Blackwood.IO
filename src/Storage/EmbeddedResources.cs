@@ -1,5 +1,6 @@
 ﻿// Copyright (c) 2021-2025 Randall Maas. All rights reserved.
-// See LICENSE file in the project root for full license information.  
+// See LICENSE file in the project root for full license information.
+
 using System.IO;
 using System.IO.Compression;
 using System.Reflection;
@@ -48,9 +49,8 @@ public class EmbeddedResources : IFolderWrapper
     /// <returns>true if the file exists embedded in the assembly, false otherwise</returns>
     public bool Exists(string relativePath)
     {
-        Stream s;
-        using (s = Stream(relativePath))
-            return s != null;
+        using var s = Stream(relativePath);
+        return s != null;
     }
 
     /// <summary>
@@ -58,7 +58,7 @@ public class EmbeddedResources : IFolderWrapper
     /// </summary>
     /// <param name="relativePath">The name of file embedded in the assembly</param>
     /// <returns>null on error, otherwise a stream that can be used to access the file data</returns>
-    public Stream Stream(string relativePath)
+    public Stream? Stream(string relativePath)
     {
         // Convert to a name that we can look up
         var fileName = assembly.GetName().Name + "." + relativePath.Replace('/', '.').Replace('\\','.');

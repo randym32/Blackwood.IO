@@ -45,7 +45,7 @@ public static partial class Util
 
         // Have this run in the background, so that it doesn't cause the UI
         // to lag
-        _ = ThreadPool.QueueUserWorkItem((object s) =>
+        _ = ThreadPool.QueueUserWorkItem((object? s) =>
             {
                 // Now that this background task is running we can save the
                 // state data to a file.

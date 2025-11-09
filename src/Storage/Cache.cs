@@ -56,7 +56,7 @@ public class CacheItem<itemType>
     /// Put this item in before the given item
     /// </summary>
     /// <param name="before">The item to come after</param>
-    internal void Link(CacheItem<itemType> before)
+    internal void Link(CacheItem<itemType>? before)
     {
         // Sanity check
         if (null == before)
@@ -107,7 +107,7 @@ struct A<keyType, valueType>
 /// <typeparam name="valueType">The type of the item to cache</typeparam>
 /// <remarks>A ring buffer is used track the oldest item for eviction.
 /// If the dictionary is allowed to grow too big, it becomes a botle neck</remarks>
-public class MRUCache<keyType, valueType>
+public class MRUCache<keyType, valueType> where keyType : notnull
 {
     /// <summary>
     /// This is used to map the key to the value
@@ -118,7 +118,7 @@ public class MRUCache<keyType, valueType>
     /// The most recently used item.
     /// </summary>
     /// <value>The cache-item, specialized for type of the key, to hold the recently used item.</value>
-    protected CacheItem<keyType> head;
+    protected CacheItem<keyType>? head;
 
     /// <summary>
     /// The maximum number of items to hold in the cache; more than this, the
@@ -203,7 +203,7 @@ public class MRUCache<keyType, valueType>
     /// </summary>
     /// <param name="key">The key used to associate with the item.</param>
     /// <returns>The associated value</returns>
-    public valueType this[keyType key]
+    public valueType? this[keyType key]
     {
         get
         {
@@ -231,11 +231,15 @@ public class MRUCache<keyType, valueType>
             lock (this)
             {
                 // Look up a weak reference and, if still valid, move the item to the head
-                if (lookup.TryGetValue(key, out var w))
+                bool keyExists = lookup.TryGetValue(key, out var w);
+                if (keyExists)
                 {
                     // Unlink the previous one
                     w.key.Unlink();
+                    // Decrement count since we're replacing, not adding
+                    Interlocked.Decrement(ref numItems);
                 }
+                if (null == value) return;
 
                 // Add this item to the MRU list
                 var ret = Insert(new CacheItem<keyType>(key));
