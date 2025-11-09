@@ -15,7 +15,7 @@ For bug reports, include in your issue:
 
 - The OS version you are running the software on
 - The language (C#, javascript, go, etc) that you are targeting
-- A [reproduction](/documents/contributing/how-to-make-a-reproducible-test-case/) for debugging and taking action
+- A [reproduction](/docs/contributing/how-to-make-a-reproducible-test-case/) for debugging and taking action
 
 Please do not use the issue tracker for personal support requests.
 The [discourse and forums](CONTRIBUTING.md#contact) are the
