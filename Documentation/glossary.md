@@ -10,7 +10,7 @@ This glossary defines terms and concepts used in the library documentation.
 ## B
 
 **Background Save**
-: A file saving mechanism that prevents UI blocking.  Implemented by the `Util.SaveBackground` method.
+: A file saving mechanism that prevents UI blocking.  Implemented by the `Util.Save` method.
 
 ## C
 

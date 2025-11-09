@@ -23,6 +23,31 @@ dotnet add package Blackwood.IO
 
 ### Basic Usage
 
+#### Application Information
+
+Here's how to get information about your application and its environment using Blackwood.IO:
+
+
+```csharp
+using Blackwood;
+using System.Reflection;
+
+// Application information
+string appName = Application.Name;
+
+// Path to application data files
+string path = Application.AppDataPath;
+
+// Enumerate loaded assemblies
+// Returns: entry assembly (if available), executing assembly, then all loaded assemblies
+foreach (Assembly assembly in Application.Assemblies())
+{
+    Console.WriteLine($"Assembly: {assembly.GetName().Name}");
+    Console.WriteLine($"  Version: {assembly.GetName().Version}");
+    Console.WriteLine($"  Location: {assembly.Location}");
+}
+```
+
 #### File Operations
 
 Saving files asynchronously in the background is helpful for scenarios like
@@ -32,13 +57,10 @@ autosaving, storing user preferences, logging, and similar tasks.
 using Blackwood;
 
 // Background file save (non-blocking)
-await Util.SaveBackground(stream => {
+Util.Save("path/to/file.txt", stream => {
     // Write your data to the stream
     stream.Write(data);
-}, "path/to/file.txt");
-
-// Application information
-string appName = Application.Name;
+});
 ```
 
 #### Caching
