@@ -4,8 +4,8 @@ A collection of C# utilities commonly needed across many projects. This library 
 
 ## Features
 
-- Cross-platform compatibility (.NET 8)
-- Modern C# language features (C# 12)
+- Cross-platform compatibility (.NET 9)
+- Modern C# language features (latest C#)
 - Utility classes for common development tasks
 - No Windows Forms or Windows-specific dependencies
 
@@ -13,7 +13,7 @@ A collection of C# utilities commonly needed across many projects. This library 
 
 ### Prerequisites
 
-- .NET 8 SDK or later
+- .NET 9 SDK or later
 - Visual Studio 2022 (Windows) or Visual Studio Code (cross-platform)
 
 ### Development Tools
@@ -23,7 +23,7 @@ A collection of C# utilities commonly needed across many projects. This library 
 - [Visual Studio Code](https://code.visualstudio.com/) with C# extension
 
 **Cross-platform:**
-- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 - [Visual Studio Code](https://code.visualstudio.com/) with C# extension
 
 
@@ -48,10 +48,26 @@ Install-Package Blackwood.IO
 
 ```csharp
 using Blackwood;
+using System.Collections.Generic;
+using System.IO;
 
-// Example usage of utilities
-var cache = new MRUCache<string, object>(100);
-var textProcessor = new TextProcessor();
+// MRUCache
+var cache = new MRUCache<string, int>(100);
+cache["answer"] = 42;
+int value = cache["answer"]; // 42
+
+// Substitute variables in text
+var result = Text.SubstituteVars("Hello {{name}}!", new Dictionary<string, object> { ["name"] = "World" });
+
+// Read all lines from a stream
+using var stream = File.OpenRead("./README.md");
+string text = Text.ReadAllLines(stream);
+
+// Run a command and stream its output
+await foreach (var line in Util.RunCommand(toRun: "dotnet", arguments: "--info"))
+{
+    Console.WriteLine(line);
+}
 ```
 
 ## Documentation
