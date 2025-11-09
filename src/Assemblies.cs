@@ -13,7 +13,13 @@ public static partial class Application
     /// <summary>
     /// Returns a list of assemblies to search for embedded resources.
     /// </summary>
-    /// <returns>A list of assemblies to search for embedded resources.</returns>
+    /// <returns>A list of assemblies to search for embedded resources.</returns>\
+    /// <remarks>
+    /// The assemblies are searched in the following order:
+    /// 1. The application's entry assembly if available (WinForms/WPF), else executing
+    /// 2. The executing assembly
+    /// 3. All of the loaded assemblies, in dependency order, most recent first.
+    /// </remarks>
     public static IEnumerable<Assembly> Assemblies()
     {
         // Keep track of the assemblies that have been searched.

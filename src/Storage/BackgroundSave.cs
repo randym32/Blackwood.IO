@@ -9,6 +9,12 @@ namespace Blackwood;
 /// <summary>
 /// This is a helper class to provide a variety of utility procedures.
 /// </summary>
+/// <remarks>
+/// In a more perfect world, these helpers would organize themselves, or at
+/// least lend to a more appropriate home. Until that day arrives, this class
+/// serves as a humble repository for the miscellaneous functions that refuse
+/// to fit neatly elsewhere.
+/// </remarks>
 public static partial class Util
 {
     /// <summary>

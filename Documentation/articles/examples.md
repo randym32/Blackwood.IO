@@ -6,8 +6,11 @@ This article provides examples using Blackwood.IO for common tasks.
 
 - [Background file save](#background-file-save)
 - [Application paths](#application-paths)
-- [Atomic file I/O](#atomic-file-io)
+- [Simple file IO](#simple-file-io)
 - [MRU cache](#mru-cache)
+- [Variable substitution](#variable-substitution)
+- [Read all lines](#read-all-lines)
+- [Read from ZIP](#read-from-zip)
 
 
 ## Background file save

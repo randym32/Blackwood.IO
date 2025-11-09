@@ -11,6 +11,11 @@ namespace Blackwood;
 /// This is a class to allow access to resources within an archive.
 /// It is a sibling to FolderWrapper that can access resources within a folder
 /// </summary>
+/// <remarks>
+/// This wrapper prefers efficiency over the casual sprawl of its
+/// folder-dwelling sibling, with its resources tightly compressed and neatly
+/// packed away.
+/// </remarks>
 public class ZipWrapper:IFolderWrapper
 {
     /// <summary>

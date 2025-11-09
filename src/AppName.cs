@@ -23,6 +23,10 @@ public static partial class Application
     /// <value>
     /// The application name.
     /// </value>
+    /// <remarks>
+    /// This method will return the name of the application from the assembly.
+    /// If the name is not found, it will return "unknownApp".
+    /// </remarks>
     public static string? Name
     {
         get

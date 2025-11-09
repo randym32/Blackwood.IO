@@ -10,6 +10,11 @@ namespace Blackwood;
 /// An item in the doubly linked list.
 /// </summary>
 /// <typeparam name="itemType">The type of item to cache.</typeparam>
+/// <remarks>
+/// Like a well-mannered guest at a party, this cache knows both who came before
+/// and who follows, though it may find itself politely excused when the party
+/// grows too large.
+/// </remarks>
 public class CacheItem<itemType>
 {
     /// <summary>

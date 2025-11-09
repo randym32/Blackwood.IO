@@ -12,6 +12,11 @@ namespace Blackwood;
 /// This class provides a variety of utilities such as the path's to key points,
 /// and process path strings.
 /// </summary>
+/// <remarks>
+/// These methods help wrangle the cosmic horror of forbidden labyrinths of
+/// directories that the OS and application developers promised to organize into
+/// something resembling order.  At least until entropy strikes again.
+/// </remarks>
 public static partial class FS
 {
     /// <summary>

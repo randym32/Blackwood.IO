@@ -58,7 +58,9 @@ For definitions of key terms and concepts used throughout this documentation, se
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](contributing/CONTRIBUTING.md) for information on how to contribute to this project.
+We welcome contributions! Please see our
+[Contributing Guidelines](contributing/CONTRIBUTING.md) for information on how
+to contribute to this project.
 
 - **Issues**: Report bugs or request features on [GitHub Issues](https://github.com/randym32/Blackwood.IO/issues)
 - **Pull Requests**: Submit improvements via [GitHub Pull Requests](https://github.com/randym32/Blackwood.IO/pulls)

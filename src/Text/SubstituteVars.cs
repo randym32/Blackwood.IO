@@ -1,5 +1,5 @@
 ﻿// Copyright (c) 2020-2021 Randall Maas. All rights reserved.
-// See LICENSE file in the project root for full license information.  
+// See LICENSE file in the project root for full license information.
 using System.Collections.Generic;
 
 namespace Blackwood
@@ -16,8 +16,14 @@ public static partial class Text
     /// <param name="sourceText">The original text string</param>
     /// <param name="tableau">The table of values for variables</param>
     /// <returns>The potentially modified string</returns>
-    /// <remarks>This is not particularly effecient but it isn't intended to be
-    /// used in an environment like that</remarks>
+    /// <remarks>
+    /// Here, you may use <c>{{variable}}</c> syntax to summon the values you
+    /// desire, provided you leave them in the handy dictionary of offerings, and
+    /// replace the curly braces with the values.
+    ///
+    /// This is not particularly effecient but it isn't intended to be
+    /// used in an environment like that.
+    /// </remarks>
     public static string SubstituteVars(string sourceText, IDictionary<string, object>? tableau)
     {
         // Check that the passed table has contents
