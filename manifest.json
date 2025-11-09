@@ -1,5 +1,5 @@
 {
-  "source_base_path": "C:/projects/2025-9-24/Blackwood.IO/Documentation",
+  "source_base_path": "C:/projects/2025-11-8 testbuild/Blackwood.IO/Documentation",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -22,7 +22,35 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "Blackwood.Application",
-      "Summary": "<p sourcefile=\"api/Blackwood.Application.yml\" sourcestartlinenumber=\"1\">This is a utility class to provide some information about the application.</p>\n"
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.Base.Application.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Base.Application.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.Base.Application",
+      "Summary": "<p sourcefile=\"api/Blackwood.Base.Application.yml\" sourcestartlinenumber=\"1\">This is a utility class to provide some information about the application.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Blackwood.Base.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Blackwood.Base.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Blackwood.Base",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -197,6 +225,26 @@
         },
         ".json": {
           "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/embedded-resources.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/embedded-resources.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/examples.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/examples.html"
         }
       },
       "version": ""

@@ -74,7 +74,7 @@
 
 
   <h1 id="Blackwood_IFolderWrapper" data-uid="Blackwood.IFolderWrapper" class="text-break">
-Interface IFolderWrapper  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/IFolderWrapper.cs/#L12"><i class="bi bi-code-slash"></i></a>
+Interface IFolderWrapper  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/IFolderWrapper.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -107,6 +107,21 @@ Interface IFolderWrapper  <a class="header-action link-secondary" title="View so
 
 
 
+  <h2 id="Blackwood_IFolderWrapper_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This interface provides a way to access resources within a folder or archive.
+In a more perfect world, all containers would present themselves with the
+same polite interface, but until that day arrives, this abstraction serves
+as a diplomatic protocol for accessing resources regardless of their chosen
+domicile.</p>
+<p>It is implemented by siblings:</p>
+<ul>
+<li><a class="xref" href="Blackwood.EmbeddedResources.html">EmbeddedResources</a> which can access resources within an
+assembly,</li>
+<li><a class="xref" href="Blackwood.FolderWrapper.html">FolderWrapper</a> which can access resources within a folder, and</li>
+<li><a class="xref" href="Blackwood.ZipWrapper.html">ZipWrapper</a> which can access resources within a compressed
+archive.</li>
+</ul>
+</div>
 
 
   <h2 class="section" id="methods">Methods
@@ -117,7 +132,7 @@ Interface IFolderWrapper  <a class="header-action link-secondary" title="View so
 
   <h3 id="Blackwood_IFolderWrapper_Exists_System_String_" data-uid="Blackwood.IFolderWrapper.Exists(System.String)">
   Exists(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/IFolderWrapper.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/IFolderWrapper.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines whether the specified file exists.</p>
@@ -156,7 +171,7 @@ Interface IFolderWrapper  <a class="header-action link-secondary" title="View so
 
   <h3 id="Blackwood_IFolderWrapper_Stream_System_String_" data-uid="Blackwood.IFolderWrapper.Stream(System.String)">
   Stream(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/IFolderWrapper.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/IFolderWrapper.cs/#L40"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>This creates a stream for the given resources within the container</p>
@@ -164,7 +179,7 @@ Interface IFolderWrapper  <a class="header-action link-secondary" title="View so
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Stream Stream(string relativePath)</code></pre>
+    <pre><code class="lang-csharp hljs">Stream? Stream(string relativePath)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>

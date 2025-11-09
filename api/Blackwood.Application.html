@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class Application | Blackwood.IO ">
       
-      <meta name="description" content="This is a utility class to provide some information about the application.">
+      
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -74,7 +74,7 @@
 
 
   <h1 id="Blackwood_Application" data-uid="Blackwood.Application" class="text-break">
-Class Application  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/AppName.cs/#L11"><i class="bi bi-code-slash"></i></a>
+Class Application  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Assemblies.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -82,8 +82,7 @@ Class Application  <a class="header-action link-secondary" title="View source" h
   <dl><dt>Assembly</dt><dd>Blackwood.IO.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>This is a utility class to provide some information about the application.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -109,39 +108,47 @@ Class Application  <a class="header-action link-secondary" title="View source" h
 
 
 
-  <h2 class="section" id="properties">Properties
+  <h2 class="section" id="methods">Methods
 </h2>
 
 
-  <a id="Blackwood_Application_Name_" data-uid="Blackwood.Application.Name*"></a>
+  <a id="Blackwood_Application_Assemblies_" data-uid="Blackwood.Application.Assemblies*"></a>
 
-  <h3 id="Blackwood_Application_Name" data-uid="Blackwood.Application.Name">
-  Name
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/AppName.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Blackwood_Application_Assemblies" data-uid="Blackwood.Application.Assemblies">
+  Assemblies()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Assemblies.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The application name.</p>
+  <div class="markdown level1 summary"><p>Returns a list of assemblies to search for embedded resources.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string Name { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;Assembly&gt; Assemblies()</code></pre>
   </div>
 
 
-
-
-
-  <h4 class="section">Property Value</h4>
+  <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The application name.</p>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.reflection.assembly">Assembly</a>&gt;</dt>
+    <dd><p>A list of assemblies to search for embedded resources.</p>
 </dd>
   </dl>
 
 
 
 
+
+
+
+  <h4 class="section" id="Blackwood_Application_Assemblies_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The assemblies are searched in the following order:</p>
+<ol>
+<li>The application's entry assembly if available (WinForms/WPF), else executing</li>
+<li>The executing assembly</li>
+<li>All of the loaded assemblies, in dependency order, most recent first.</li>
+</ol>
+</div>
 
 
 

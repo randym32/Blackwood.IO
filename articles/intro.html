@@ -73,7 +73,7 @@
 <h1 id="introduction-to-blackwoodio">Introduction to Blackwood.IO</h1>
 
 <p><strong>Blackwood.IO</strong> is a .NET library providing utilities for file operations,
-caching, and system integration:</p>
+caching, and lite text processing:</p>
 <ul>
 <li><strong>File Operations</strong>: File handling with atomic operations and background processing</li>
 <li><strong>Caching</strong>: In-memory caching with LRU (Least Recently Used) eviction policies</li>
@@ -87,19 +87,24 @@ caching, and system integration:</p>
 <pre><code class="lang-bash">dotnet add package Blackwood.IO
 </code></pre>
 <h3 id="basic-usage">Basic Usage</h3>
+<h4 id="application-information">Application Information</h4>
+<p>Here's how to get information about your application and its environment using Blackwood.IO:</p>
+<pre><code class="lang-csharp">using Blackwood;
+using System.Reflection;
+
+// Path to application data files
+string path = Application.AppDataPath;
+</code></pre>
 <h4 id="file-operations">File Operations</h4>
 <p>Saving files asynchronously in the background is helpful for scenarios like
 autosaving, storing user preferences, logging, and similar tasks.</p>
 <pre><code class="lang-csharp">using Blackwood;
 
 // Background file save (non-blocking)
-await Util.SaveBackground(stream =&gt; {
+Util.Save(&quot;path/to/file.txt&quot;, stream =&gt; {
     // Write your data to the stream
     stream.Write(data);
-}, &quot;path/to/file.txt&quot;);
-
-// Application information
-string appName = Application.Name;
+});
 </code></pre>
 <h4 id="caching">Caching</h4>
 <p>Caches are used to reduce loading of frequently used remote resources (and even

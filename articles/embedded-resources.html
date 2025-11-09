@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Working with Embedded Resources | Blackwood.IO </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Working with Embedded Resources | Blackwood.IO ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/randym32/Blackwood.IO/blob/main/Documentation/articles/embedded-resources.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+    </header>
+      <div class="affix" style="position: fixed; top: 1px; right: 20px; width: 230px; z-index: 1050; height: 48px;">
+              <form class="search" role="search" id="search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search" style="height:32px; padding-top:2px; padding-bottom:2px;">
+              </form>
+      </div>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+        </div>
+
+        <article data-uid="">
+<h1 id="working-with-embedded-resources">Working with Embedded Resources</h1>
+
+<p>Embedded resources are like that friend who always has everything you need in
+their backpack, except this friend is compiled into your executable and can't
+forget things at home.  Embedded resources are files that are compiled directly
+into your assembly, making them part of your application's executable.  Use them
+for including configuration files, templates, default data, or other assets that
+should always be available with your application.</p>
+<h2 id="overview">Overview</h2>
+<p>Blackwood.IO provides utilities to load embedded resources.
+The library includes:</p>
+<ul>
+<li><strong><code>EmbeddedResources</code></strong>: A class for accessing resources embedded in a specific assembly</li>
+</ul>
+<h2 id="how-embedded-resources-work">How Embedded Resources Work</h2>
+<p>The resources embedded in a assembly follow a specificname follows a specific pattern:</p>
+<pre><code>{AssemblyName}.{FolderPath}.{FileName}
+</code></pre>
+<p>For example, if your assembly is named <code>MyApp</code> and you embed a file at
+<code>Resources/config.json</code>, the resource name would be:</p>
+<pre><code>MyApp.Resources.config.json
+</code></pre>
+<h3 id="resource-naming">Resource Naming</h3>
+<p>When embedding resources, keep in mind:</p>
+<ul>
+<li><strong>Path Separators</strong>: Use forward slashes (<code>/</code>) or backslashes (<code>\</code>) in the
+path - they will be converted to dots (<code>.</code>) in the resource name</li>
+<li><strong>Assembly Name</strong>: The resource name always starts with the assembly name</li>
+<li><strong>Case Sensitivity</strong>: Resource names are case-sensitive</li>
+</ul>
+<p>Example resource paths:</p>
+<ul>
+<li><code>Resources/config.json</code> → <code>MyApp.Resources.config.json</code></li>
+<li><code>Data\default.txt</code> → <code>MyApp.Data.default.txt</code></li>
+<li><code>config.json</code> → <code>MyApp.config.json</code></li>
+</ul>
+<h2 id="loading-embedded-resources">Loading Embedded Resources</h2>
+<h3 id="basic-usage">Basic Usage</h3>
+<p>To load an embedded resource from a specific assembly:</p>
+<pre><code class="lang-csharp">using Blackwood;
+using System.IO;
+using System.Reflection;
+
+// Create an EmbeddedResources instance for a specific assembly
+var assembly = Assembly.GetExecutingAssembly();
+var embeddedResources = new EmbeddedResources(assembly);
+
+// Check if a resource exists
+if (embeddedResources.Exists(&quot;Resources/config.json&quot;))
+{
+    // Get a stream for the resource
+    using var stream = embeddedResources.Stream(&quot;Resources/config.json&quot;);
+    if (stream != null)
+    {
+        // Read the resource content
+        using var reader = new StreamReader(stream);
+        string content = reader.ReadToEnd();
+        Console.WriteLine(content);
+    }
+}
+</code></pre>
+<p>You can also create an <code>EmbeddedResources</code> instance without specifying
+an assembly. In this case, it uses the calling assembly (the assembly
+where the code is executed):</p>
+<pre><code class="lang-csharp">// Uses the calling assembly automatically
+var embeddedResources = new EmbeddedResources();
+
+// Check and load a resource
+if (embeddedResources.Exists(&quot;Data/default.txt&quot;))
+{
+    using var stream = embeddedResources.Stream(&quot;Data/default.txt&quot;);
+    if (stream != null)
+    {
+        using var reader = new StreamReader(stream);
+        string content = reader.ReadToEnd();
+        // Process the content...
+    }
+}
+</code></pre>
+<p>The <code>Stream</code> method returns a <code>Stream</code> that you can use to read the
+resource data. The stream is positioned at the beginning, so you can
+read from it immediately. Remember to dispose of the stream when you're
+done with it, either by using a <code>using</code> statement or by calling <code>Dispose()</code>
+explicitly.</p>
+<h3 id="using-with-text-processing">Using with Text Processing</h3>
+<p>You can combine embedded resources with text processing utilities:</p>
+<pre><code class="lang-csharp">using Blackwood;
+using System.IO;
+using System.Reflection;
+
+// Load an embedded template
+var assembly = Assembly.GetExecutingAssembly();
+var embeddedResources = new EmbeddedResources(assembly);
+
+using var stream = embeddedResources.Stream(&quot;Templates/welcome.txt&quot;);
+if (stream != null)
+{
+    // Read the template
+    string template = Text.ReadAllLines(stream);
+
+    // Substitute variables
+    var variables = new Dictionary&lt;string, object&gt;
+    {
+        [&quot;name&quot;] = &quot;Alice&quot;,
+        [&quot;version&quot;] = &quot;1.0.0&quot;
+    };
+
+    string result = Text.SubstituteVars(template, variables);
+    Console.WriteLine(result);
+}
+</code></pre>
+<h2 id="compressed-resources">Compressed Resources</h2>
+<p><code>EmbeddedResources</code> automatically handles compressed resources. If a resource is
+stored as a <code>.gz</code> file, it is decompressed transparently when accessed. This
+allows you to reduce the size of your assembly while maintaining easy access to
+resources at runtime.</p>
+<h3 id="how-compression-works">How Compression Works</h3>
+<p>The <code>EmbeddedResources</code> class first tries to find a compressed version of a
+resource (with a <code>.gz</code> extension), and if not found, falls back to the
+uncompressed version. This means you can use the same code to access both
+compressed and uncompressed resources - no code changes are needed.</p>
+<h3 id="benefits-of-compression">Benefits of Compression</h3>
+<ul>
+<li><strong>Smaller Assembly Size</strong>: Compressed resources can significantly reduce the
+size of your assembly, especially for text-based resources like JSON, XML, or
+templates</li>
+<li><strong>Faster Deployment</strong>: Smaller assemblies deploy faster</li>
+<li><strong>Transparent Access</strong>: No code changes needed - <code>EmbeddedResources</code> handles
+decompression automatically</li>
+<li><strong>Backward Compatible</strong>: If a compressed version isn't found, the class falls
+back to the uncompressed version</li>
+</ul>
+<h3 id="resource-naming-for-compressed-resources">Resource Naming for Compressed Resources</h3>
+<p>When embedding compressed resources, the resource name follows this pattern:</p>
+<pre><code>{AssemblyName}.{Path}.{FileName}.gz
+</code></pre>
+<p>For example:</p>
+<ul>
+<li><code>Resources/config.json</code> → <code>MyApp.Resources.config.json.gz</code></li>
+<li><code>Data\default.txt</code> → <code>MyApp.Data.default.txt.gz</code></li>
+</ul>
+<p>The <code>EmbeddedResources</code> class looks for the <code>.gz</code> version first, then falls
+back to the uncompressed version if not found.</p>
+<h3 id="setting-up-compression-during-build">Setting Up Compression During Build</h3>
+<p>To compress resources during build, you can configure MSBuild to compress files
+before embedding them. This is done by adding a custom MSBuild target to your
+<code>.csproj</code> file.</p>
+<p>Here's a complete example of how to set up resource compression:</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+  &lt;!-- Your project properties --&gt;
+
+  &lt;!-- Resources to be compressed during build --&gt;
+  &lt;ItemGroup&gt;
+    &lt;ResourceToCompress Include=&quot;Resources\sample.txt&quot; /&gt;
+    &lt;ResourceToCompress Include=&quot;Resources\config.json&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;!-- Target to compress resources before embedding --&gt;
+  &lt;Target Name=&quot;CompressResources&quot; BeforeTargets=&quot;EmbeddedResource&quot;&gt;
+    &lt;Message Text=&quot;Compressing resources for embedding...&quot; Importance=&quot;normal&quot; /&gt;
+
+    &lt;ItemGroup&gt;
+      &lt;_CompressedResources Include=&quot;@(ResourceToCompress-&gt;'%(Identity).gz')&quot;&gt;
+        &lt;OriginalFile&gt;%(Identity)&lt;/OriginalFile&gt;
+      &lt;/_CompressedResources&gt;
+    &lt;/ItemGroup&gt;
+
+    &lt;!-- Compress each resource file using GZip --&gt;
+    &lt;CompressResourceFile
+      SourceFiles=&quot;@(ResourceToCompress)&quot;
+      DestinationFiles=&quot;@(_CompressedResources)&quot; /&gt;
+  &lt;/Target&gt;
+
+  &lt;!-- Custom task to compress files using GZip --&gt;
+  &lt;UsingTask TaskName=&quot;CompressResourceFile&quot; TaskFactory=&quot;RoslynCodeTaskFactory&quot; AssemblyFile=&quot;$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll&quot;&gt;
+    &lt;ParameterGroup&gt;
+      &lt;SourceFiles ParameterType=&quot;Microsoft.Build.Framework.ITaskItem[]&quot; Required=&quot;true&quot; /&gt;
+      &lt;DestinationFiles ParameterType=&quot;Microsoft.Build.Framework.ITaskItem[]&quot; Required=&quot;true&quot; /&gt;
+    &lt;/ParameterGroup&gt;
+    &lt;Task&gt;
+      &lt;Using Namespace=&quot;System&quot; /&gt;
+      &lt;Using Namespace=&quot;System.IO&quot; /&gt;
+      &lt;Using Namespace=&quot;System.IO.Compression&quot; /&gt;
+      &lt;Code Type=&quot;Fragment&quot; Language=&quot;cs&quot;&gt;
+        &lt;![CDATA[
+        for (int i = 0; i &lt; SourceFiles.Length; i++)
+        {
+          var sourcePath = SourceFiles[i].GetMetadata(&quot;FullPath&quot;);
+          var destPath = DestinationFiles[i].GetMetadata(&quot;FullPath&quot;);
+
+          using (var inputStream = File.OpenRead(sourcePath))
+          using (var outputStream = File.Create(destPath))
+          using (var gzipStream = new GZipStream(outputStream, CompressionLevel.Optimal))
+          {
+            inputStream.CopyTo(gzipStream);
+          }
+        }
+        ]]&gt;
+      &lt;/Code&gt;
+    &lt;/Task&gt;
+  &lt;/UsingTask&gt;
+
+  &lt;!-- Embed the compressed resources --&gt;
+  &lt;!-- Note: LogicalName must match the pattern: AssemblyName.Path.FileName.gz --&gt;
+  &lt;!-- Path separators (/, \) need to be replaced with dots --&gt;
+  &lt;ItemGroup&gt;
+    &lt;_CompressedResourceFiles Include=&quot;@(ResourceToCompress-&gt;'%(Identity).gz')&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;!-- Set LogicalName correctly with path separators replaced by dots --&gt;
+  &lt;Target Name=&quot;SetCompressedResourceLogicalNames&quot; BeforeTargets=&quot;EmbeddedResource&quot;&gt;
+    &lt;ItemGroup&gt;
+      &lt;EmbeddedResource Include=&quot;@(_CompressedResourceFiles)&quot;&gt;
+        &lt;LogicalName&gt;$(AssemblyName).$([System.String]::Copy('%(Identity)').Replace('\', '.').Replace('/', '.'))&lt;/LogicalName&gt;
+      &lt;/EmbeddedResource&gt;
+    &lt;/ItemGroup&gt;
+  &lt;/Target&gt;
+&lt;/Project&gt;
+</code></pre>
+<h3 id="using-compressed-resources">Using Compressed Resources</h3>
+<p>Once you've configured compression during build, using compressed resources is
+transparent - no code changes are needed. The <code>EmbeddedResources</code> class
+automatically detects and decompresses <code>.gz</code> resources:</p>
+<pre><code class="lang-csharp">using Blackwood;
+using System.IO;
+using System.Reflection;
+
+var assembly = Assembly.GetExecutingAssembly();
+var embeddedResources = new EmbeddedResources(assembly);
+
+// This will automatically decompress if the resource is stored as .gz
+if (embeddedResources.Exists(&quot;Resources/config.json&quot;))
+{
+    using var stream = embeddedResources.Stream(&quot;Resources/config.json&quot;);
+    if (stream != null)
+    {
+        // The stream contains the decompressed content
+        using var reader = new StreamReader(stream);
+        string content = reader.ReadToEnd();
+        Console.WriteLine(content);
+    }
+}
+</code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li><p><strong>Organize Resources</strong>: Use folders to organize your embedded resources (e.g.,
+<code>Resources/</code>, <code>Templates/</code>, <code>Data/</code>)</p>
+</li>
+<li><p><strong>Error Handling</strong>: Always check if a resource exists before trying to access
+it, and handle null streams</p>
+</li>
+<li><p><strong>Resource Cleanup</strong>: Use <code>using</code> statements to ensure streams are properly
+disposed</p>
+</li>
+<li><p><strong>Resource Size</strong>: For large resources, consider using compression (<code>.gz</code>)
+to reduce assembly size. See the <a href="#compressed-resources">Compressed Resources</a>
+section for details on setting up compression during build</p>
+</li>
+</ol>
+<h2 id="common-use-cases">Common Use Cases</h2>
+<ul>
+<li><strong>Configuration Files</strong>: Embed default configuration that can be overridden by user settings</li>
+<li><strong>Templates</strong>: Include text or HTML templates that can be customized with variable substitution</li>
+<li><strong>Default Data</strong>: Provide default datasets or lookup tables</li>
+<li><strong>Localization</strong>: Embed translation files for different languages</li>
+<li><strong>Icons and Images</strong>: Include small icons or images directly in the assembly</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li><a href="../api/index.html">API Reference</a> - API documentation</li>
+<li><a href="examples.html">Examples</a> - Examples of using embedded resources</li>
+<li>See the <code>CompressedResourcesExample</code> project in the examples folder for a
+complete working example of compressing resources during build</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright 2021-2025 Randall Maas
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

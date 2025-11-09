@@ -155,8 +155,8 @@ Class Text  <a class="header-action link-secondary" title="View source" href="ht
   <a id="Blackwood_Text_SubstituteVars_" data-uid="Blackwood.Text.SubstituteVars*"></a>
 
   <h3 id="Blackwood_Text_SubstituteVars_System_String_System_Collections_Generic_IDictionary_System_String_System_Object__" data-uid="Blackwood.Text.SubstituteVars(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
-  SubstituteVars(string, IDictionary&lt;string, object&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Text/SubstituteVars.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  SubstituteVars(string, IDictionary&lt;string, object&gt;?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Text/SubstituteVars.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Substitute in the variable references with the values that are in the
@@ -165,7 +165,7 @@ tableau.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string SubstituteVars(string sourceText, IDictionary&lt;string, object&gt; tableau)</code></pre>
+    <pre><code class="lang-csharp hljs">public static string SubstituteVars(string sourceText, IDictionary&lt;string, object&gt;? tableau)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -192,8 +192,11 @@ tableau.</p>
 
 
   <h4 class="section" id="Blackwood_Text_SubstituteVars_System_String_System_Collections_Generic_IDictionary_System_String_System_Object___remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This is not particularly effecient but it isn't intended to be
-used in an environment like that</p>
+  <div class="markdown level1 remarks"><p>Here, you may use <code>{{variable}}</code> syntax to summon the values you
+desire, provided you leave them in the handy dictionary of offerings, and
+replace the curly braces with the values.</p>
+<p>This is not particularly effecient but it isn't intended to be
+used in an environment like that.</p>
 </div>
 
 

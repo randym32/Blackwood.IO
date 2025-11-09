@@ -13,18 +13,43 @@ references:
   commentId: T:Blackwood.Application
   fullName: Blackwood.Application
   nameWithType: Application
-- uid: Blackwood.Application.Name
-  name: Name
-  href: api/Blackwood.Application.html#Blackwood_Application_Name
-  commentId: P:Blackwood.Application.Name
-  fullName: Blackwood.Application.Name
-  nameWithType: Application.Name
-- uid: Blackwood.Application.Name*
-  name: Name
-  href: api/Blackwood.Application.html#Blackwood_Application_Name_
-  commentId: Overload:Blackwood.Application.Name
+- uid: Blackwood.Application.Assemblies
+  name: Assemblies()
+  href: api/Blackwood.Application.html#Blackwood_Application_Assemblies
+  commentId: M:Blackwood.Application.Assemblies
+  fullName: Blackwood.Application.Assemblies()
+  nameWithType: Application.Assemblies()
+- uid: Blackwood.Application.Assemblies*
+  name: Assemblies
+  href: api/Blackwood.Application.html#Blackwood_Application_Assemblies_
+  commentId: Overload:Blackwood.Application.Assemblies
   isSpec: "True"
-  fullName: Blackwood.Application.Name
+  fullName: Blackwood.Application.Assemblies
+  nameWithType: Application.Assemblies
+- uid: Blackwood.Base
+  name: Blackwood.Base
+  href: api/Blackwood.Base.html
+  commentId: N:Blackwood.Base
+  fullName: Blackwood.Base
+  nameWithType: Blackwood.Base
+- uid: Blackwood.Base.Application
+  name: Application
+  href: api/Blackwood.Base.Application.html
+  commentId: T:Blackwood.Base.Application
+  fullName: Blackwood.Base.Application
+  nameWithType: Application
+- uid: Blackwood.Base.Application.Name
+  name: Name
+  href: api/Blackwood.Base.Application.html#Blackwood_Base_Application_Name
+  commentId: P:Blackwood.Base.Application.Name
+  fullName: Blackwood.Base.Application.Name
+  nameWithType: Application.Name
+- uid: Blackwood.Base.Application.Name*
+  name: Name
+  href: api/Blackwood.Base.Application.html#Blackwood_Base_Application_Name_
+  commentId: Overload:Blackwood.Base.Application.Name
+  isSpec: "True"
+  fullName: Blackwood.Base.Application.Name
   nameWithType: Application.Name
 - uid: Blackwood.CacheItem`1
   name: CacheItem<itemType>
@@ -141,6 +166,19 @@ references:
   isSpec: "True"
   fullName: Blackwood.FS.AppDataPath
   nameWithType: FS.AppDataPath
+- uid: Blackwood.FS.AppLocalDataPath
+  name: AppLocalDataPath
+  href: api/Blackwood.FS.html#Blackwood_FS_AppLocalDataPath
+  commentId: P:Blackwood.FS.AppLocalDataPath
+  fullName: Blackwood.FS.AppLocalDataPath
+  nameWithType: FS.AppLocalDataPath
+- uid: Blackwood.FS.AppLocalDataPath*
+  name: AppLocalDataPath
+  href: api/Blackwood.FS.html#Blackwood_FS_AppLocalDataPath_
+  commentId: Overload:Blackwood.FS.AppLocalDataPath
+  isSpec: "True"
+  fullName: Blackwood.FS.AppLocalDataPath
+  nameWithType: FS.AppLocalDataPath
 - uid: Blackwood.FS.AssemblyDirectory
   name: AssemblyDirectory
   href: api/Blackwood.FS.html#Blackwood_FS_AssemblyDirectory
@@ -414,13 +452,13 @@ references:
   fullName: Blackwood.Text.ReadAllLines
   nameWithType: Text.ReadAllLines
 - uid: Blackwood.Text.SubstituteVars(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})
-  name: SubstituteVars(string, IDictionary<string, object>)
+  name: SubstituteVars(string, IDictionary<string, object>?)
   href: api/Blackwood.Text.html#Blackwood_Text_SubstituteVars_System_String_System_Collections_Generic_IDictionary_System_String_System_Object__
   commentId: M:Blackwood.Text.SubstituteVars(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})
   name.vb: SubstituteVars(String, IDictionary(Of String, Object))
-  fullName: Blackwood.Text.SubstituteVars(string, System.Collections.Generic.IDictionary<string, object>)
+  fullName: Blackwood.Text.SubstituteVars(string, System.Collections.Generic.IDictionary<string, object>?)
   fullName.vb: Blackwood.Text.SubstituteVars(String, System.Collections.Generic.IDictionary(Of String, Object))
-  nameWithType: Text.SubstituteVars(string, IDictionary<string, object>)
+  nameWithType: Text.SubstituteVars(string, IDictionary<string, object>?)
   nameWithType.vb: Text.SubstituteVars(String, IDictionary(Of String, Object))
 - uid: Blackwood.Text.SubstituteVars*
   name: SubstituteVars
@@ -435,22 +473,6 @@ references:
   commentId: T:Blackwood.Util
   fullName: Blackwood.Util
   nameWithType: Util
-- uid: Blackwood.Util.RunCommand(System.String,System.String,System.String)
-  name: RunCommand(string, string, string)
-  href: api/Blackwood.Util.html#Blackwood_Util_RunCommand_System_String_System_String_System_String_
-  commentId: M:Blackwood.Util.RunCommand(System.String,System.String,System.String)
-  name.vb: RunCommand(String, String, String)
-  fullName: Blackwood.Util.RunCommand(string, string, string)
-  fullName.vb: Blackwood.Util.RunCommand(String, String, String)
-  nameWithType: Util.RunCommand(string, string, string)
-  nameWithType.vb: Util.RunCommand(String, String, String)
-- uid: Blackwood.Util.RunCommand*
-  name: RunCommand
-  href: api/Blackwood.Util.html#Blackwood_Util_RunCommand_
-  commentId: Overload:Blackwood.Util.RunCommand
-  isSpec: "True"
-  fullName: Blackwood.Util.RunCommand
-  nameWithType: Util.RunCommand
 - uid: Blackwood.Util.Save(System.String,Blackwood.Util.dWriteBackground)
   name: Save(string, dWriteBackground)
   href: api/Blackwood.Util.html#Blackwood_Util_Save_System_String_Blackwood_Util_dWriteBackground_

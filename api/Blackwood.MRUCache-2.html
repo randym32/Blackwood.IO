@@ -74,7 +74,7 @@
 
 
   <h1 id="Blackwood_MRUCache_2" data-uid="Blackwood.MRUCache`2" class="text-break">
-Class MRUCache&lt;keyType, valueType&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Cache.cs/#L110"><i class="bi bi-code-slash"></i></a>
+Class MRUCache&lt;keyType, valueType&gt;  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Cache.cs/#L115"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -88,7 +88,7 @@ being ejected.</p>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MRUCache&lt;keyType, valueType&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class MRUCache&lt;keyType, valueType&gt; where keyType : notnull</code></pre>
   </div>
 
 
@@ -131,7 +131,7 @@ If the dictionary is allowed to grow too big, it becomes a botle neck</p>
 
   <h3 id="Blackwood_MRUCache_2__ctor_System_Int32_" data-uid="Blackwood.MRUCache`2.#ctor(System.Int32)">
   MRUCache(int)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Cache.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Cache.cs/#L140"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Constructs the cache</p>
@@ -167,7 +167,7 @@ If the dictionary is allowed to grow too big, it becomes a botle neck</p>
 
   <h3 id="Blackwood_MRUCache_2_head" data-uid="Blackwood.MRUCache`2.head">
   head
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Cache.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Cache.cs/#L126"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>The most recently used item.</p>
@@ -175,7 +175,7 @@ If the dictionary is allowed to grow too big, it becomes a botle neck</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected CacheItem&lt;keyType&gt; head</code></pre>
+    <pre><code class="lang-csharp hljs">protected CacheItem&lt;keyType&gt;? head</code></pre>
   </div>
 
 
@@ -204,7 +204,7 @@ If the dictionary is allowed to grow too big, it becomes a botle neck</p>
 
   <h3 id="Blackwood_MRUCache_2_Item__0_" data-uid="Blackwood.MRUCache`2.Item(`0)">
   this[keyType]
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Cache.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Cache.cs/#L211"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>This is used to fetch the cached items</p>
@@ -212,7 +212,7 @@ If the dictionary is allowed to grow too big, it becomes a botle neck</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public valueType this[keyType key] { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public valueType? this[keyType key] { get; set; }</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -247,7 +247,7 @@ If the dictionary is allowed to grow too big, it becomes a botle neck</p>
 
   <h3 id="Blackwood_MRUCache_2_Enumerate" data-uid="Blackwood.MRUCache`2.Enumerate">
   Enumerate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Cache.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/Cache.cs/#L187"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Allow iteration over all of the items in the cache</p>

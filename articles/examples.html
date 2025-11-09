@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Examples | Blackwood.IO </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Examples | Blackwood.IO ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/randym32/Blackwood.IO/blob/main/Documentation/articles/examples.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+    </header>
+      <div class="affix" style="position: fixed; top: 1px; right: 20px; width: 230px; z-index: 1050; height: 48px;">
+              <form class="search" role="search" id="search">
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search" style="height:32px; padding-top:2px; padding-bottom:2px;">
+              </form>
+      </div>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+        </div>
+
+        <article data-uid="">
+<h1 id="examples">Examples</h1>
+
+<p>This article provides examples using Blackwood.IO for common tasks.</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#background-file-save">Background file save</a></li>
+<li><a href="#application-paths">Application paths</a></li>
+<li><a href="#simple-file-io">Simple file IO</a></li>
+<li><a href="#mru-cache">MRU cache</a></li>
+<li><a href="#variable-substitution">Variable substitution</a></li>
+<li><a href="#read-all-lines">Read all lines</a></li>
+<li><a href="#read-from-zip">Read from ZIP</a></li>
+</ul>
+<h2 id="background-file-save">Background file save</h2>
+<p>Use <code>Util.Save</code> to save data to a file asynchronously without blocking your
+application's UI or main thread.</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+await Util.Save(&quot;data/output.txt&quot;, stream =&gt;
+{
+	var bytes = System.Text.Encoding.UTF8.GetBytes(&quot;Hello from background save!\n&quot;);
+	stream.Write(bytes, 0, bytes.Length);
+});
+</code></pre>
+<p>In this example, we're demonstrating how to use the <code>Util.Save</code> method to write
+data to a file asynchronously.  In the background, a <em>temporary</em> file is created,
+written to by the delegate.  When it has successfully been written, the file is
+renamed to target file name &ndash; with the old file being renamed first</p>
+<h2 id="application-paths">Application paths</h2>
+<p>The following section demonstrates retrieving common application paths:</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+string dataPath = FS.AppDataPath;
+Console.WriteLine($&quot;data path: {dataPath}&quot;);
+</code></pre>
+<h2 id="simple-file-io">Simple file IO</h2>
+<p>Some files are easiest to read in as a big string, or write out as a string.</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+var folder = new FolderWrapper(FS.AppDataPath);
+folder.WriteAllText(&quot;config.json&quot;, &quot;{\&quot;enabled\&quot;:true}&quot;);
+string config = folder.ReadAllText(&quot;config.json&quot;);
+</code></pre>
+<h2 id="mru-cache">MRU cache</h2>
+<p>Use MRUCache to store and retrieve items. The cache will automatically remove
+the least recently used entries when capacity is exceeded.</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+// Create an MRU cache that holds up to 256 assets,
+// where the key is a string and the value is a byte array (file content)
+var cache = new MRUCache&lt;string, byte[]&gt;(capacity: 256);
+
+// GetAsset will load the asset from disk if it's not cached,
+// or return the cached value if it is present.
+byte[] GetAsset(string key)
+{
+	// Try to get the data from cache
+	if (cache.TryGetValue(key, out var data))
+		return data; // Return cached asset if available
+
+	// If not cached, load the file content from disk
+	var loaded = System.IO.File.ReadAllBytes(key);
+
+	// Add the loaded asset to the cache
+	cache[key] = loaded;
+
+	// Return the newly loaded data
+	return loaded;
+}
+</code></pre>
+<h2 id="variable-substitution">Variable substitution</h2>
+<p>You can perform variable substitution in strings using the <code>Text.SubstituteVars</code>
+method, passing in a template and a dictionary of variables.</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+// Define a template string with variable placeholders
+var template = &quot;Hello, {user}! Build {build} succeeded.&quot;;
+
+// Create a dictionary mapping placeholder names to values
+var variables = new Dictionary&lt;string, object&gt;
+{
+	[&quot;user&quot;] = &quot;Alice&quot;, // The user's name
+	[&quot;build&quot;] = 42,     // The build number
+};
+
+// Perform variable substitution using the SubstituteVars utility,
+// replacing {user} and {build} in the template with their values.
+string message = SubstituteVars.Substitute(template, variables);
+
+// The resulting message will be: &quot;Hello, Alice! Build 42 succeeded.&quot;
+</code></pre>
+<h2 id="read-all-lines">Read all lines</h2>
+<p>This method allows you to easily read all lines from a file.</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+// The following example reads all lines from a text file using UTF-8 encoding.
+
+foreach (var line in ReadAllLines.FromFile(&quot;notes.txt&quot;, System.Text.Encoding.UTF8))
+{
+	Console.WriteLine(line);
+}
+</code></pre>
+<h2 id="read-from-zip">Read from ZIP</h2>
+<p>The ZipWrapper class eases reading files directly from ZIP archives without extraction.</p>
+<pre><code class="lang-csharp">using Blackwood;
+
+// Open the 'assets.zip' archive for reading.
+var zip = new ZipWrapper(&quot;assets.zip&quot;);
+
+// Check if the file 'images/logo.png' exists inside the ZIP archive.
+if (zip.Exists(&quot;images/logo.png&quot;))
+{
+	// Open a read-only stream for the file within the ZIP.
+	using var stream = zip.Stream(&quot;images/logo.png&quot;);
+	// (You can now read from 'stream' as needed.)
+}
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          Copyright 2021-2025 Randall Maas
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

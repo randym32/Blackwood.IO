@@ -74,7 +74,7 @@
 
 
   <h1 id="Blackwood_FolderWrapper" data-uid="Blackwood.FolderWrapper" class="text-break">
-Class FolderWrapper  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L13"><i class="bi bi-code-slash"></i></a>
+Class FolderWrapper  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -115,6 +115,11 @@ It is a sibling to ZipWrapper that can access resources within a zip file</p>
 
 
 
+  <h2 id="Blackwood_FolderWrapper_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Unlike its compressed cousin, this wrapper prefers its resources unzipped
+and laid out in plain sight, like a well-organized filing cabinet rather
+than a tightly packed suitcase.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -125,7 +130,7 @@ It is a sibling to ZipWrapper that can access resources within a zip file</p>
 
   <h3 id="Blackwood_FolderWrapper__ctor_System_String_" data-uid="Blackwood.FolderWrapper.#ctor(System.String)">
   FolderWrapper(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates an object that can access resources within a folder</p>
@@ -162,7 +167,7 @@ It is a sibling to ZipWrapper that can access resources within a zip file</p>
 
   <h3 id="Blackwood_FolderWrapper_Dispose" data-uid="Blackwood.FolderWrapper.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L39"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Dispose of any internal resources</p>
@@ -189,7 +194,7 @@ It is a sibling to ZipWrapper that can access resources within a zip file</p>
 
   <h3 id="Blackwood_FolderWrapper_Dispose_System_Boolean_" data-uid="Blackwood.FolderWrapper.Dispose(System.Boolean)">
   Dispose(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L52"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Dispose of the binary stream</p>
@@ -203,7 +208,8 @@ It is a sibling to ZipWrapper that can access resources within a zip file</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p>True if disposing, false if finalizing</p>
+</dd>
   </dl>
 
 
@@ -221,7 +227,7 @@ It is a sibling to ZipWrapper that can access resources within a zip file</p>
 
   <h3 id="Blackwood_FolderWrapper_Exists_System_String_" data-uid="Blackwood.FolderWrapper.Exists(System.String)">
   Exists(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L62"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Determines whether the specified file exists.</p>
@@ -260,7 +266,7 @@ It is a sibling to ZipWrapper that can access resources within a zip file</p>
 
   <h3 id="Blackwood_FolderWrapper_Stream_System_String_" data-uid="Blackwood.FolderWrapper.Stream(System.String)">
   Stream(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L68"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/randym32/Blackwood.IO/blob/main/src/Storage/FolderWrapper.cs/#L74"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>This creates a stream for the given resources within the folder</p>
@@ -268,7 +274,7 @@ It is a sibling to ZipWrapper that can access resources within a zip file</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Stream Stream(string relativePath)</code></pre>
+    <pre><code class="lang-csharp hljs">public Stream? Stream(string relativePath)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
