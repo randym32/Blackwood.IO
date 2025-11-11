@@ -13,14 +13,12 @@ should always be available with your application.
 Blackwood.IO provides utilities to scan assemblies and load embedded resources.
 The library includes:
 
-- **`Application.Assemblies()`**: Returns a list of assemblies to search.
-- **`EmbeddedResources`**: A class that implements `IFolderWrapper` for accessing
-  embedded resources from a specific assembly
+
+- **`EmbeddedResources`**: A class for accessing resources embedded in a specific assembly
 
 ## How Embedded Resources Work
 
-When you embed a file in your assembly, it becomes a manifest resource.  The
-resource name follows a specific pattern:
+The resources embedded in a assembly follow a specificname follows a specific pattern:
 
 ```
 {AssemblyName}.{FolderPath}.{FileName}
@@ -32,17 +30,19 @@ For example, if your assembly is named `MyApp` and you embed a file at
 MyApp.Resources.config.json
 ```
 
-## Scanning Assemblies
+### Resource Naming
 
-The `Application.Assemblies()` method returns assemblies in a specific order:
+When embedding resources, keep in mind:
 
-1. **Entry Assembly** (if available) - Your main application assembly
-2. **Executing Assembly** - The assembly where the code is running
-3. **All Loaded Assemblies** - Other assemblies loaded in the application
-   domain, in reverse order (most recent first)
+- **Path Separators**: Use forward slashes (`/`) or backslashes (`\`) in the
+  path - they will be converted to dots (`.`) in the resource name
+- **Assembly Name**: The resource name always starts with the assembly name
+- **Case Sensitivity**: Resource names are case-sensitive
 
-This ordering ensures that resources in your main application are found before
-resources in referenced libraries.
+Example resource paths:
+- `Resources/config.json` → `MyApp.Resources.config.json`
+- `Data\default.txt` → `MyApp.Data.default.txt`
+- `config.json` → `MyApp.config.json`
 
 ## Loading Embedded Resources
 
@@ -101,103 +101,6 @@ read from it immediately. Remember to dispose of the stream when you're
 done with it, either by using a `using` statement or by calling `Dispose()`
 explicitly.
 
-### Scanning Multiple Assemblies
-
-The `Application.Assemblies()` method returns assemblies in priority order, so
-resources in your main application are checked before resources in referenced
-libraries. This means you can override default resources from libraries by
-embedding your own version in your main application assembly.
-
-
-To search for a single resource across multiple assemblies:
-
-```csharp
-using Blackwood;
-using System.IO;
-using System.Reflection;
-
-// The path to the resource you're searching for in each assembly
-string resourcePath = "Resources/config.json";
-Stream? resourceStream = null;
-
-// Iterate over all assemblies returned by Application.Assemblies()
-// Assemblies are searched in priority order (entry, executing, then others)
-foreach (Assembly assembly in Application.Assemblies())
-{
-    // Create an EmbeddedResources instance for the current assembly
-    var embeddedResources = new EmbeddedResources(assembly);
-
-    // Check if the resource exists in this assembly
-    if (embeddedResources.Exists(resourcePath))
-    {
-        // If found, get a stream for the resource
-        resourceStream = embeddedResources.Stream(resourcePath);
-        if (resourceStream != null)
-        {
-            // Log which assembly contained the resource
-            Console.WriteLine($"Found resource in assembly: {assembly.GetName().Name}");
-            break; // Stop searching after first match
-        }
-    }
-}
-
-// If the resource stream was found, use it
-if (resourceStream != null)
-{
-    // Use a StreamReader to read the contents of the resource
-    using var reader = new StreamReader(resourceStream);
-
-    // Print the content of the resource if found, and indicate which assembly provided it.
-    string content = reader.ReadToEnd();
-    Console.WriteLine(content);
-}
-```
-
-
-If you need to search through all assemblies without stopping at the
-first match, you can collect all matching resources:
-
-```csharp
-// Collect all instances of a resource across all assemblies
-
-// The relative path to the embedded resource you want to find
-string resourcePath = "Resources/config.json";
-
-// This list will hold tuples of (Assembly, Stream) for each match found
-var foundResources = new List<(Assembly assembly, Stream stream)>();
-
-// Iterate over every assembly returned by Application.Assemblies()
-foreach (Assembly assembly in Application.Assemblies())
-{
-    // Create an EmbeddedResources wrapper for this assembly
-    var embeddedResources = new EmbeddedResources(assembly);
-
-    // Check if the resource exists in this assembly
-    if (embeddedResources.Exists(resourcePath))
-    {
-        // Get a stream to the resource (if found)
-        var stream = embeddedResources.Stream(resourcePath);
-
-        // Only add to the list if the stream isn't null
-        if (stream != null)
-        {
-            foundResources.Add((assembly, stream));
-        }
-    }
-}
-
-// Process all found resources
-foreach (var (assembly, stream) in foundResources)
-{
-    // Log the assembly name that contains the resource
-    Console.WriteLine($"Found in: {assembly.GetName().Name}");
-
-    // TODO: Add your logic here to process the resource stream (e.g., read its contents)
-
-    // Always dispose streams when done to free resources
-    stream.Dispose();
-}
-```
 
 ### Using with Text Processing
 
@@ -230,27 +133,155 @@ if (stream != null)
 }
 ```
 
-## Resource Naming
-
-When embedding resources, keep in mind:
-
-- **Path Separators**: Use forward slashes (`/`) or backslashes (`\`) in the
-  path - they will be converted to dots (`.`) in the resource name
-- **Assembly Name**: The resource name always starts with the assembly name
-- **Case Sensitivity**: Resource names are case-sensitive
-
-Example resource paths:
-- `Resources/config.json` → `MyApp.Resources.config.json`
-- `Data\default.txt` → `MyApp.Data.default.txt`
-- `config.json` → `MyApp.config.json`
 
 ## Compressed Resources
 
-`EmbeddedResources` handles compressed resources. If a resource is stored as a
-`.gz` file, it is decompressed when accessed.
+`EmbeddedResources` automatically handles compressed resources. If a resource is
+stored as a `.gz` file, it is decompressed transparently when accessed. This
+allows you to reduce the size of your assembly while maintaining easy access to
+resources at runtime.
 
-The class first tries to find a compressed version (`.gz`), and if not found,
-falls back to the uncompressed version.
+### How Compression Works
+
+The `EmbeddedResources` class first tries to find a compressed version of a
+resource (with a `.gz` extension), and if not found, falls back to the
+uncompressed version. This means you can use the same code to access both
+compressed and uncompressed resources - no code changes are needed.
+
+### Benefits of Compression
+
+- **Smaller Assembly Size**: Compressed resources can significantly reduce the
+  size of your assembly, especially for text-based resources like JSON, XML, or
+  templates
+- **Faster Deployment**: Smaller assemblies deploy faster
+- **Transparent Access**: No code changes needed - `EmbeddedResources` handles
+  decompression automatically
+- **Backward Compatible**: If a compressed version isn't found, the class falls
+  back to the uncompressed version
+
+### Resource Naming for Compressed Resources
+
+When embedding compressed resources, the resource name follows this pattern:
+
+```
+{AssemblyName}.{Path}.{FileName}.gz
+```
+
+For example:
+- `Resources/config.json` → `MyApp.Resources.config.json.gz`
+- `Data\default.txt` → `MyApp.Data.default.txt.gz`
+
+The `EmbeddedResources` class looks for the `.gz` version first, then falls
+back to the uncompressed version if not found.
+
+### Setting Up Compression During Build
+
+To compress resources during build, you can configure MSBuild to compress files
+before embedding them. This is done by adding a custom MSBuild target to your
+`.csproj` file.
+
+Here's a complete example of how to set up resource compression:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Your project properties -->
+
+  <!-- Resources to be compressed during build -->
+  <ItemGroup>
+    <ResourceToCompress Include="Resources\sample.txt" />
+    <ResourceToCompress Include="Resources\config.json" />
+  </ItemGroup>
+
+  <!-- Target to compress resources before embedding -->
+  <Target Name="CompressResources" BeforeTargets="EmbeddedResource">
+    <Message Text="Compressing resources for embedding..." Importance="normal" />
+
+    <ItemGroup>
+      <_CompressedResources Include="@(ResourceToCompress->'%(Identity).gz')">
+        <OriginalFile>%(Identity)</OriginalFile>
+      </_CompressedResources>
+    </ItemGroup>
+
+    <!-- Compress each resource file using GZip -->
+    <CompressResourceFile
+      SourceFiles="@(ResourceToCompress)"
+      DestinationFiles="@(_CompressedResources)" />
+  </Target>
+
+  <!-- Custom task to compress files using GZip -->
+  <UsingTask TaskName="CompressResourceFile" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <SourceFiles ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+      <DestinationFiles ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.IO.Compression" />
+      <Code Type="Fragment" Language="cs">
+        <![CDATA[
+        for (int i = 0; i < SourceFiles.Length; i++)
+        {
+          var sourcePath = SourceFiles[i].GetMetadata("FullPath");
+          var destPath = DestinationFiles[i].GetMetadata("FullPath");
+
+          using (var inputStream = File.OpenRead(sourcePath))
+          using (var outputStream = File.Create(destPath))
+          using (var gzipStream = new GZipStream(outputStream, CompressionLevel.Optimal))
+          {
+            inputStream.CopyTo(gzipStream);
+          }
+        }
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+
+  <!-- Embed the compressed resources -->
+  <!-- Note: LogicalName must match the pattern: AssemblyName.Path.FileName.gz -->
+  <!-- Path separators (/, \) need to be replaced with dots -->
+  <ItemGroup>
+    <_CompressedResourceFiles Include="@(ResourceToCompress->'%(Identity).gz')" />
+  </ItemGroup>
+
+  <!-- Set LogicalName correctly with path separators replaced by dots -->
+  <Target Name="SetCompressedResourceLogicalNames" BeforeTargets="EmbeddedResource">
+    <ItemGroup>
+      <EmbeddedResource Include="@(_CompressedResourceFiles)">
+        <LogicalName>$(AssemblyName).$([System.String]::Copy('%(Identity)').Replace('\', '.').Replace('/', '.'))</LogicalName>
+      </EmbeddedResource>
+    </ItemGroup>
+  </Target>
+</Project>
+```
+
+### Using Compressed Resources
+
+Once you've configured compression during build, using compressed resources is
+transparent - no code changes are needed. The `EmbeddedResources` class
+automatically detects and decompresses `.gz` resources:
+
+```csharp
+using Blackwood;
+using System.IO;
+using System.Reflection;
+
+var assembly = Assembly.GetExecutingAssembly();
+var embeddedResources = new EmbeddedResources(assembly);
+
+// This will automatically decompress if the resource is stored as .gz
+if (embeddedResources.Exists("Resources/config.json"))
+{
+    using var stream = embeddedResources.Stream("Resources/config.json");
+    if (stream != null)
+    {
+        // The stream contains the decompressed content
+        using var reader = new StreamReader(stream);
+        string content = reader.ReadToEnd();
+        Console.WriteLine(content);
+    }
+}
+```
 
 ## Best Practices
 
@@ -268,7 +299,8 @@ falls back to the uncompressed version.
    is located
 
 5. **Resource Size**: For large resources, consider using compression (`.gz`)
-   to reduce assembly size
+   to reduce assembly size. See the [Compressed Resources](#compressed-resources)
+   section for details on setting up compression during build
 
 ## Common Use Cases
 
@@ -282,4 +314,6 @@ falls back to the uncompressed version.
 
 - [API Reference](../api/index.md) - API documentation
 - [Examples](../articles/examples.md) - Examples of using embedded resources
+- See the `CompressedResourcesExample` project in the examples folder for a
+  complete working example of compressing resources during build
 

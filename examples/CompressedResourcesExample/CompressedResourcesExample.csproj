@@ -1,0 +1,87 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>CompressedResourcesExample</RootNamespace>
+    <AssemblyName>CompressedResourcesExample</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Blackwood.IO.csproj" />
+  </ItemGroup>
+
+  <!-- Resources to be compressed during build -->
+  <ItemGroup>
+    <ResourceToCompress Include="Resources\sample.txt" />
+    <ResourceToCompress Include="Resources\config.json" />
+  </ItemGroup>
+
+  <!-- Target to compress resources before embedding -->
+  <Target Name="CompressResources" BeforeTargets="EmbeddedResource">
+    <Message Text="Compressing resources for embedding..." Importance="normal" />
+
+    <ItemGroup>
+      <_CompressedResources Include="@(ResourceToCompress->'%(Identity).gz')">
+        <OriginalFile>%(Identity)</OriginalFile>
+      </_CompressedResources>
+    </ItemGroup>
+
+    <!-- Compress each resource file using GZip -->
+    <CompressResourceFile
+      SourceFiles="@(ResourceToCompress)"
+      DestinationFiles="@(_CompressedResources)" />
+  </Target>
+
+  <!-- Custom task to compress files using GZip -->
+  <UsingTask TaskName="CompressResourceFile" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <SourceFiles ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+      <DestinationFiles ParameterType="Microsoft.Build.Framework.ITaskItem[]" Required="true" />
+    </ParameterGroup>
+    <Task>
+      <Using Namespace="System" />
+      <Using Namespace="System.IO" />
+      <Using Namespace="System.IO.Compression" />
+      <Code Type="Fragment" Language="cs">
+        <![CDATA[
+        for (int i = 0; i < SourceFiles.Length; i++)
+        {
+          var sourcePath = SourceFiles[i].GetMetadata("FullPath");
+          var destPath = DestinationFiles[i].GetMetadata("FullPath");
+
+          using (var inputStream = File.OpenRead(sourcePath))
+          using (var outputStream = File.Create(destPath))
+          using (var gzipStream = new GZipStream(outputStream, CompressionLevel.Optimal))
+          {
+            inputStream.CopyTo(gzipStream);
+          }
+        }
+        ]]>
+      </Code>
+    </Task>
+  </UsingTask>
+
+  <!-- Embed the compressed resources -->
+  <!-- Note: LogicalName must match the pattern: AssemblyName.Path.FileName.gz -->
+  <!-- EmbeddedResources will look for resources with .gz extension and decompress automatically -->
+  <!-- Path separators (/, \) need to be replaced with dots -->
+  <ItemGroup>
+    <_CompressedResourceFiles Include="@(ResourceToCompress->'%(Identity).gz')" />
+  </ItemGroup>
+
+  <!-- Set LogicalName correctly with path separators replaced by dots -->
+  <!-- The LogicalName should be: AssemblyName.Path.FileName.gz -->
+  <!-- where Path separators (/, \) are replaced with dots -->
+  <Target Name="SetCompressedResourceLogicalNames" BeforeTargets="EmbeddedResource">
+    <ItemGroup>
+      <EmbeddedResource Include="@(_CompressedResourceFiles)">
+        <LogicalName>$(AssemblyName).$([System.String]::Copy('%(Identity)').Replace('\', '.').Replace('/', '.'))</LogicalName>
+      </EmbeddedResource>
+    </ItemGroup>
+  </Target>
+
+</Project>
