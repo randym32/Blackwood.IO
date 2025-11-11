@@ -1,7 +1,9 @@
 ﻿// Copyright (c) 2020-2025 Randall Maas. All rights reserved.
 // See LICENSE file in the project root for full license information.
+
 using System;
 using System.Reflection;
+using System.IO;
 
 namespace Blackwood;
 
@@ -23,16 +25,20 @@ public static partial class FS
     /// <value>
     /// The path to the application's data.
     /// </value>
-    public static string AppDataPath => System.IO.Path.Combine(
+    public static string AppLocalDataPath => Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-        Application.Name??".");
+        Base.Application.Name??".");
 
-#if false
     /// <summary>
-    /// The path to the application's data
+    /// The path to the application's data, such as preferences.
     /// </summary>
-    static string AppDataPath => Directory.GetParent(Application.LocalUserAppDataPath).FullName;
-#endif
+    /// <value>
+    /// The path to the application's data.
+    /// </value>
+    public static string AppDataPath => Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+        Base.Application.Name ?? ".");
+
 
     /// <summary>
     /// The path to the executable.
@@ -40,5 +46,5 @@ public static partial class FS
     /// <value>
     /// The path to the executable.
     /// </value>
-    public static string? ExeFilePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+    public static string? ExeFilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 }

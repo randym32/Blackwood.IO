@@ -4,7 +4,7 @@
 using System;
 using System.Diagnostics;
 
-namespace Blackwood;
+namespace Blackwood.Base;
 
 /// <summary>
 /// This is a utility class to provide some information about the application.

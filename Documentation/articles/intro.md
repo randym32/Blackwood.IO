@@ -1,7 +1,7 @@
 # Introduction to Blackwood.IO
 
 **Blackwood.IO** is a .NET library providing utilities for file operations,
-caching, and system integration:
+caching, and lite text processing:
 
 
 - **File Operations**: File handling with atomic operations and background processing
@@ -31,9 +31,6 @@ Here's how to get information about your application and its environment using B
 ```csharp
 using Blackwood;
 using System.Reflection;
-
-// Application information
-string appName = Application.Name;
 
 // Path to application data files
 string path = Application.AppDataPath;
@@ -86,7 +83,6 @@ if (cache.TryGet("key1", out MyData data)) {
 #### Text Processing
 
 Variable substitution in strings can be done with:
-
 
 ```csharp
 using Blackwood;
