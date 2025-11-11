@@ -1,6 +1,7 @@
 ﻿// Copyright (c) 2020-2025 Randall Maas. All rights reserved.
 // See LICENSE file in the project root for full license information.
 using System;
+using System.Collections.Concurrent;
 using System.IO;
 using System.Threading;
 
@@ -26,9 +27,20 @@ public static partial class Util
 
     /// <summary>
     /// This is used to lock and prevent race conditions when multiple saves
-    /// target the same file path simultaneously.
+    /// target the same file path simultaneously. Uses per-file locking to allow
+    /// concurrent saves to different files while serializing saves to the same file.
     /// </summary>
-    static readonly object saveLock = "";
+    static readonly ConcurrentDictionary<string, object> fileLocks = new();
+
+    /// <summary>
+    /// Gets or creates a lock object for a specific file path.
+    /// </summary>
+    /// <param name="path">The file path to get a lock for.</param>
+    /// <returns>A lock object for the specified path.</returns>
+    static object GetFileLock(string path)
+    {
+        return fileLocks.GetOrAdd(path, _ => new object());
+    }
 
     /// <summary>
     /// Saves the file to the given path.
@@ -53,42 +65,43 @@ public static partial class Util
         // to lag
         _ = ThreadPool.QueueUserWorkItem((object? s) =>
             {
-                // Now that this background task is running we can save the
-                // state data to a file.
-                string? tempName = null;
+                // Get a per-file lock to ensure thread safety for concurrent saves
+                // to the same file path. This allows different files to be saved
+                // concurrently while serializing saves to the same file.
+                var fileLock = GetFileLock(targetPath);
 
-                // Create a temporary file to write to.  If there is an
-                // exception crash, the main file won't be corrupted.  Once we
-                // have finished writing to the file, we can replace the
-                // previous version of the file with the new.
-                lock(saveLock)
-                    tempName = Path.GetTempFileName();
-
-                try
+                lock (fileLock)
                 {
-                    // Create the temporary file and populate it.
-                    using FileStream fs = File.Create(tempName);
+                    // Now that this background task is running we can save the
+                    // state data to a file.
+                    string? tempName = null;
 
-                    // If I use an async/await fs.Write() here in the main
-                    // thread, it hangs and never returns.  So that's why I
-                    // backgrounded the writes.
-                    //
-                    // Call the call back to commit the data to the file.
-                    writeBackground(fs);
-                    fs.Close();
-
-                    // Ensure the directory for the target path exists
-                    var directory = Path.GetDirectoryName(targetPath);
-                    if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+                    try
                     {
-                        Directory.CreateDirectory(directory);
-                    }
+                        // Create a temporary file to write to.  If there is an
+                        // exception crash, the main file won't be corrupted.  Once we
+                        // have finished writing to the file, we can replace the
+                        // previous version of the file with the new.
+                        tempName = Path.GetTempFileName();
 
-                    // Rename the temporary file to become the main file
-                    // Use a lock to prevent queued up saves from racing with each
-                    // other
-                    lock (saveLock)
-                    {
+                        // Create the temporary file and populate it.
+                        using FileStream fs = File.Create(tempName);
+
+                        // If I use an async/await fs.Write() here in the main
+                        // thread, it hangs and never returns.  So that's why I
+                        // backgrounded the writes.
+                        //
+                        // Call the call back to commit the data to the file.
+                        writeBackground(fs);
+                        fs.Close();
+
+                        // Ensure the directory for the target path exists
+                        var directory = Path.GetDirectoryName(targetPath);
+                        if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+                        {
+                            Directory.CreateDirectory(directory);
+                        }
+
                         // Check to see if the destination already exists,
                         // if it does exist, replace the file; otherwise
                         // Move the temporary file into place
@@ -97,24 +110,24 @@ public static partial class Util
                         else
                             File.Move(tempName, targetPath);
                     }
-                }
-                catch (Exception ex)
-                {
-                    // There was a problem, clean up the temporary file if it was created
-                    if (!string.IsNullOrEmpty(tempName) && File.Exists(tempName))
+                    catch (Exception ex)
                     {
-                        try
+                        // There was a problem, clean up the temporary file if it was created
+                        if (!string.IsNullOrEmpty(tempName) && File.Exists(tempName))
                         {
-                            File.Delete(tempName);
+                            try
+                            {
+                                File.Delete(tempName);
+                            }
+                            catch
+                            {
+                                // Ignore cleanup errors
+                            }
                         }
-                        catch
-                        {
-                            // Ignore cleanup errors
-                        }
-                    }
 
-                    // Log the exception for debugging (in a real application, you might want to use a proper logger)
-                    System.Diagnostics.Debug.WriteLine($"Background save failed for {targetPath}: {ex.Message}");
+                        // Log the exception for debugging (in a real application, you might want to use a proper logger)
+                        System.Diagnostics.Debug.WriteLine($"Background save failed for {targetPath}: {ex.Message}");
+                    }
                 }
             });
     }

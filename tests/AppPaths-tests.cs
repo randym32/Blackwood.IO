@@ -88,7 +88,7 @@ public class AppPathsTests
         // Act
         var appDataPath = FS.AppDataPath;
         var expectedPath = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
             Application.Name);
 
         // Assert
@@ -111,7 +111,7 @@ public class AppPathsTests
     }
 
     /// <summary>
-    /// Tests that AppDataPath is based on LocalApplicationData folder.
+    /// Tests that AppDataPath is based on ApplicationData folder.
     /// This verifies that the path uses the correct base folder for application data.
     /// </summary>
     [Test]
@@ -119,10 +119,10 @@ public class AppPathsTests
     {
         // Act
         var appDataPath = FS.AppDataPath;
-        var localAppDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        var appDataPathBase = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
         // Assert
-        Assert.That(appDataPath, Does.StartWith(localAppDataPath));
+        Assert.That(appDataPath, Does.StartWith(appDataPathBase));
     }
 
     #endregion
@@ -226,7 +226,7 @@ public class AppPathsTests
     public void AppDataPath_ShouldBeProperlyConstructedWithApplicationName()
     {
         // Arrange
-        var expectedBasePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+        var expectedBasePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         var applicationName = Application.Name;
 
         // Act
