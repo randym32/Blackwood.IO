@@ -73,10 +73,9 @@ string user1 = cache["user1"]; // Returns "John Doe"
 
 ### 3. Path Management
 
-Leverage the built-in path management to
-use standard paths instead of hardcoded ones for
+Leverage the built-in path management to use standard paths instead of hardcoded
+ones for:
 
-- **`Application.Name`**: Get application name from assembly
 - **`FS.AppDataPath`**: Get path to application data directory
 - **`FS.ExeFilePath`**: Get path to executable directory
 - **`FS.AssemblyDirectory`**: Get path of the executing assembly
@@ -84,12 +83,10 @@ use standard paths instead of hardcoded ones for
 ```csharp
 using Blackwood;
 
-// Get application name and paths
-string applicationName = Application.Name;
+// Get application paths
 string dataPath = FS.AppDataPath;
 string exePath = FS.ExeFilePath;
 
-Console.WriteLine($"Application: {applicationName}");
 Console.WriteLine($"Data Path: {dataPath}");
 Console.WriteLine($"Executable Path: {exePath}");
 ```
@@ -132,29 +129,43 @@ Console.WriteLine(result); // Output: Hello, Alice! Your score is 95.
 
 ## Common Use Cases
 
+Blackwood.IO simplifies common file and resource management tasks.
+
+
 ### Application Configuration
+
+Access application settings or user preferences directly from serialized files
+in the application data directory using `FolderWrapper`:
+
 
 ```csharp
 using Blackwood;
 
+// Example AppConfig class for application configuration management
 public class AppConfig
 {
+    // A folder wrapper for file operations in the app data directory
     private readonly FolderWrapper _configFolder;
 
     public AppConfig()
     {
-        // Use FS.AppDataPath to get the application data directory
+        // Get the path to the current application's data directory
         string configPath = FS.AppDataPath;
+        // Initialize FolderWrapper for the app data folder
         _configFolder = new FolderWrapper(configPath);
     }
 
+    // Save configuration to a JSON file named "appsettings.json"
     public void SaveConfig(string configJson)
     {
+        // Writes the configuration data to disk (overwriting if file exists)
         _configFolder.WriteAllText("appsettings.json", configJson);
     }
 
+    // Load configuration from the "appsettings.json" file
     public string LoadConfig()
     {
+        // Reads the configuration data from disk (throws if file is missing)
         return _configFolder.ReadAllText("appsettings.json");
     }
 }
@@ -162,26 +173,42 @@ public class AppConfig
 
 ### Data Caching
 
+Blackwood.IO provides flexible caching utilities for frequently accessed data:
+
+
 ```csharp
 using Blackwood;
 
+// Example service with MRUCache for data caching
 public class DataService
 {
+    // The cache holds at most 1000 key-value pairs (most recently used eviction)
     private readonly MRUCache<string, object> _cache;
 
     public DataService()
     {
+        // Initialize the MRUCache with a capacity of 1000 entries
         _cache = new MRUCache<string, object>(1000);
     }
 
+    /// <summary>
+    /// Gets data by key using the cache, or loads it with the provided dataLoader if missing.
+    /// </summary>
+    /// <typeparam name="T">Type of data loaded and cached</typeparam>
+    /// <param name="key">Cache key identifying the data</param>
+    /// <param name="dataLoader">Async factory to load data if not cached</param>
+    /// <returns>Loaded or cached data of type T</returns>
     public async Task<T> GetDataAsync<T>(string key, Func<Task<T>> dataLoader)
     {
+        // Try reading from cache; if found, return it
         if (_cache.TryGetValue(key, out var cachedValue))
         {
-            return (T)cachedValue;
+            return (T)cachedValue; // Cast from object to T
         }
 
+        // Otherwise, load data using the provided async function
         var data = await dataLoader();
+        // Store the newly loaded data in the cache
         _cache[key] = data;
         return data;
     }
