@@ -10,7 +10,7 @@ should always be available with your application.
 
 ## Overview
 
-Blackwood.IO provides utilities to scan assemblies and load embedded resources.
+Blackwood.IO provides utilities to load embedded resources.
 The library includes:
 
 
@@ -294,11 +294,7 @@ if (embeddedResources.Exists("Resources/config.json"))
 3. **Resource Cleanup**: Use `using` statements to ensure streams are properly
    disposed
 
-4. **Assembly Selection**: Use `Application.Assemblies()` to search in the
-   correct order, or specify a specific assembly if you know where the resource
-   is located
-
-5. **Resource Size**: For large resources, consider using compression (`.gz`)
+4. **Resource Size**: For large resources, consider using compression (`.gz`)
    to reduce assembly size. See the [Compressed Resources](#compressed-resources)
    section for details on setting up compression during build
 

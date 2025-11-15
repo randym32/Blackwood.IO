@@ -4,9 +4,6 @@ items:
   name: Blackwood
   type: Namespace
   items:
-  - uid: Blackwood.Application
-    name: Application
-    type: Class
   - uid: Blackwood.CacheItem`1
     name: CacheItem<itemType>
     type: Class
@@ -36,5 +33,12 @@ items:
     type: Delegate
   - uid: Blackwood.ZipWrapper
     name: ZipWrapper
+    type: Class
+- uid: Blackwood.Base
+  name: Blackwood.Base
+  type: Namespace
+  items:
+  - uid: Blackwood.Base.Application
+    name: Application
     type: Class
 memberLayout: SamePage

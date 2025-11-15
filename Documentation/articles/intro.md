@@ -34,15 +34,6 @@ using System.Reflection;
 
 // Path to application data files
 string path = Application.AppDataPath;
-
-// Enumerate loaded assemblies
-// Returns: entry assembly (if available), executing assembly, then all loaded assemblies
-foreach (Assembly assembly in Application.Assemblies())
-{
-    Console.WriteLine($"Assembly: {assembly.GetName().Name}");
-    Console.WriteLine($"  Version: {assembly.GetName().Version}");
-    Console.WriteLine($"  Location: {assembly.Location}");
-}
 ```
 
 #### File Operations
